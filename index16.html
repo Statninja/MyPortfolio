@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvia Calzada Gil - Data Science Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons (Using Font Awesome for Social Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1nwXgKt3P+Xx1p" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+5ntM//RZyOUsC5K5p6MF04JcOf2+" crossorigin="anonymous"></script>
+    
+    <style>
+        /* CSS Variables for Light and Dark Themes */
+        :root {
+            --background-color: #f3f4f6;
+            --text-color: #333333;
+            --primary-color: #35424a;
+            --secondary-color: #00A1E4;
+            --accent-color: #ffcc00;
+            --card-background: #ffffff;
+            --nav-background: #35424a;
+            --toggle-background: #ccc;
+            --toggle-knob: #ffffff;
+            --button-background: #35424a;
+            --button-hover: #00A1E4;
+        }
+
+        body.dark-mode {
+            --background-color: #1e1e1e;
+            --text-color: #f3f4f6;
+            --primary-color: #00A1E4;
+            --secondary-color: #ffcc00;
+            --accent-color: #35424a;
+            --card-background: #2c2c2c;
+            --nav-background: #252526;
+            --toggle-background: #555;
+            --toggle-knob: #ffffff;
+            --button-background: #00A1E4;
+            --button-hover: #ffcc00;
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: var(--nav-background);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Toggle Switch Styles */
+        .toggle-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle input {
+            display: none;
+        }
+
+        .toggle label {
+            cursor: pointer;
+            width: 50px;
+            height: 25px;
+            background: var(--toggle-background);
+            border-radius: 25px;
+            position: relative;
+            transition: background 0.5s;
+        }
+
+        .toggle label::before {
+            content: '';
+            position: absolute;
+            width: 21px;
+            height: 21px;
+            background: var(--toggle-knob);
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.5s;
+        }
+
+        .toggle input:checked + label {
+            background: var(--primary-color);
+        }
+
+        .toggle input:checked + label::before {
+            transform: translateX(25px);
+        }
+
+        /* Sun and Moon Icons */
+        .sun-icon, .moon-icon {
+            position: absolute;
+            top: 3px;
+            width: 18px;
+            height: 20px;
+            transition: opacity 0.5s;
+        }
+
+        .sun-icon {
+            left: 4px;
+            opacity: 1;
+        }
+
+        .moon-icon {
+            right: 4.8px;
+            opacity: 0;
+        }
+
+        .toggle input:checked + label .sun-icon {
+            opacity: 0;
+        }
+
+        .toggle input:checked + label .moon-icon {
+            opacity: 1;
+        }
+
+        /* Overview Section */
+        #overview {
+            text-align: center;
+            padding: 150px 20px 60px; /* Adjusted top padding for fixed navbar and toggle */
+            background: linear-gradient(135deg, #f7f9fc, #e3e4e8);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+            transition: background 0.5s;
+        }
+
+        /* Overview Blocks */
+        .overview-blocks {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .overview-block {
+            background: var(--card-background);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 0.6s forwards;
+        }
+
+        .overview-block:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .overview-block:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .overview-block:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .overview-block:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .overview-block img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .overview-block h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .overview-block p {
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        /* Technologies Section */
+        /* Styling for the technologies icons */
+.technology-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.technology-icons i {
+  font-size: 3rem;
+  transition: transform 0.3s ease-in-out;
+  animation: float 3s infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+[data-theme="dark"] .technology-icons i {
+  color: var(--secondary-text-color);
+}
+
+        #technologies {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--background-color);
+            transition: background 0.5s;
+        }
+
+        #technologies h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .technologies-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .technologies-list span {
+            background: var(--card-background);
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .technologies-list span:hover {
+            background: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        /* Projects Section */
+        #projects {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--background-color);
+            transition: background 0.5s;
+        }
+
+        #projects h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .project-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 0.6s forwards;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 1.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 1.4s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 1.6s;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .project-card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .project-card a:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Work Experience Section */
+        #experience {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--card-background);
+            transition: background 0.5s;
+        }
+
+        #experience h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInTimeline 0.6s forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--secondary-color);
+            border: 4px solid var(--card-background);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+
+        @keyframes fadeInTimeline {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .download-cv {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .download-cv:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--background-color);
+            transition: background 0.5s;
+        }
+
+        #contact h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+
+        .contact-form button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background: var(--secondary-color);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: var(--nav-background);
+            color: #ffffff;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .overview-blocks, .project-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toggle Switch -->
+    <div class="toggle-container">
+        <div class="toggle">
+            <input type="checkbox" id="theme-toggle">
+            <label for="theme-toggle">
+                <img src="https://img.icons8.com/?size=100&id=648&format=png&color=000000" alt="Sun" class="sun-icon">
+                <img src="https://img.icons8.com/?size=100&id=101342&format=png&color=000000" alt="Moon" class="moon-icon">
+            </label>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Overview Section -->
+    <section id="overview">
+        <h2>Overview</h2>
+        <div class="overview-blocks">
+            <!-- Data Scientist Card -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/robot.png" alt="Data Scientist Icon">
+                <h3>AI & Data Scientist</h3>
+                <p>Certified IBM AI Programs and Data Science.</p>
+            </div>
+            <!-- Data Analyst Card -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/graph.png" alt="Data Analyst Icon">
+                <h3>Data Analyst</h3>
+                <p>Skilled in data visualization and executive reporting.</p>
+            </div>
+            <!-- Performance Manager Card -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/performance.png" alt="Performance Manager Icon">
+                <h3>Performance Management</h3>
+                <p>Focused on operational excellence (PMP, RMP, ASQ-CSSBB,ASQ-CSSGB Certified).</p>
+            </div>
+            <!-- UX/Dashboard Designer Card -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/design.png" alt="UX/Dashboard Designer Icon">
+                <h3>UX/Dashboard Designer</h3>
+                <p>Design intuitive dashboards and user interfaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies">
+        <h2>Technologies</h2>
+        <div class="technology-icons">
+          <i class="fab fa-python"></i>
+          <i class="fa-solid fa-chart-simple"></i>
+          <i class="fa-solid fa-chart-line"></i>
+          <i class="fa-solid fa-database"></i>
+          <i class="fab fa-html5"></i>
+          <i class="fab fa-css3-alt"></i>
+          <i class="fab fa-js-square"></i>
+        </div>
+      </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>Project 1: AI Automation Dashboard</h3>
+                <iframe src="https://aiautomateddashboard-agjbvxh76gaqhajpmngphk.streamlit.app/?embed_options=show_toolbar,show_padding,dark_theme,show_colored_line"  width="100" height="50" frameborder="0" title="Machine Learning Dashboard"></iframe>
+                <p><a href="https://github.com/Statninja/AIAutomatedDashboard" target="_blank">View Project</a></p>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>Project 2: Tumor Classification (SVM) </h3>
+                <iframe src="https://public.plotly.com/yourusername/customer-segmentation" title="Customer Segmentation"></iframe>
+                <p><a href="https://github.com/silviacgil/customer-segmentation" target="_blank">View Project</a></p>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3>Project 3: Tumor Classification (DTree)</h3>
+                <iframe src="https://public.streamlit.io/yourusername/predictive-maintenance" title="Predictive Maintenance"></iframe>
+                <p><a href="https://github.com/silviacgil/predictive-maintenance" target="_blank">View Project</a></p>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <h3>Project 4: IBM SpaceX Capstone</h3>
+                <iframe src="https://public.plotly.com/yourusername/marketing-analytics" title="Marketing Analytics"></iframe>
+                <p><a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone" target="_blank">View Project</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+                <img src="https://img.icons8.com/ios-filled/50/000000/company1.png" alt="Company 1 Logo">
+                <div class="timeline-content">
+                    <h3>Senior Data Scientist</h3>
+                    <p>ABC Corp | Jan 2020 - Present</p>
+                    <p>Led a team in developing predictive models to enhance business decision-making.</p>
+                </div>
+            </div>
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+                <img src="https://img.icons8.com/ios-filled/50/000000/company2.png" alt="Company 2 Logo">
+                <div class="timeline-content">
+                    <h3>Data Analyst</h3>
+                    <p>XYZ Inc | Jun 2017 - Dec 2019</p>
+                    <p>Created comprehensive reports and dashboards to track key performance indicators.</p>
+                </div>
+            </div>
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+                <img src="https://img.icons8.com/ios-filled/50/000000/company3.png" alt="Company 3 Logo">
+                <div class="timeline-content">
+                    <h3>Junior Data Scientist</h3>
+                    <p>Data Solutions | Jan 2015 - May 2017</p>
+                    <p>Assisted in building machine learning models and data preprocessing tasks.</p>
+                </div>
+            </div>
+        </div>
+        <a href="Silvia_Calzada_Gil_CV.pdf" class="download-cv" target="_blank">Download CV</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-form">
+            <form action="mailto:silviacgil@gmail.com" method="POST" enctype="text/plain">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/silviacgil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/silviacgil" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/silviacgil" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@silviacgil" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Silvia Calzada Gil. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Animations and Toggle -->
+    <script>
+        // Day/Night Toggle Functionality with Sound
+        const toggleSwitch = document.getElementById('theme-toggle');
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            playToggleSound();
+        }
+
+        toggleSwitch.addEventListener('change', toggleTheme);
+
+        function playToggleSound() {
+            const toggleSound = new Audio('data:audio/mp3;base64,//uQxA...');
+            toggleSound.play();
+        }
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe Overview Blocks
+        const overviewBlocks = document.querySelectorAll('.overview-block');
+        overviewBlocks.forEach(block => observer.observe(block));
+
+        // Observe Project Cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => observer.observe(card));
+
+        // Observe Timeline Items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => observer.observe(item));
+
+        // Smooth Scrolling for Navigation
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
