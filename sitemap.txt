@@ -1,0 +1,26 @@
+1. Home
+   - URL: https://silviacalzadagil.com/
+   - Description: The landing page, with links to different sections of the site (e.g., About, Portfolio, Contact).
+
+2. About Me
+   - URL: https://silviacalzadagil.com/about
+   - Description: A detailed overview of your background, skills, and experience.
+
+3. Portfolio
+   - URL: https://silviacalzadagil.com/portfolio
+   - Description: Showcase of your projects, including cards for each project with descriptions, technologies used, and links.
+   - Sub-pages (one for each project):
+     - Project 1: https://silviacalzadagil.com/portfolio/project1
+     - Project 2: https://silviacalzadagil.com/portfolio/project2
+     - Project 3: https://silviacalzadagil.com/portfolio/project3
+     - Project 4: https://silviacalzadagil.com/portfolio/project4
+
+
+
+4. Contact
+   - silviacgil@gmail.com
+   - Description: A contact form or methods to reach you.
+
+5. Legal/Privacy Policy
+   - URL: https://silviacalzadagil.com/privacy-policy.html
+   - Description: A page detailing legal information, data protection, privacy, and compliance.
