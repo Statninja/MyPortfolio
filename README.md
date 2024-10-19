@@ -14,9 +14,8 @@ I am Silvia Calzada Gil, a Senior Performance Analysis Specialist with a strong 
 
 Here you’ll find a collection of my most impactful work, from building machine learning models to interactive visualizations, and even cutting-edge AI projects.
 
-![Project Image 1](#)  
-**[https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-19%20022156.png](#)**  
-*An engaging description of the project highlighting the tools used and the challenges solved.*
+![Project Image 1](https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-19%20022156.png)  
+  
 
 ![Project Image 2](#)  
 **[Project Name 2](#)**  
