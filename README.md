@@ -14,12 +14,11 @@ I am Silvia Calzada Gil, a Senior Performance Analysis Specialist with a strong 
 
 Here you’ll find a collection of my most impactful work, from building machine learning models to interactive visualizations, and even cutting-edge AI projects.
 
-![Project Image 1](https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-19%20022156.png)  
+![Portfolio Day View](https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-19%20022156.png)  
   
 
-![Project Image 2](#)  
-**[Project Name 2](#)**  
-*Another standout project showcasing creativity and problem-solving abilities.*
+![Portfolio Night View](https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-19%20022228.png)  
+
 
 ## 🛠 Skills and Expertise
 
@@ -34,7 +33,56 @@ Feel free to reach out via [email](mailto:silvia@silviacalzadagil.com) or connec
 
 ## 🔒 Legalities & Compliance
 
-I take privacy and data protection seriously. This site fully complies with international standards, including GDPR and CCPA regulations. To learn more, visit my [Privacy Policy](#).
+I take privacy and data protection seriously. This site fully complies with international standards, including GDPR and CCPA regulations.
+# Privacy Policy
+
+## Introduction
+
+Welcome to **Silvia Calzada Gil's Portfolio**. I respect your privacy and am committed to protecting your personal information. This Privacy Policy outlines how I collect, use, and safeguard the information you provide when visiting my site, **https://silviacalzadagil.com**.
+
+## Information I Collect
+
+I collect minimal personal data on this site, and only when it is necessary. The data I may collect includes:
+
+- **Personal Information:** If you choose to contact me via the contact form, email, or any other means, I may collect your name, email address, and any other information you choose to provide.
+- **Analytics Data:** I may collect non-identifiable information through cookies or similar tracking technologies to improve the website experience, such as browsing patterns, page views, and traffic sources. These analytics do not personally identify you.
+
+## How I Use Your Information
+
+I use the information I collect to:
+
+- Respond to your inquiries and provide support.
+- Improve the website by analyzing visitor trends and website performance.
+- Ensure compliance with legal obligations.
+
+## Cookies
+
+Cookies are small text files placed on your computer to track usage patterns and personalize content. By using this site, you agree to my use of cookies for analytics purposes. You can control or delete cookies through your browser settings if you prefer.
+
+## Data Security
+
+I prioritize the security of your data. I use industry-standard security measures to prevent unauthorized access, disclosure, or misuse of your information. However, no online platform is entirely immune to security risks, so I cannot guarantee absolute security.
+
+## Data Sharing
+
+I do not share, sell, or distribute your personal information with third parties, except when required by law or with your explicit consent.
+
+## Your Rights
+
+You have the right to:
+
+- **Access** the personal data I hold about you.
+- **Request** correction or deletion of your data.
+- **Withdraw consent** to data collection at any time.
+
+To exercise these rights, please contact me at [silvia@silviacalzadagil.com](mailto:silvia@silviacalzadagil.com).
+
+## Changes to This Privacy Policy
+
+I may update this Privacy Policy from time to time. Any changes will be posted on this page, and the effective date will be updated.
+
+**Effective Date:** October 2024
+
 
 ---
 
