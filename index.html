@@ -580,9 +580,39 @@
             .container {
                 padding: 10px;
             }
+              .timeline {
+        margin-left: 30px; /* Reduce margin for smaller screens */
+    }
+
+    .timeline-line {
+        left: 30px; /* Align the line closer to the left on mobile */
+        position: absolute;
+    }
+
+    .timeline-item {
+        flex-direction: row; /* Keep items horizontally aligned */
+        display: flex;
+        align-items: center;
+    }
+
+    .timeline-circle {
+        width: 15px; /* Reduce the size of circles for mobile */
+        height: 15px;
+        margin-right: 5px;
+        position: relative;
+    }
+
+    .timeline-item .timeline-content {
+        font-size: 14px; /* Smaller font for mobile */
+    }
          }
 
-
+.timeline-circle {
+    position: absolute;
+    left: 0;  /* Align exactly with the timeline */
+    top: 50%; /* Center the circle vertically relative to each job */
+    transform: translateY(-50%); /* Ensure proper centering */
+}
             .timeline-item {
                 width: 100%;
                 left: 0;
