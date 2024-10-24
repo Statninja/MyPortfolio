@@ -597,7 +597,7 @@
         }
         /* For responsive layout on smaller screens */
 @media (max-width: 768px) {
-    .timeline-item, .academic-item {
+    .timeline-item {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
@@ -605,47 +605,35 @@
         right: 0;
     }
 
-    .timeline::after, .academic-experience::after {
+    .timeline::after::after {
         left: 50%;
         right: unset;
     }
 
-    .timeline-work-item::after, .academic-item::after {
+    .timeline-work-item::after::after {
         left: 60px;
     }
 }
-/* Academic Experience Section (Right Aligned) */
-.academic-experience {
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Service and project styles */
+#work-with-me {
+    text-align: center;
+    padding: 150px 20px 60px; /* Same as overview for consistency */
+    background: linear-gradient(135deg, #f7f9fc, #e3e4e8); /* Same background */
+    border-radius: 10px; /* Same border radius */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Same shadow */
     position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px 0;
-    float: right;
+    overflow: hidden;
+    margin-top: 60px;
+    transition: background 0.5s;
 }
-
-.academic-experience::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: var(--primary-color);
-    top: 0;
-    bottom: 0;
-    right: 15%;
-    margin-left: -3px;
-}
-
-/* Academic timeline items */
-.academic-item {
-    padding: 20px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 70%;
-    opacity: 0;
-    transform: translateX(50px);
-    animation: fadeInTimeline 0.6s forwards;
-    right: 15%; /* Right aligned */
-}
-
     </style>
 </head>
 <body>
@@ -665,6 +653,7 @@
     <nav>
         <ul class="nav-links">
             <li><a href="#overview">Overview</a></li>
+            <li><a href="#work-with-me">Work With Silvia</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -701,6 +690,35 @@
             </div>
         </div>
     </section>
+   <!-- Work with Me Section -->
+<section id="work-with-me">
+    <h2>Work with Me</h2>
+    <div class="overview-blocks">
+        <!-- Card 1 -->
+        <div class="overview-block">
+            <img src="https://img.icons8.com/ios-filled/100/35424a/service.png" alt="Service Icon">
+            <h3>AI & Machine Learning Projects</h3>
+            <p>Offering  project-based work, consultations, or long-term services</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="overview-block">
+            <img src="https://img.icons8.com/ios-filled/100/35424a/project.png" alt="Project Icon">
+            <h3>KPIs & Dashboards </h3>
+            <p>Expert in managing AI and data science projects.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="overview-block">
+            <img src="https://img.icons8.com/ios-filled/100/35424a/maintenance.png" alt="Workshop Icon">
+            <h3>Operational Excellence</h3>
+            <p>Project, Risks, Lean Six Sigma Management Implementation.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="overview-block">
+            <img src="https://img.icons8.com/ios-filled/100/35424a/training.png" alt="Training Icon">
+            <h3>Training</h3>
+            <p>Personalized training and workshop sessions in AI & Machine Learning.</p>
+        </div>
+    </div>
 
     <!-- Technologies Section -->
     <section id="technologies">
