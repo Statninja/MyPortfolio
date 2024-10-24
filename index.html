@@ -392,7 +392,7 @@
             background: var(--secondary-color);
         }
 
-        /* Work Experience Section */
+        /* Work Experience Section left aligned */
         #experience {
             text-align: center;
             padding: 60px 20px;
@@ -427,11 +427,19 @@
             padding: 20px 40px;
             position: relative;
             background-color: inherit;
-            width: 50%;
+            width: 70%;
             opacity: 0;
             transform: translateX(-50px);
             animation: fadeInTimeline 0.6s forwards;
         }
+        /* Add this to make logos smaller */
+            .timeline-work-item img {
+                width: 40px; /* Reduced size */
+                height: 40px; /* Reduced size */
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 10px;
+}
 
         .timeline-work-item:nth-child(odd) {
             left: 0;
@@ -595,14 +603,57 @@
                 left: 60px;
             }
         }
-        .academic-experience {
-            float: right;
-            width: 45%; /* Adjust width based on layout */
-        }
-        
-        .academic-item {
-            margin-bottom: 20px;
-        }
+        /* For responsive layout on smaller screens */
+@media (max-width: 768px) {
+    .timeline-work-item, .academic-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        left: 0;
+        right: 0;
+    }
+
+    .timeline::after, .academic-experience::after {
+        left: 50%;
+        right: unset;
+    }
+
+    .timeline-work-item::after, .academic-item::after {
+        left: 60px;
+    }
+}
+/* Academic Experience Section (Right Aligned) */
+.academic-experience {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+    float: right;
+}
+
+.academic-experience::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    right: 15%;
+    margin-left: -3px;
+}
+
+/* Academic timeline items */
+.academic-item {
+    padding: 20px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 70%;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeInTimeline 0.6s forwards;
+    right: 15%; /* Right aligned */
+}
+
     </style>
 </head>
 <body>
