@@ -405,7 +405,7 @@
             color: var(--primary-color);
         }
 
-        .timeline {
+    .timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
@@ -423,33 +423,25 @@
             margin-left: -3px;
         }
 
-        .timeline-work-item {
+        .timeline-item {
             padding: 20px 40px;
             position: relative;
             background-color: inherit;
-            width: 70%;
+            width: 50%;
             opacity: 0;
             transform: translateX(-50px);
             animation: fadeInTimeline 0.6s forwards;
         }
-        /* Add this to make logos smaller */
-            .timeline-work-item img {
-                width: 40px; /* Reduced size */
-                height: 40px; /* Reduced size */
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 10px;
-}
 
-        .timeline-work-item:nth-child(odd) {
+        .timeline-item:nth-child(odd) {
             left: 0;
         }
 
-        .timeline-work-item:nth-child(even) {
+        .timeline-item:nth-child(even) {
             left: 50%;
         }
 
-        .timeline-work-item::after {
+        .timeline-item::after {
             content: '';
             position: absolute;
             width: 25px;
@@ -462,7 +454,7 @@
             z-index: 1;
         }
 
-        .timeline-work-item:nth-child(even)::after {
+        .timeline-item:nth-child(even)::after {
             left: -13px;
         }
 
