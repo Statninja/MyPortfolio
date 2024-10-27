@@ -19,8 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Icons (Using Font Awesome for Social Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1nwXgKt3P+Xx1p" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+5ntM//RZyOUsC5K5p6MF04JcOf2+" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     
     <style>
         /* CSS Variables for Light and Dark Themes */
@@ -36,6 +40,7 @@
             --toggle-knob: #ffffff;
             --button-background: #35424a;
             --button-hover: #00A1E4;
+            --button-shadow: rgba(255, 255, 255, 0.6);
         }
 
         body.dark-mode {
@@ -50,6 +55,7 @@
             --toggle-knob: #ffffff;
             --button-background: #00A1E4;
             --button-hover: #ffcc00;
+            --button-shadow: rgba(0, 0, 0, 0.6);
         }
 
         /* Global Styles */
@@ -104,6 +110,16 @@
 
         nav ul li a:hover {
             color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
         }
 
         /* Toggle Switch Styles */
@@ -179,16 +195,17 @@
         .toggle input:checked + label .moon-icon {
             opacity: 1;
         }
+
         /* Overview and Work with Me Title Styles */
-h2 {
-    color: var(--text-color); /* Use the text color variable */
-    transition: color 0.5s; /* Ensure a smooth transition */
-}
+        h2 {
+            color: var(--text-color);
+            transition: color 0.5s;
+        }
 
         /* Overview Section */
         #overview {
             text-align: center;
-            padding: 100px 20px 60px; /* Adjusted top padding for fixed navbar and toggle */
+            padding: 100px 20px 60px;
             background: linear-gradient(135deg, #f7f9fc, #e3e4e8);
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -197,7 +214,8 @@ h2 {
             margin-top: 60px;
             transition: background 0.5s;
         }
-           #overview h2 {
+
+        #overview h2 {
             margin-bottom: 40px;
             color: var(--primary-color);
         }
@@ -224,21 +242,10 @@ h2 {
             animation: slideIn 0.6s forwards;
         }
 
-        .overview-block:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .overview-block:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .overview-block:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .overview-block:nth-child(4) {
-            animation-delay: 0.8s;
-        }
+        .overview-block:nth-child(1) { animation-delay: 0.2s; }
+        .overview-block:nth-child(2) { animation-delay: 0.4s; }
+        .overview-block:nth-child(3) { animation-delay: 0.6s; }
+        .overview-block:nth-child(4) { animation-delay: 0.8s; }
 
         @keyframes slideIn {
             to {
@@ -264,69 +271,121 @@ h2 {
             font-size: 16px;
         }
 
-/* Technologies Section */
+        /* Buttons inside cards */
+        .project-button {
+            display: inline-block;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--button-background));
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px var(--button-shadow);
+            margin-top: 10px;
+        }
+
+        .project-button:hover {
+            transform: translateY(-2px);
+            background: var(--secondary-color);
+            box-shadow: 0 8px 16px var(--button-shadow);
+        }
+
+        /* Work with Me Section */
+        #work-with-me {
+            text-align: center;
+            padding: 100px 20px 60px; 
+            background: linear-gradient(135deg, #f7f9fc, #e3e4e8);
+            border-radius: 10px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
         
-#technologies {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: var(--background-color);
-    transition: background 0.5s;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    margin-top: 40px;
-}
+        #work-with-me h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
 
-#technologies h2 {
-    margin-bottom: 40px;
-    color: var(--primary-color);
-}
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
 
-.technology-icons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2rem;
-}
+        .contact-buttons a {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--button-background));
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px var(--button-shadow);
+            font-size: 12px;
+        }
 
-.technology-icons i {
-    font-size: 3rem;
-    transition: transform 0.3s ease-in-out;
-    animation: float 3s infinite alternate;
-}
+        .contact-buttons a:hover {
+            transform: translateY(-2px);
+            background: var(--secondary-color);
+            box-shadow: 0 8px 16px var(--button-shadow);
+        }
 
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-10px);
-    }
-}
+        /* Technologies Section */
+        #technologies {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--background-color);
+            transition: background 0.5s;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
 
-[data-theme="dark"] .technology-icons i {
-    color: var(--secondary-text-color);
-}
+        #technologies h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
 
-.technologies-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
+        .technology-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
 
-.technologies-list span {
-    background: var(--card-background);
-    padding: 10px 15px;
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    color: var(--text-color);
-    transition: background 0.3s, color 0.3s;
-}
+        .technology-icons i {
+            font-size: 3rem;
+            transition: transform 0.3s ease-in-out;
+            animation: float 3s infinite alternate;
+        }
 
-.technologies-list span:hover {
-    background: var(--secondary-color);
-    color: #ffffff;
-}
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        .technologies-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .technologies-list span {
+            background: var(--card-background);
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .technologies-list span:hover {
+            background: var(--secondary-color);
+            color: #ffffff;
+        }
 
         /* Projects Section */
         #projects {
@@ -363,21 +422,10 @@ h2 {
             animation: slideUp 0.6s forwards;
         }
 
-        .project-card:nth-child(1) {
-            animation-delay: 1s;
-        }
-
-        .project-card:nth-child(2) {
-            animation-delay: 1.2s;
-        }
-
-        .project-card:nth-child(3) {
-            animation-delay: 1.4s;
-        }
-
-        .project-card:nth-child(4) {
-            animation-delay: 1.6s;
-        }
+        .project-card:nth-child(1) { animation-delay: 1s; }
+        .project-card:nth-child(2) { animation-delay: 1.2s; }
+        .project-card:nth-child(3) { animation-delay: 1.4s; }
+        .project-card:nth-child(4) { animation-delay: 1.6s; }
         .project-card:nth-child(5) { animation-delay: 1.8s; }
         .project-card:nth-child(6) { animation-delay: 2s; }
         .project-card:nth-child(7) { animation-delay: 2.2s; }
@@ -401,9 +449,8 @@ h2 {
             height: 120px;
             object-fit: cover;
             border-radius: 10px;
-            
         }
-        
+
         .project-card a {
             display: inline-block;
             padding: 10px 20px;
@@ -417,7 +464,7 @@ h2 {
             background: var(--secondary-color);
         }
 
-        /* Work Experience Section left aligned */
+        /* Work Experience Section */
         #experience {
             text-align: center;
             padding: 60px 20px;
@@ -433,7 +480,7 @@ h2 {
             color: var(--primary-color);
         }
 
-    .timeline {
+        .timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
@@ -601,18 +648,15 @@ h2 {
             color: #ffffff;
             transition: background 0.5s, color 0.5s;
             margin-top: 40px;
-            margin-top: 40px;
             border-radius: 15px;
         }
 
-       /* Responsive Design */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .overview-blocks, .project-cards {
                 flex-direction: column;
                 align-items: center;
             }
- 
-
 
             .timeline-item {
                 width: 100%;
@@ -629,52 +673,28 @@ h2 {
                 left: 60px;
             }
         }
-        /* For responsive layout on smaller screens */
-@media (max-width: 768px) {
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-        left: 0;
-        right: 0;
+        .iframe-container {
+        margin-bottom: 20px;
+        text-align: center; /* Center align the content */
     }
 
-    .timeline::after::after {
-        left: 50%;
-        right: unset;
+    .ai-art-container {
+        margin-top: 40px;
+        text-align: center; /* Center align the AI art */
     }
 
-    .timeline-work-item::after::after {
-        left: 60px;
+    .ai-art-container img {
+        
+        border-radius: 10px; /* Optional: Add some styling to the AI art */
+        margin: 10px; /* Add margin between images */ /* Optional: Add some styling to the AI art */
     }
-}
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
+
+    #products {
+        padding: 60px 20px; /* Add padding for the Products section */
+        background-color: var(--background-color);
+        transition: background 0.5s;
+        border-radius: 15px;
     }
-    100% {
-        opacity: 1;
-    }
-}
-/* Service and project styles */
-#work-with-me {
-    text-align: center;
-    padding: 100px 20px 60px; /* Same as overview for consistency */
-    background: linear-gradient(135deg, #f7f9fc, #e3e4e8); /* Same background */
-    border-radius: 10px; /* Same border radius */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Same shadow */
-    position: relative;
-    overflow: hidden;
-    
-    transition: background 0.5s;
-    margin-top: 60px;
-    margin-bottom: 40px;
-    border-radius: 15px;
-}
-#work-with-me h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
     </style>
 </head>
 <body>
@@ -696,7 +716,7 @@ h2 {
             <li><a href="#overview">Overview</a></li>
             <li><a href="#work-with-me">Work With Silvia</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#products">Products</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -710,175 +730,214 @@ h2 {
                 <img src="https://img.icons8.com/ios-filled/100/35424a/robot.png" alt="Data Scientist Icon">
                 <h3>AI & Data Scientist</h3>
                 <p>Certified IBM AI Programs and Data Science.</p>
+                <a href="#projects" class="project-button">View Projects</a>
             </div>
             <!-- Data Analyst Card -->
             <div class="overview-block">
                 <img src="https://img.icons8.com/ios-filled/100/35424a/graph.png" alt="Data Analyst Icon">
                 <h3>Data Analyst</h3>
                 <p>Skilled in data visualization and executive reporting.</p>
+                <a href="#projects" class="project-button">View Projects</a>
             </div>
             <!-- Performance Manager Card -->
             <div class="overview-block">
                 <img src="https://img.icons8.com/ios-filled/100/35424a/performance.png" alt="Performance Manager Icon">
                 <h3>Performance Management</h3>
-                <p>Focused on operational excellence (PMP, RMP, ASQ-CSSBB,ASQ-CSSGB Certified).</p>
+                <p>Focused on operational excellence (PMP, RMP, ASQ-CSSBB, ASQ-CSSGB Certified).</p>
+                <a href="#projects" class="project-button">View Projects</a>
             </div>
             <!-- UX/Dashboard Designer Card -->
             <div class="overview-block">
                 <img src="https://img.icons8.com/ios-filled/100/35424a/design.png" alt="UX/Dashboard Designer Icon">
                 <h3>Website & UX Designer</h3>
                 <p>Design intuitive websites & dashboards.</p>
+                <a href="#projects"" class="project-button">View Projects</a>
             </div>
         </div>
     </section>
-   <!-- Work with Me Section -->
-<section id="work-with-me">
-    <h2>Work with Me</h2>
-    <div class="overview-blocks">
-        <!-- Card 1 -->
-        <div class="overview-block">
-            <img src="https://img.icons8.com/ios-filled/100/35424a/service.png" alt="Service Icon">
-            <h3>AI & Machine Learning Projects</h3>
-            <p>Offering  project-based work, consultations, or long-term services</p>
-      
-        </div>
-        <!-- Card 2 -->
-        <div class="overview-block">
-            <img src="https://img.icons8.com/ios-filled/100/35424a/project.png" alt="Project Icon">
-            <h3>KPIs, Dashboards, Websites </h3>
-            <p>Delivering data-driven insights & empower strategic decision-making.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="overview-block">
-            <img src="https://img.icons8.com/ios-filled/100/35424a/maintenance.png" alt="Workshop Icon">
-            <h3>Operational Excellence</h3>
-            <p>Project, Risks, Lean Six Sigma Management Implementation.</p>
-        </div>
-        <!-- Card 4 -->
-        <div class="overview-block">
-            <img src="https://img.icons8.com/ios-filled/100/35424a/training.png" alt="Training Icon">
-            <h3>Training</h3>
-            <p>Personalized training and workshop sessions in AI & Machine Learning.</p>
-        </div>
-    </div>
 
-    <!-- Technologies Section -->
-    <section id="technologies">
-        <h2>Technologies</h2>
-        <div class="technology-icons">
-          <i class="fab fa-python"></i>
-          <i class="fa-solid fa-chart-simple"></i>
-          <i class="fa-solid fa-chart-line"></i>
-          <i class="fa-solid fa-database"></i>
-          <i class="fab fa-html5"></i>
-          <i class="fab fa-css3-alt"></i>
-          <i class="fab fa-js-square"></i>
-        </div>
-      </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-cards">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <h3>Project 1: AI ML Automation Dashboard</h3>
-                  <a href="https://aiautomateddashboard-nenkmx3cxqk6rvx3wztnv4.streamlit.app/" target="_blank">
-                    <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/ML%20Dashboard/Screenshot%202024-10-14%20205952.png" width="100" height="50" frameborder="0" title="AI Automated ML Dashboard">
-                  </a>
-                <p><a href="https://github.com/Statninja/AIAutomatedDashboard" target="_blank">View Project</a></p>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h3>Project 2: Tumor  Classification (SVM) </h3>
-                <a href="https://silviacalzadagil.com/3D_visualization.html" target="_blank">
-                    <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Screenshot%202024-10-08%20013813.png"  width="100" height="50" frameborder="0" title="Tumor Classification with SVM">
-                </a> 
-                <p><a href="https://github.com/Statninja/SVM-Classification-of-Bening-Malign-Tumors" target="_blank">View Project</a></p>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card">
-                <h3>Project 3: Tumor Classification (DTree)</h3>
-                <a href="https://github.com/Statninja/Tumor-Classification-Decision-Tree-/blob/main/README.md">
-                <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/IBM%20Data%20Science%20CAPStone/Screenshot%202024-10-19%20031834.png" width="100" height="50" frameborder="0" title="Tumor Classification (DTree)">
-                </a>
-                <p><a href="https://github.com/silviacgil/predictive-maintenance" target="_blank">View Project</a></p>
-            </div>
-            <!-- Project 4 -->
-            <div class="project-card">
-                <h3>Project 4: IBM SpaceX Capstone</h3>
-                <a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone/blob/main/SCG-SpaceXCApStoneProject.pdf">
-                <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/IBM%20Data%20Science%20CAPStone/Screenshot%202024-10-19%20002746.png" width="100" height="50" frameborder="0" title="IBM Data Science SpaceX Capstone">
-                </a>
-                <p><a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone" target="_blank">View Project</a></p>
-            </div>
-         <!-- New Project 5 -->
-        <div class="project-card">
-            <h3>Project 5: Credit Card Fraud Detection </h3>
-            <a href="https://github.com/Statninja/credit_card_fraud_detection/blob/main/README.md">
-            <img src="https://raw.githubusercontent.com/Statninja/credit_card_fraud_detection/refs/heads/main/charts/output_66_0.png" width="100" height="50" frameborder="0" title="Credit Card Fraud Detection With Random Forest">
-            </a>
-            <p><a href="https://github.com/Statninja/credit_card_fraud_detection/blob/main/charts/output_66_0.png" target="_blank">View Project</a></p>
-        </div>
-        <!-- New Project 6 -->
-        <div class="project-card">
-            <h3>Project 6: Time Series Forecasting -  Working on</h3>
-            <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="Time Series Forecasting">
-            <p><a href="your_github_link_here" target="_blank">View Project</a></p>
-        </div>
-        <!-- New Project 7 -->
-        <div class="project-card">
-            <h3>Project 7: Image Recognition System -  Working on</h3>
-            <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="Image Recognition System">
-            <p><a href="your_github_link_here" target="_blank">View Project</a></p>
-        </div>
-        <!-- New Project 8 -->
-        <div class="project-card">
-            <h3>Project 8: NLP Chatbot -  Working on</h3>
-            <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="NLP Chatbot">
-            <p><a href="your_github_link_here" target="_blank">View Project</a></p>
-        </div>
-    </section>
-
-    <!-- Work Experience Section -->
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <div class="timeline">
-            <!-- Timeline Item 1 -->
-            <div class="timeline-item">
-                <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/nawah.jpeg" alt="NAwah">
-                <div class="timeline-content">
-                    <h3>Senior Performance Analyst</h3>
-                    <p>Nawah Energy Co. | Feb 2017 - May 2024</p>
-                    <p>Established all WANO-INPO Reporting processes at Nawah Energy Company, ensuring compliance and optimizing performance reporting.</p>
+    <!-- Work with Me Section -->
+    <section id="work-with-me">
+        <h2>Work with Me</h2>
+        <div class="overview-blocks">
+            <!-- AI & Machine Learning Projects -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/service.png" alt="Service Icon">
+                <h3>AI & Machine Learning Projects</h3>
+                <p>Offering project-based work, consultations, or long-term services</p>
+                <div class="contact-buttons">
+                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Grow your career/business
+                    </a>
+                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
+                        <i class="fas fa-user-friends"></i> Succeed on your project
+                    </a>
                 </div>
             </div>
-            <!-- Timeline Item 2 -->
-            <div class="timeline-item">
-                <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Ammroc.png" alt="Ammroc">
-                <div class="timeline-content">
-                    <h3>Program Analyst</h3>
-                    <p>AMMROC | Feb 2016 - Feb 2017</p>
-                    <p>Focused on risks analysis and process optimization to support key operational programs.</p>
+            <!-- KPIs, Dashboards, Websites -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/project.png" alt="Project Icon">
+                <h3>KPIs, Dashboards, Websites</h3>
+                <p>Delivering data-driven insights & empower strategic decision-making.</p>
+                <div class="contact-buttons">
+                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
+                        <i class="fab fa-whatsapp"></i>Transparency
+                    </a>
+                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
+                        <i class="fas fa-user-friends"></i>Leverage Data
+                    </a>
                 </div>
             </div>
-            <!-- Timeline Item 3 -->
-            <div class="timeline-item">
-                <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/alnoorhospital.png" alt="Al Noor Hospital">
-                <div class="timeline-content">
-                    <h3>Business Analyst</h3>
-                    <p>Mediclinic Group| Jan 2012 - Jan 2016</p>
-                    <p>Assisted in building machine learning models and data preprocessing tasks.</p>
+            <!-- Operational Excellence -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/maintenance.png" alt="Workshop Icon">
+                <h3>Operational Excellence</h3>
+                <p>Project, Risks, Lean Six Sigma Management Implementation.</p>
+                <div class="contact-buttons">
+                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
+                        <i class="fab fa-whatsapp"></i>Excellence is the way
+                    </a>
+                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
+                        <i class="fas fa-user-friends"></i> Achieve
+                    </a>
+                </div>
+            </div>
+            <!-- Training -->
+            <div class="overview-block">
+                <img src="https://img.icons8.com/ios-filled/100/35424a/training.png" alt="Training Icon">
+                <h3>Training</h3>
+                <p>Personalized training and workshop sessions in AI & Machine Learning.</p>
+                <div class="contact-buttons">
+                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Learn AI
+                    </a>
+                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
+                        <i class="fas fa-user-friends"></i> Learn new skills
+                    </a>
                 </div>
             </div>
         </div>
-        <a href="https://github.com/Statninja/SilviaCalzadaGil/blob/main/Images/Silvia%20Calzada%20Gil_Data%20Analyst_Sep2024E.pdf" class="download-cv" target="_blank">Download CV</a>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: silviacgil@gmail.com</p>
+        <!-- Technologies Section -->
+        <section id="technologies">
+            <h2>Technologies</h2>
+            <div class="technology-icons">
+              <i class="fab fa-python"></i>
+              <i class="fa-solid fa-chart-simple"></i>
+              <i class="fa-solid fa-chart-line"></i>
+              <i class="fa-solid fa-database"></i>
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+              <i class="fab fa-js-square"></i>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-cards">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Project 1: AI ML Automation Dashboard</h3>
+                    <a href="https://aiautomateddashboard-nenkmx3cxqk6rvx3wztnv4.streamlit.app/" target="_blank">
+                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/ML%20Dashboard/Screenshot%202024-10-14%20205952.png" width="100" height="50" frameborder="0" title="AI Automated ML Dashboard">
+                    </a>
+                    
+                        <a href="https://github.com/Statninja/AIAutomatedDashboard" class="project-button" target="_blank">View Project</a>
+                    
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Project 2: Tumor Classification (SVM)</h3>
+                    <a href="https://silviacalzadagil.com/3D_visualization.html" target="_blank">
+                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Screenshot%202024-10-08%20013813.png" width="100" height="50" frameborder="0" title="Tumor Classification with SVM">
+                    </a>
+                    
+                        <a href="https://github.com/Statninja/SVM-Classification-of-Bening-Malign-Tumors" class="project-button" target="_blank">View Project</a></p>
+                   
+                    </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>Project 3: Tumor Classification (DTree)</h3>
+                    <a href="https://github.com/Statninja/Tumor-Classification-Decision-Tree-/blob/main/README.md">
+                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/IBM%20Data%20Science%20CAPStone/Screenshot%202024-10-19%20031834.png" width="100" height="50" frameborder="0" title="Tumor Classification (DTree)">
+                    </a>
+                    <a href="https://github.com/silviacgil/predictive-maintenance" class="project-button" target="_blank">View Project</a>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3>Project 4: IBM SpaceX Capstone</h3>
+                    <a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone/blob/main/SCG-SpaceXCApStoneProject.pdf">
+                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/IBM%20Data%20Science%20CAPStone/Screenshot%202024-10-19%20002746.png" width="100" height="50" frameborder="0" title="IBM Data Science SpaceX Capstone">
+                    </a>
+                    <a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone" class="project-button" target="_blank">View Project</a>
+                </div>
+                <!-- New Project 5 -->
+                <div class="project-card">
+                    <h3>Project 5: Credit Card Fraud Detection</h3>
+                    <a href="https://github.com/Statninja/credit_card_fraud_detection/blob/main/README.md">
+                        <img src="https://raw.githubusercontent.com/Statninja/credit_card_fraud_detection/refs/heads/main/charts/output_66_0.png" width="100" height="50" frameborder="0" title="Credit Card Fraud Detection With Random Forest">
+                    </a>
+                    <a href="https://github.com/Statninja/credit_card_fraud_detection/blob/main/charts/output_66_0.png" class="project-button"  target="_blank">View Project</a>
+                </div>
+                <!-- New Project 6 -->
+                <div class="project-card">
+                    <h3>Project 6: Time Series Forecasting - Working on</h3>
+                    <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="Time Series Forecasting">
+                    <a href="your_github_link_here" class="project-button" target="_blank">View Project</a>
+                </div>
+                <!-- New Project 7 -->
+                <div class="project-card">
+                    <h3>Project 7: Image Recognition System - Working on</h3>
+                    <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="Image Recognition System">
+                    <a href="your_github_link_here" class="project-button"  target="_blank">View Project</a>
+                </div>
+                <!-- New Project 8 -->
+                <div class="project-card">
+                    <h3>Project 8: NLP Chatbot - Working on</h3>
+                    <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="NLP Chatbot">
+                    <a href="your_github_link_here" class="project-button"  target="_blank">View Project</a>
+                </div>
+            </div>
+        </section>
+    
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Products</h2>
+        
+        <div class="iframe-container">
+            <h3>Maps</h3>
+            <iframe src="https://panditadata.com" width="600" height="400" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="iframe-container">
+            <h3>Geospatial Solutions</h3> <!-- New Product -->
+            <iframe src="https://www.panditanimation.com/" width="600" height="400" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="iframe-container">
+            <h3>Dashboards</h3>
+            <iframe src="https://share.streamlit.io/user/statninja" width="600" height="400" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="ai-art-container">
+            <h3>AI Art</h3>
+            <img src="https://media.licdn.com/dms/image/v2/D4D10AQGJO0NKRtAmYQ/image-shrink_800/image-shrink_800/0/1728591994961?e=1730678400&v=beta&t=VO_1b83hB5l7WPaAoKT9QZ3v4TOxUmn2IjmXFxEogdY" alt="AI Art" style="width: 300px; height: auto;">
+            <img src="https://media.licdn.com/dms/image/v2/D4D10AQGuhHAnj0eNbQ/image-shrink_1280/image-shrink_1280/0/1728592179799?e=1730678400&v=beta&t=qerH9zVxdrqcs2VEIUJgaUxKNsf2vhImCaP6eIBgVcE" alt="AI Art 1" style="width: 300px; height: auto;">
+            <img src="https://media.licdn.com/dms/image/v2/D5610AQHUPC5Hw6Yg7w/image-shrink_800/image-shrink_800/0/1728574117175?e=1730678400&v=beta&t=yWhnEKRcaAI9DfxM2yR-cPTv69vB5JqGOVIXdBaIkic" alt="AI Art 1" style="width: 300px; height: auto;">
+            <img src="https://media.licdn.com/dms/image/v2/D5610AQEDBe8gdKatJQ/image-shrink_800/image-shrink_800/0/1728574138609?e=1730678400&v=beta&t=TuNLO1k5w7haRcyHM_fW9L6Kbiigh5gVgVmPjMmyt0U" alt="AI Art 1" style="width: 300px; height: auto;">
+            <p>
+                <a href="https://www.linkedin.com/in/ai-aiautomationworld-968aa3217/" target="_blank">View my LinkedIn</a>
+            </p>
+        </div>
+    </section>    
+     
+            <a href="https://github.com/Statninja/SilviaCalzadaGil/blob/main/Images/Silvia%20Calzada%20Gil_Data%20Analyst_Sep2024E.pdf" class="download-cv" target="_blank">Download CV</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: silviacgil@gmail.com</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/silviacalzadagil/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=61564737101357" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -887,84 +946,84 @@ h2 {
                 <a href="https://www.panditanimation.com" target="_blank"><i class="fas fa-laptop-code"></i></a>
                 <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank"><i class="fa-solid fa-phone"></i></a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Silvia Calzada Gil. All rights reserved.</p><a href="privacy-policy.html">Privacy Policy. </a>
-        <a href="CookiePolicy.html"> Cookie Policy. </a><a href="Legal Notice.html"> LegalNotice.</a>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Silvia Calzada Gil. All rights reserved.</p>
+            <a href="privacy-policy.html">Privacy Policy.</a>
+            <a href="CookiePolicy.html"> Cookie Policy.</a>
+            <a href="Legal Notice.html"> Legal Notice.</a>
+        </footer>
 
-    <!-- JavaScript for Animations and Toggle -->
-    <script>
-        // Day/Night Toggle Functionality with Sound
-        const toggleSwitch = document.getElementById('theme-toggle');
+        <!-- JavaScript for Animations and Toggle -->
+        <script>
+            // Day/Night Toggle Functionality with Sound
+            const toggleSwitch = document.getElementById('theme-toggle');
 
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            playToggleSound();
-        }
+            function toggleTheme() {
+                document.body.classList.toggle('dark-mode');
+                playToggleSound();
+            }
 
-        toggleSwitch.addEventListener('change', toggleTheme);
+            toggleSwitch.addEventListener('change', toggleTheme);
 
-        function playToggleSound() {
-            const toggleSound = new Audio('data:audio/mp3;base64,//uQxA...');
-            toggleSound.play();
-        }
+            function playToggleSound() {
+                const toggleSound = new Audio('data:audio/mp3;base64,//uQxA...');
+                toggleSound.play();
+            }
 
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1
-        };
+            // Intersection Observer for Animations
+            const observerOptions = {
+                threshold: 0.1
+            };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe Overview Blocks
+            const overviewBlocks = document.querySelectorAll('.overview-block');
+            overviewBlocks.forEach(block => observer.observe(block));
+
+            // Observe Project Cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => observer.observe(card));
+
+            // Observe Timeline Items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => observer.observe(item));
+
+            // Smooth Scrolling for Navigation
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
             });
-        }, observerOptions);
-
-        // Observe Overview Blocks
-        const overviewBlocks = document.querySelectorAll('.overview-block');
-        overviewBlocks.forEach(block => observer.observe(block));
-
-        // Observe Project Cards
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => observer.observe(card));
-
-        // Observe Timeline Items
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        timelineItems.forEach(item => observer.observe(item));
-
-        // Smooth Scrolling for Navigation
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
- <!-- Topmate widget script -->
-            <script
-                src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
-                user-profile="https://topmate.io/embed/profile/aiautomation?theme=93C5F9"
-                btn-style='{"backgroundColor":"#000","color":"#fff","border":"1px solid #000"}'
-                embed-version="v1"
-                button-text="Let's Connect"
-                position-right="30px"
-                position-bottom="30px"
-                custom-padding="0px"
-                custom-font-size="16px"
-                custom-font-weight="500"
-                custom-width="200px"
-                async=""
-                defer=""
-            ></script>  
+        </script>
+        <!-- Topmate widget script -->
+        <script
+        src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
+        user-profile="https://topmate.io/embed/profile/aiautomation?theme=93C5F9"
+        btn-style='{"background": "linear-gradient(135deg, var(--secondary-color), var(--button-background))", "color":"#ffffff", "border":"none", "borderRadius":"5px", "boxShadow": "0 4px 8px rgba(0, 0, 0, 0.2)", "padding":"4px 8px", "display": "inline-block"}'
+        embed-version="v1"
+        button-text="Accomplish your goals"
+        position-right="30px"
+        position-bottom="30px"
+        custom-font-size="14px"  <!-- Decreased font size -->
+        custom-font-weight="500"
+        custom-width="160px"  <!-- Decreased width -->
+        async=""
+        defer=""
+    ></script>
 </body>
 </html>
