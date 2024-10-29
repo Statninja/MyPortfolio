@@ -747,16 +747,7 @@
     animation: slideInSubtitle 1.5s ease-out;
 }
 
-/* Main content fully hidden initially */
-#main-content {
-    opacity: 0;
-    transition: opacity 2s ease-in; /* Longer transition for smoother fade-in */
-}
 
-/* Main content appears fully when visible */
-.main-content-visible {
-    opacity: 0;
-}
 
 #particles-js {
     position: absolute;
@@ -1130,37 +1121,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<!-- JavaScript for Animations and Toggle -->
-<script>
-        // Initialize Particles.js for the background effect
-    particlesJS("particles-js", {
-        particles: {
-            number: { value: 80 },
-            color: { value: "#00d4ff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5 },
-            size: { value: 3 },
-            move: { speed: 1, random: true }
-        },
-        interactivity: {
-            events: { onhover: { enable: true, mode: "repulse" } }
-        }
-    });
+<!-- JavaScript for Particles and Cover Transition -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js Initialization
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#00d4ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { speed: 1, random: true }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" } }
+            }
+        });
 
-  // Transition cover page and show main content
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-        // Fade out cover page
-        const coverPage = document.getElementById('cover-page');
-        coverPage.style.opacity = '0';
-
-        // Wait for cover page to fade out, then reveal main content
-        setTimeout(() => {
-            document.getElementById('main-content').classList.add('main-content-visible');
-        }, 1500); // Wait for cover page to fully disappear
-    }, 3000); // Initial delay for cover page display
-});
-</script>
+        // Cover Page Fade-Out with Main Content Visible by Default
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const coverPage = document.getElementById('cover-page');
+                coverPage.style.opacity = '0';
+                coverPage.style.transition = 'opacity 1.5s ease';
+                setTimeout(() => {
+                    coverPage.style.display = 'none';
+                }, 1500);
+            }, 3000); // Adjust delay for cover display as needed
+        });
+    </script>
 
 </body>
 </html>
