@@ -751,11 +751,13 @@
         #main-content {
             opacity: 0;
             transition: opacity 1.5s ease; /* Transition effect for fading in */
+            visibility: hidden; /* Ensures main content is fully hidden initially */
         }
 
         /* When cover page fades, main content will fade in */
         .main-content-visible {
             opacity: 1;
+            visibility: visible; /* Ensure it becomes visible */
         }
     #particles-js {
     position: absolute;
@@ -1146,12 +1148,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
 
   // Transition cover page and show main content
-    document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
+            // Fade out cover page
             const coverPage = document.getElementById('cover-page');
             coverPage.style.opacity = '0';
             coverPage.style.visibility = 'hidden';
-            document.getElementById('main-content').classList.add('main-content-visible');
+
+            // Fade in main content
+            const mainContent = document.getElementById('main-content');
+            mainContent.classList.add('main-content-visible'); // Triggers the transition
         }, 3000); // Adjust delay as needed
     });
 </script>
