@@ -750,8 +750,8 @@
         /* Main content hidden by default until cover fades out   */
         #main-content {
             opacity: 0;
-            display: none; /* Ensure main content is initially hidden */
-            transition: opacity 1.5s ease, visibility 0s linear 1.5s; /* Delay visibility change */
+            
+            transition: opacity 1.5s ease, visibility 0s linear 2s; /* Delay visibility change */
             visibility: hidden; /* Ensures main content is fully hidden initially
         }
 
@@ -759,7 +759,7 @@
         .main-content-visible {
             opacity: 1;
             visibility: visible; /* Ensure it becomes visible */
-            display: block; important!
+        
         }
     #particles-js {
     position: absolute;
@@ -1134,20 +1134,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- JavaScript for Animations and Toggle -->
 <script>
-    // Initialize Particles.js for the background effect
-    particlesJS("particles-js", {
-        particles: {
-            number: { value: 80 },
-            color: { value: "#00d4ff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5 },
-            size: { value: 3 },
-            move: { speed: 1, random: true }
-        },
-        interactivity: {
-            events: { onhover: { enable: true, mode: "repulse" } }
-        }
-    });
+
 
   // Transition cover page and show main content
    document.addEventListener('DOMContentLoaded', function() {
@@ -1161,6 +1148,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const mainContent = document.getElementById('main-content');
             mainContent.classList.add('main-content-visible'); // Triggers the transition
         }, 3000); // Adjust delay as needed
+    });
+        // Initialize Particles.js for the background effect
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80 },
+            color: { value: "#00d4ff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            move: { speed: 1, random: true }
+        },
+        interactivity: {
+            events: { onhover: { enable: true, mode: "repulse" } }
+        }
     });
 </script>
 
