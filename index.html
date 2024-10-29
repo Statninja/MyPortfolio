@@ -746,23 +746,7 @@
     animation: slideInSubtitle 1.5s ease-out;
 }
 
-/* Futuristic Pulse Glow Effect */
-@keyframes pulseGlow {
-    from { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; }
-    to { text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 60px #00d4ff; }
-}
 
-/* Subtle Slide-in Animation for Subtitle */
-@keyframes slideInSubtitle {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Fade out effect for transition to main page */
-.cover-fade-out {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1.5s ease, visibility 1.5s ease;
 }
 /* Main content hidden by default until cover fades out */
 #main-content {
@@ -1113,6 +1097,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     targetSection.scrollIntoView({ behavior: 'smooth' });
                 });
             });
+
         </script>
         <!-- Topmate widget script -->
         <script
@@ -1129,42 +1114,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         async=""
         defer=""
     ></script>
-<script>
-    // Initialize Particles.js for the background effect
-    particlesJS("particles-js", {
-        particles: {
-            number: { value: 80 },
-            color: { value: "#00d4ff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5 },
-            size: { value: 3 },
-            move: { speed: 1, random: true }
-        },
-        interactivity: {
-            events: { onhover: { enable: true, mode: "repulse" } }
-        }
-    });
-
-    // Function to transition cover page and show main content
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            document.getElementById('cover-page').classList.add('cover-fade-out');
-            document.getElementById('main-content').classList.add('main-content-visible'); // Show main content
-        }, 3000); // Adjust the delay time as needed
-    });
-
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-</script>
 
 </div>
+<script>
+  // Initialize Particles.js for the background effect
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#00d4ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { speed: 1, random: true }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" } }
+            }
+        });
+
+        // Transition cover page and show main content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('cover-page').classList.add('cover-fade-out');
+                document.getElementById('main-content').classList.add('main-content-visible');
+            }, 3000); // Adjust delay as needed
+        });
+</script>
+
 </body>
 </html>
