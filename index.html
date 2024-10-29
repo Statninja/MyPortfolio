@@ -32,9 +32,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Particles.js Library -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     
     <style>
@@ -764,15 +764,35 @@
     visibility: hidden;
     transition: opacity 1.5s ease, visibility 1.5s ease;
 }
+/* Main content hidden by default until cover fades out */
+#main-content {
+    opacity: 0;
+    transition: opacity 1.5s ease; /* Transition effect for fading in */
+}
 
-    </style>
+/* When cover page fades, main content will fade in */
+.main-content-visible {
+    opacity: 1;
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M57NMPRQ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <!-- Toggle Switch -->
+
+<!-- Cover Page Overlay -->
+<div id="cover-page">
+    <div id="particles-js"></div> <!-- Particle Background -->
+    <div class="cover-content">
+        <h1 class="cover-name">Silvia Calzada Gil</h1>
+        <p class="cover-subtitle">Data Science • Machine Learning • AI Specialist</p>
+    </div>
+</div>
+<!-- Main Content Starts Here -->
+<div id="main-content"> <!-- Wrap your entire main content in this div -->    
+<!-- Toggle Switch -->
     <div class="toggle-container">
         <div class="toggle">
             <input type="checkbox" id="theme-toggle">
@@ -783,17 +803,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-    <!-- Cover Page Overlay -->
-<div id="cover-page">
-    <div id="particles-js"></div> <!-- Particle Background -->
-    <div class="cover-content">
-        <h1 class="cover-name">Silvia Calzada Gil</h1>
-        <p class="cover-subtitle">Data Science • Machine Learning • AI Specialist</p>
-    </div>
-</div>
-
-    <!-- Navbar -->
-<!-- Navbar -->
 <!-- Navbar -->
 <nav>
     <ul class="nav-links">
@@ -804,8 +813,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
-
-
 
     <!-- Overview Section -->
     <section id="overview">
@@ -1122,7 +1129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         async=""
         defer=""
     ></script>
-     <script>
+<script>
     // Initialize Particles.js for the background effect
     particlesJS("particles-js", {
         particles: {
@@ -1138,11 +1145,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
     });
 
-    // Fade out cover page after 3 seconds
+    // Function to transition cover page and show main content
     document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             document.getElementById('cover-page').classList.add('cover-fade-out');
-        }, 3000); // Adjust the delay time here if needed
+            document.getElementById('main-content').classList.add('main-content-visible'); // Show main content
+        }, 3000); // Adjust the delay time as needed
     });
 
     // Smooth scrolling for navigation links
@@ -1156,5 +1164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     });
 </script>
+
+</div>
 </body>
 </html>
