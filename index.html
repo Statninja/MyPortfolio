@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M57NMPRQ');</script>
-<!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWHY6L29NK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-FWHY6L29NK');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965982249726409"
-     crossorigin="anonymous"></script>
+    <!-- Essential Meta Tags and Google Analytics -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="7zkV7mqotYYrukC2XMMZioDyb7fbcPC0k86Qm7VAQXo" />
     <meta name="description" content="Silvia Calzada Gil, an expert in AI, data science, and dashboards, offers personalized data-driven solutions. Explore AI & Data Science services, KPIs, dashboards, and custom websites.">
     <title>Silvia Calzada Gil - AI Machine Learning Portfolio</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Icons (Using Font Awesome for Social Icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWHY6L29NK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FWHY6L29NK');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965982249726409" crossorigin="anonymous"></script>
 
-  <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Particles.js Library -->
+    <!-- Google Fonts, Icons, Bootstrap, and Particles.js -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-    
     <style>
-        /* CSS Variables for Light and Dark Themes */
+        /* CSS Variables for Themes */
         :root {
             --background-color: #f3f4f6;
-            --text-color: #333333;
+            --text-color: #333;
             --primary-color: #35424a;
             --secondary-color: #00A1E4;
-            --accent-color: #ffcc00;
             --card-background: #ffffff;
             --nav-background: #35424a;
             --toggle-background: #ccc;
@@ -53,1093 +39,103 @@
             --button-hover: #00A1E4;
             --button-shadow: rgba(255, 255, 255, 0.6);
         }
-
         body.dark-mode {
             --background-color: #1e1e1e;
             --text-color: #f3f4f6;
             --primary-color: #00A1E4;
-            --secondary-color: #ffcc00;
-            --accent-color: #35424a;
             --card-background: #2c2c2c;
             --nav-background: #252526;
             --toggle-background: #555;
             --toggle-knob: #ffffff;
-            --button-background: #00A1E4;
-            --button-hover: #ffcc00;
-            --button-shadow: rgba(0, 0, 0, 0.6);
         }
-
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        /* Navbar Styles */
-        nav {
-            background: var(--nav-background);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-        }
-
-        /* Toggle Switch Styles */
-        .toggle-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-        }
-
-        .toggle {
-            display: flex;
-            align-items: center;
-        }
-
-        .toggle input {
-            display: none;
-        }
-
-        .toggle label {
-            cursor: pointer;
-            width: 50px;
-            height: 25px;
-            background: var(--toggle-background);
-            border-radius: 25px;
-            position: relative;
-            transition: background 0.5s;
-        }
-
-        .toggle label::before {
-            content: '';
-            position: absolute;
-            width: 21px;
-            height: 21px;
-            background: var(--toggle-knob);
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.5s;
-        }
-
-        .toggle input:checked + label {
-            background: var(--primary-color);
-        }
-
-        .toggle input:checked + label::before {
-            transform: translateX(25px);
-        }
-
-        /* Sun and Moon Icons */
-        .sun-icon, .moon-icon {
-            position: absolute;
-            top: 3px;
-            width: 18px;
-            height: 20px;
-            transition: opacity 0.5s;
-        }
-
-        .sun-icon {
-            left: 4px;
-            opacity: 1;
-        }
-
-        .moon-icon {
-            right: 4.8px;
-            opacity: 0;
-        }
-
-        .toggle input:checked + label .sun-icon {
-            opacity: 0;
-        }
-
-        .toggle input:checked + label .moon-icon {
-            opacity: 1;
-        }
-
-        /* Overview and Work with Me Title Styles */
-        h2 {
-            color: var(--text-color);
-            transition: color 0.5s;
-        }
-
-        /* Overview Section */
-        #overview {
-            text-align: center;
-            padding: 100px 20px 60px;
-            background: linear-gradient(135deg, #f7f9fc, #e3e4e8);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            margin-top: 60px;
-            transition: background 0.5s;
-        }
-
-        #overview h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        /* Overview Blocks */
-        .overview-blocks {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .overview-block {
-            background: var(--card-background);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            text-align: center;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideIn 0.6s forwards;
-        }
-
-        .overview-block:nth-child(1) { animation-delay: 0.2s; }
-        .overview-block:nth-child(2) { animation-delay: 0.4s; }
-        .overview-block:nth-child(3) { animation-delay: 0.6s; }
-        .overview-block:nth-child(4) { animation-delay: 0.8s; }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .overview-block img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
-        }
-
-        .overview-block h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .overview-block p {
-            color: var(--text-color);
-            font-size: 16px;
-        }
-
-        /* Buttons inside cards */
-        .project-button {
-            display: inline-block;
-            padding: 8px 12px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--button-background));
-            color: #ffffff;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 4px 8px var(--button-shadow);
-            margin-top: 10px;
-        }
-
-        .project-button:hover {
-            transform: translateY(-2px);
-            background: var(--secondary-color);
-            box-shadow: 0 8px 16px var(--button-shadow);
-        }
-
-        /* Work with Me Section */
-        #work-with-me {
-            text-align: center;
-            padding: 100px 20px 60px; 
-            background: linear-gradient(135deg, #f7f9fc, #e3e4e8);
-            border-radius: 10px; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-            position: relative;
-            overflow: hidden;
-            margin-top: 60px;
-            margin-bottom: 40px;
-        }
+        * { box-sizing: border-box; transition: background 0.5s, color 0.5s; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--background-color); color: var(--text-color); margin: 0; padding: 0; overflow-x: hidden; }
         
-        #work-with-me h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
+        /* Cover Page Styles */
+        #cover-page {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at center, #1a1a1a, #000);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; overflow: hidden; transition: opacity 1.5s ease, visibility 1.5s ease;
         }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .contact-buttons a {
-            display: flex;
-            align-items: center;
-            padding: 5px 10px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--button-background));
-            color: #ffffff;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 4px 8px var(--button-shadow);
-            font-size: 12px;
-        }
-
-        .contact-buttons a:hover {
-            transform: translateY(-2px);
-            background: var(--secondary-color);
-            box-shadow: 0 8px 16px var(--button-shadow);
-        }
-
-        /* Technologies Section */
-        #technologies {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--background-color);
-            transition: background 0.5s;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            margin-top: 40px;
-        }
-
-        #technologies h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .technology-icons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 2rem;
-        }
-
-        .technology-icons i {
-            font-size: 3rem;
-            transition: transform 0.3s ease-in-out;
-            animation: float 3s infinite alternate;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-
-        .technologies-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .technologies-list span {
-            background: var(--card-background);
-            padding: 10px 15px;
-            border-radius: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            font-size: 14px;
-            color: var(--text-color);
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .technologies-list span:hover {
-            background: var(--secondary-color);
-            color: #ffffff;
-        }
-
-        /* Projects Section */
-        #projects {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--background-color);
-            transition: background 0.5s;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            border-radius: 15px;
-        }
-
-        #projects h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .project-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .project-card {
-            background: var(--card-background);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: slideUp 0.6s forwards;
-        }
-
-        .project-card:nth-child(1) { animation-delay: 1s; }
-        .project-card:nth-child(2) { animation-delay: 1.2s; }
-        .project-card:nth-child(3) { animation-delay: 1.4s; }
-        .project-card:nth-child(4) { animation-delay: 1.6s; }
-        .project-card:nth-child(5) { animation-delay: 1.8s; }
-        .project-card:nth-child(6) { animation-delay: 2s; }
-        .project-card:nth-child(7) { animation-delay: 2.2s; }
-        .project-card:nth-child(8) { animation-delay: 2.4s; }
-
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .project-card img {
-            width: 150px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .project-card a {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--primary-color);
-            color: #ffffff;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .project-card a:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Work Experience Section */
-        #experience {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--card-background);
-            transition: background 0.5s;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            border-radius: 15px;
-        }
-
-        #experience h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: fadeInTimeline 0.6s forwards;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -13px;
-            background-color: var(--secondary-color);
-            border: 4px solid var(--card-background);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -13px;
-        }
-
-        @keyframes fadeInTimeline {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .timeline-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .timeline-content p {
-            color: var(--text-color);
-            margin-bottom: 5px;
-        }
-
-        .download-cv {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background: var(--primary-color);
-            color: #ffffff;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .download-cv:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Contact Section */
-        #contact {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--background-color);
-            transition: background 0.5s;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            margin-top: 40px;
-        }
-
-        #contact h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-form input, .contact-form textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: border-color 0.3s;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: var(--secondary-color);
-            outline: none;
-        }
-
-        .contact-form button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 16px;
-        }
-
-        .contact-form button:hover {
-            background: var(--secondary-color);
-        }
-
-        .social-icons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-icons a {
-            color: var(--primary-color);
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: var(--nav-background);
-            color: #ffffff;
-            transition: background 0.5s, color 0.5s;
-            margin-top: 40px;
-            border-radius: 15px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .overview-blocks, .project-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .timeline-item {
-                width: 100%;
-                left: 0;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-item::after {
-                left: 60px;
-            }
-        }
-        .iframe-container {
-        margin-bottom: 20px;
-        text-align: center; /* Center align the content */
-    }
-
-    .ai-art-container {
-        margin-top: 40px;
-        text-align: center; /* Center align the AI art */
-    }
-
-    .ai-art-container img {
+        .cover-content { text-align: center; color: #fff; }
+        .cover-name { font-size: 4rem; font-weight: bold; color: #00d4ff; animation: pulseGlow 1.5s infinite alternate; }
+        .cover-subtitle { font-size: 1.5rem; margin-top: 1rem; color: #ffcc00; animation: slideInSubtitle 1.5s ease-out; }
         
-        border-radius: 10px; /* Optional: Add some styling to the AI art */
-        margin: 10px; /* Add margin between images */ /* Optional: Add some styling to the AI art */
-    }
+        @keyframes pulseGlow { from { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; } to { text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 60px #00d4ff; }}
+        @keyframes slideInSubtitle { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); }}
 
-    #products {
-        padding: 60px 20px; /* Add padding for the Products section */
-        background-color: var(--background-color);
-        transition: background 0.5s;
-        border-radius: 15px;
-    }
-        html {
-    scroll-behavior: smooth;
-}
-/* Cover Page Styles */
-#cover-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at center, #1a1a1a, #000000);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    overflow: hidden;
-    transition: opacity 1.5s ease, visibility 1.5s ease;
-}
+        /* Main Content */
+        #main-content { opacity: 0; transition: opacity 1.5s ease; } 
+        .main-content-visible { opacity: 1; }
 
-.cover-content {
-    text-align: center;
-    color: #ffffff;
-    animation: fadeInText 2s ease-in-out;
-}
+        /* Navbar */
+        nav { background: var(--nav-background); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        nav ul { list-style-type: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a { color: #fff; font-weight: 700; font-size: 16px; }
+        nav ul li a:hover { color: var(--secondary-color); }
 
-.cover-name {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #00d4ff;
-    margin: 0;
-    animation: pulseGlow 1.5s infinite alternate;
-}
-
-.cover-subtitle {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    color: #ffcc00;
-    animation: slideInSubtitle 1.5s ease-out;
-}
-
-
-}
-/* Main content hidden by default until cover fades out */
-#main-content {
-    opacity: 0;
-    transition: opacity 1.5s ease; /* Transition effect for fading in */
-}
-
-/* When cover page fades, main content will fade in */
-.main-content-visible {
-    opacity: 1;
-}
-</style>
+        /* Toggle Switch */
+        .toggle-container { position: fixed; top: 20px; right: 20px; z-index: 1001; }
+        .toggle input { display: none; }
+        .toggle label { cursor: pointer; width: 50px; height: 25px; background: var(--toggle-background); border-radius: 25px; position: relative; transition: background 0.5s; }
+        .toggle label::before { content: ''; position: absolute; width: 21px; height: 21px; background: var(--toggle-knob); border-radius: 50%; top: 2px; left: 2px; transition: transform 0.5s; }
+        .toggle input:checked + label { background: var(--primary-color); }
+        .toggle input:checked + label::before { transform: translateX(25px); }
+    </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M57NMPRQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- Cover Page Overlay -->
-<div id="cover-page">
-    <div id="particles-js"></div> <!-- Particle Background -->
-    <div class="cover-content">
-        <h1 class="cover-name">Silvia Calzada Gil</h1>
-        <p class="cover-subtitle">Data Science • Machine Learning • AI Specialist</p>
-    </div>
-</div>
-<!-- Main Content Starts Here -->
-<div id="main-content"> <!-- Wrap your entire main content in this div -->    
-<!-- Toggle Switch -->
-    <div class="toggle-container">
-        <div class="toggle">
-            <input type="checkbox" id="theme-toggle">
-            <label for="theme-toggle">
-                <img src="https://img.icons8.com/?size=100&id=648&format=png&color=000000" alt="Sun" class="sun-icon">
-                <img src="https://img.icons8.com/?size=100&id=101342&format=png&color=000000" alt="Moon" class="moon-icon">
-            </label>
+    <!-- Cover Page -->
+    <div id="cover-page">
+        <div id="particles-js"></div>
+        <div class="cover-content">
+            <h1 class="cover-name">Silvia Calzada Gil</h1>
+            <p class="cover-subtitle">Data Science • Machine Learning • AI Specialist</p>
         </div>
     </div>
 
-<!-- Navbar -->
-<nav>
-    <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#work-with-me">Work With Silvia</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#products">AI Automation & Digitals</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Toggle Switch -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle">
+                    <img src="https://img.icons8.com/?size=100&id=648&format=png&color=000000" alt="Sun" class="sun-icon">
+                    <img src="https://img.icons8.com/?size=100&id=101342&format=png&color=000000" alt="Moon" class="moon-icon">
+                </label>
+            </div>
+        </div>
 
-    <!-- Overview Section -->
-    <section id="overview">
-        <h2>Overview</h2>
-        <div class="overview-blocks">
-            <!-- Data Scientist Card -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/robot.png" alt="Data Scientist Icon">
-                <h3>AI & Data Scientist</h3>
-                <p>Certified IBM AI Programs and Data Science.</p>
-                <a href="#projects" class="project-button">View Projects</a>
-            </div>
-            <!-- Data Analyst Card -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/graph.png" alt="Data Analyst Icon">
-                <h3>Data Analyst</h3>
-                <p>Skilled in data visualization and executive reporting.</p>
-                <a href="#projects" class="project-button">View Projects</a>
-            </div>
-            <!-- Performance Manager Card -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/performance.png" alt="Performance Manager Icon">
-                <h3>Performance</h3>
-                <p>Operational excellence (PMP, RMP, BB Six Sigma Certified).</p>
-                <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" class="project-button">Career Success</a>
+        <!-- Navbar -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#work-with-me">Work With Silvia</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#products">AI Automation & Digitals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
         
-                
-            </div>
-            <!-- UX/Dashboard Designer Card -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/design.png" alt="UX/Dashboard Designer Icon">
-                <h3>Website & UX Designer</h3>
-                <p>Design intuitive websites & dashboards.</p>
-                <a href="#products" class="project-button">View AI & Digitals</a>
-            </div>
-        </div>
-    </section>
+        <!-- Sections Here (Overview, Work with Me, etc.) -->
+        <section id="overview"><!-- Content --></section>
+        <section id="work-with-me"><!-- Content --></section>
+        <section id="projects"><!-- Content --></section>
+        <section id="products"><!-- Content --></section>
+        <section id="contact"><!-- Content --></section>
+    </div>
 
-    <!-- Work with Me Section -->
-    <section id="work-with-me">
-        <h2>Work with Me</h2>
-        <div class="overview-blocks">
-            <!-- AI & Machine Learning Projects -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/service.png" alt="Service Icon">
-                <h3>AI & Machine Learning Projects</h3>
-                <p>Offering project-based work, consultations, or long-term services</p>
-                <div class="contact-buttons">
-                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Grow your career/business
-                    </a>
-                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
-                        <i class="fas fa-user-friends"></i> Succeed on your project
-                    </a>
-                </div>
-            </div>
-            <!-- KPIs, Dashboards, Websites -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/project.png" alt="Project Icon">
-                <h3>KPIs, Dashboards, Websites</h3>
-                <p>Delivering data-driven insights & empower strategic decision-making.</p>
-                <div class="contact-buttons">
-                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
-                        <i class="fab fa-whatsapp"></i>Transparency
-                    </a>
-                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
-                        <i class="fas fa-user-friends"></i>Leverage Data
-                    </a>
-                </div>
-            </div>
-            <!-- Operational Excellence -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/maintenance.png" alt="Workshop Icon">
-                <h3>Operational Excellence</h3>
-                <p>Project, Risks, Lean Six Sigma Management Implementation.</p>
-                <div class="contact-buttons">
-                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
-                        <i class="fab fa-whatsapp"></i>Excellence is the way
-                    </a>
-                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
-                        <i class="fas fa-user-friends"></i> Achieve
-                    </a>
-                </div>
-            </div>
-            <!-- Training -->
-            <div class="overview-block">
-                <img src="https://img.icons8.com/ios-filled/100/35424a/training.png" alt="Training Icon">
-                <h3>Training</h3>
-                <p>Personalized training and workshop sessions in AI & Machine Learning.</p>
-                <div class="contact-buttons">
-                    <a href="https://api.whatsapp.com/send?phone=34688629531" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Learn AI
-                    </a>
-                    <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank">
-                        <i class="fas fa-user-friends"></i> Learn new skills
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technologies Section -->
-        <section id="technologies">
-            <h2>Technologies</h2>
-            <div class="technology-icons">
-              <i class="fab fa-python"></i>
-              <i class="fa-solid fa-chart-simple"></i>
-              <i class="fa-solid fa-chart-line"></i>
-              <i class="fa-solid fa-database"></i>
-              <i class="fab fa-html5"></i>
-              <i class="fab fa-css3-alt"></i>
-              <i class="fab fa-js-square"></i>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-cards">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <h3>Project 1: AI ML Automation Dashboard</h3>
-                    <a href="https://aiautomateddashboard-nenkmx3cxqk6rvx3wztnv4.streamlit.app/" target="_blank">
-                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/ML%20Dashboard/Screenshot%202024-10-14%20205952.png" width="100" height="50" frameborder="0" title="AI Automated ML Dashboard">
-                    </a>
-                    
-                        <a href="https://github.com/Statninja/AIAutomatedDashboard" class="project-button" target="_blank">View Project</a>
-                    
-                </div>
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <h3>Project 2: Tumor Classification (SVM)</h3>
-                    <a href="https://silviacalzadagil.com/3D_visualization.html" target="_blank">
-                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Screenshot%202024-10-08%20013813.png" width="100" height="50" frameborder="0" title="Tumor Classification with SVM">
-                    </a>
-                    
-                        <a href="https://github.com/Statninja/SVM-Classification-of-Bening-Malign-Tumors" class="project-button" target="_blank">View Project</a></p>
-                   
-                    </div>
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <h3>Project 3: Tumor Classification (DTree)</h3>
-                    <a href="https://github.com/Statninja/Tumor-Classification-Decision-Tree-/blob/main/README.md">
-                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/IBM%20Data%20Science%20CAPStone/Screenshot%202024-10-19%20031834.png" width="100" height="50" frameborder="0" title="Tumor Classification (DTree)">
-                    </a>
-                    <a href="https://github.com/silviacgil/predictive-maintenance" class="project-button" target="_blank">View Project</a>
-                </div>
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <h3>Project 4: IBM SpaceX Capstone</h3>
-                    <a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone/blob/main/SCG-SpaceXCApStoneProject.pdf">
-                        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/IBM%20Data%20Science%20CAPStone/Screenshot%202024-10-19%20002746.png" width="100" height="50" frameborder="0" title="IBM Data Science SpaceX Capstone">
-                    </a>
-                    <a href="https://github.com/Statninja/IBM-DataScience-SpaceX-Capstone" class="project-button" target="_blank">View Project</a>
-                </div>
-                <!-- New Project 5 -->
-                <div class="project-card">
-                    <h3>Project 5: Credit Card Fraud Detection</h3>
-                    <a href="https://github.com/Statninja/credit_card_fraud_detection/blob/main/README.md">
-                        <img src="https://raw.githubusercontent.com/Statninja/credit_card_fraud_detection/refs/heads/main/charts/output_66_0.png" width="100" height="50" frameborder="0" title="Credit Card Fraud Detection With Random Forest">
-                    </a>
-                    <a href="https://github.com/Statninja/credit_card_fraud_detection/blob/main/charts/output_66_0.png" class="project-button"  target="_blank">View Project</a>
-                </div>
-                <!-- New Project 6 -->
-                <div class="project-card">
-                    <h3>Project 6: Time Series Forecasting - Working on</h3>
-                    <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="Time Series Forecasting">
-                    <a href="your_github_link_here" class="project-button" target="_blank">View Project</a>
-                </div>
-                <!-- New Project 7 -->
-                <div class="project-card">
-                    <h3>Project 7: Image Recognition System - Working on</h3>
-                    <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="Image Recognition System">
-                    <a href="your_github_link_here" class="project-button"  target="_blank">View Project</a>
-                </div>
-                <!-- New Project 8 -->
-                <div class="project-card">
-                    <h3>Project 8: NLP Chatbot - Working on</h3>
-                    <img src="https://media.istockphoto.com/id/1298299509/es/vector/una-joven-que-trabaja-con-una-computadora-vista-trasera-ilustraci%C3%B3n-de-dibujos-animados-de.jpg?s=612x612&w=is&k=20&c=4uCZ82xERxeU2RbrVfEmmvI2Ewlshj2KHJ9QsBg3sJ0=" width="100" height="50" frameborder="0" title="NLP Chatbot">
-                    <a href="your_github_link_here" class="project-button"  target="_blank">View Project</a>
-                </div>
-            </div>
-        </section>
-    
-    <!-- Products Section -->
-    <section id="products">
-        <h2>Digital Mapping, GIS Solutions, AI Art</h2>
-        
-        <div class="iframe-container">
-            <h3>Folium & Leaflet Maps & Animations</h3>
-            <iframe src="https://panditadata.com" width="500" height="350" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="iframe-container">
-            <h3>Geospatial Solutions</h3> <!-- New Product -->
-            <a href="https://www.panditanimation.com" target="_blank">
-            <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-28%20003539.png" width="500" height="350" >
-            </a>
-        </div>
-
-        <div class="iframe-container">
-            <h3>Data Science & Machine Learning Dashboards</h3>
-            <iframe src="https://share.streamlit.io/user/statninja" width="500" height="350" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-       <div class="iframe-container">
-            <h3>AI Automation With Make.com</h3>
-            <a href="https://www.linkedin.com/in/ai-aiautomationworld-968aa3217/" target="_blank">
-                <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/main/Images/Screenshot%202024-10-28%20214054.png" width="500" height="350" alt="AI Automation">
-            </a>
-       </div>
-
-        <div class="ai-art-container">
-            <h3>AI Art</h3>
-            <img src="https://i.pinimg.com/564x/e7/b0/4a/e7b04ade2264039728007b932689e8c3.jpg" alt="AI Art" style="width: 250px; height: auto;">
-            <img src="https://media.licdn.com/dms/image/v2/D4D10AQGuhHAnj0eNbQ/image-shrink_1280/image-shrink_1280/0/1728592179799?e=1730678400&v=beta&t=qerH9zVxdrqcs2VEIUJgaUxKNsf2vhImCaP6eIBgVcE" alt="AI Art 1" style="width: 250px; height: auto;">
-            <img src="https://media.licdn.com/dms/image/v2/D5610AQHUPC5Hw6Yg7w/image-shrink_800/image-shrink_800/0/1728574117175?e=1730678400&v=beta&t=yWhnEKRcaAI9DfxM2yR-cPTv69vB5JqGOVIXdBaIkic" alt="AI Art 1" style="width: 250px; height: auto;">
-            <img src="https://media.licdn.com/dms/image/v2/D5610AQEDBe8gdKatJQ/image-shrink_800/image-shrink_800/0/1728574138609?e=1730678400&v=beta&t=TuNLO1k5w7haRcyHM_fW9L6Kbiigh5gVgVmPjMmyt0U" alt="AI Art 1" style="width: 250px; height: auto;">
-            <p>
-                <a href="https://www.facebook.com/profile.php?id=61564737101357" target="_blank">View AI Automation World in Facebook</a>
-            </p>
-        </div>
-    </section>    
-     
-            <a href="https://github.com/Statninja/SilviaCalzadaGil/blob/main/Images/Silvia%20Calzada%20Gil_Data%20Analyst_Sep2024E.pdf" class="download-cv" target="_blank">Download CV</a>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: silviacgil@gmail.com</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/silviacalzadagil/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61564737101357" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/Statninja" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://panditadata.com" target="_blank"><i class="fas fa-globe"></i></a>
-                <a href="https://www.panditanimation.com" target="_blank"><i class="fas fa-laptop-code"></i></a>
-                <a href="https://topmate.io/aiautomation?utm_source=topmate&utm_medium=popup&utm_campaign=Page_Ready" target="_blank"><i class="fa-solid fa-phone"></i></a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Silvia Calzada Gil. All rights reserved.</p>
-            <a href="privacy-policy.html">Privacy Policy.</a>
-            <a href="CookiePolicy.html"> Cookie Policy.</a>
-            <a href="Legal Notice.html"> Legal Notice.</a>
-        </footer>
-
-        <!-- JavaScript for Animations and Toggle -->
-        <script>
-            // Day/Night Toggle Functionality with Sound
-            const toggleSwitch = document.getElementById('theme-toggle');
-
-            function toggleTheme() {
-                document.body.classList.toggle('dark-mode');
-                playToggleSound();
-            }
-
-            toggleSwitch.addEventListener('change', toggleTheme);
-
-            function playToggleSound() {
-                const toggleSound = new Audio('data:audio/mp3;base64,//uQxA...');
-                toggleSound.play();
-            }
-
-            // Intersection Observer for Animations
-            const observerOptions = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe Overview Blocks
-            const overviewBlocks = document.querySelectorAll('.overview-block');
-            overviewBlocks.forEach(block => observer.observe(block));
-
-            // Observe Project Cards
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => observer.observe(card));
-
-            // Observe Timeline Items
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach(item => observer.observe(item));
-
-            // Smooth Scrolling for Navigation
-            const navLinks = document.querySelectorAll('nav ul li a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-
-        </script>
-        <!-- Topmate widget script -->
-        <script
-        src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
-        user-profile="https://topmate.io/embed/profile/aiautomation?theme=93C5F9"
-        btn-style='{"background": "linear-gradient(135deg, var(--secondary-color), var(--button-background))", "color":"#ffffff", "border":"none", "borderRadius":"5px", "boxShadow": "0 4px 8px rgba(0, 0, 0, 0.2)", "padding":"4px 8px", "display": "inline-block"}'
-        embed-version="v1"
-        button-text="Accomplish your goals"
-        position-right="30px"
-        position-bottom="30px"
-        custom-font-size="14px"  <!-- Decreased font size -->
-        custom-font-weight="500"
-        custom-width="160px"  <!-- Decreased width -->
-        async=""
-        defer=""
-    ></script>
-
-</div>
-<script>
-  // Initialize Particles.js for the background effect
+    <!-- Scripts -->
+    <script>
+        // Initialize Particles.js
         particlesJS("particles-js", {
-            particles: {
-                number: { value: 80 },
-                color: { value: "#00d4ff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: { speed: 1, random: true }
-            },
-            interactivity: {
-                events: { onhover: { enable: true, mode: "repulse" } }
-            }
+            particles: { number: { value: 80 }, color: { value: "#00d4ff" }, shape: { type: "circle" }, opacity: { value: 0.5 }, size: { value: 3 }, move: { speed: 1, random: true } },
+            interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
         });
 
-        // Transition cover page and show main content
+        // Show Main Content After Cover Page Animation
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
-                document.getElementById('cover-page').classList.add('cover-fade-out');
-                document.getElementById('main-content').classList.add('main-content-visible');
-            }, 3000); // Adjust delay as needed
-        });
-</script>
-
-</body>
-</html>
+               
