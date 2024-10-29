@@ -749,9 +749,9 @@
 
         /* Main content hidden by default until cover fades out   */
         #main-content {
-            opacity: 0;
+            opacity: 0.5;
             
-            transition: opacity 1.5s ease, visibility 0s linear 2s; /* Delay visibility change */
+            transition: opacity 0.5s ease, visibility 0s linear 2s; /* Delay visibility change */
             visibility: hidden; /* Ensures main content is fully hidden initially
         }
 
@@ -1134,21 +1134,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- JavaScript for Animations and Toggle -->
 <script>
-
-
-  // Transition cover page and show main content
-   document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            // Fade out cover page
-            const coverPage = document.getElementById('cover-page');
-            coverPage.style.opacity = '0';
-            coverPage.style.visibility = 'hidden';
-
-            // Fade in main content
-            const mainContent = document.getElementById('main-content');
-            mainContent.classList.add('main-content-visible'); // Triggers the transition
-        }, 3000); // Adjust delay as needed
-    });
         // Initialize Particles.js for the background effect
     particlesJS("particles-js", {
         particles: {
@@ -1163,6 +1148,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             events: { onhover: { enable: true, mode: "repulse" } }
         }
     });
+
+  // Transition cover page and show main content
+  document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            // Fade out cover page
+            const coverPage = document.getElementById('cover-page');
+            coverPage.style.opacity = '0';
+            coverPage.style.visibility = 'hidden';
+
+            // Fade in main content
+            const mainContent = document.getElementById('main-content');
+            mainContent.classList.add('main-content-visible'); // Triggers the transition
+        }, 3000); // Adjust delay as needed
+    });
+
 </script>
 
 </body>
