@@ -434,7 +434,23 @@ function goNext() {
     // Example action for the Next button
     window.location.href = "your_next_page.html"; // Replace with the actual URL of the next page
 }
+ // JavaScript for handling chatbot interaction
+    function sendMessage() {
+        const userInput = document.getElementById("userInput").value;
+        const chatbox = document.getElementById("chatbox");
 
+        // Display the user input
+        chatbox.innerHTML += "<p><strong>User:</strong> " + userInput + "</p>";
+
+        // Simulated ChatGPT response after a delay
+        setTimeout(() => {
+            chatbox.innerHTML += "<p><strong>ChatGPT:</strong> Hello! How can I help you?</p>";
+            chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll to the bottom
+        }, 1000);
+
+        // Clear input field
+        document.getElementById("userInput").value = "";
+    }
 
     </script>
 </body>
