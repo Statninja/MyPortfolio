@@ -140,6 +140,52 @@ button {
     cursor: pointer;
     margin-left: 5px;
 }
+        /* Button Container */
+.button-container {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 3D Button Style */
+.btn-3d {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -4px 0 #004080;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.btn-3d::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background: #0056b3;
+    border-radius: 6px;
+    z-index: -1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 -4px 0 #003366;
+}
+
+.btn-3d:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -4px 0 #003366;
+}
+
 
     </style>
 </head>
@@ -190,8 +236,8 @@ button {
 
         <!-- Navigation Buttons -->
         <div class="course-nav-buttons">
-            <button onclick="navigateCourse(-1)">Back</button>
-            <button onclick="navigateCourse(1)">Next</button>
+            <button onclick="btn-3d">Back</button>
+            <button onclick="btn-3d">Next</button>
         </div>
     </div>
 <div id="chat-container">
