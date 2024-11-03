@@ -245,28 +245,29 @@
         <h3><span class="emoticon key-icon"></span> Building a Chatbot for Your Portfolio Website</h3>
         <p>Imagine integrating a chatbot powered by ChatGPT into your website portfolio. Not only does this add interactivity, but it also showcases your ability to work with AI tools. Here’s a sample code to get you started on building a simple chatbot:</p>
         
-        <div class="code-box">
-            <!-- Sample Chatbot Code -->
-            <code>
-                &lt;!-- Sample HTML structure for a simple chatbot --&gt;
-                &lt;div id="chatbot"&gt;
-                    &lt;div id="chatbox"&gt;&lt;/div&gt;
-                    &lt;input type="text" id="userInput" placeholder="Type a message..." /&gt;
-                    &lt;button onclick="sendMessage()"&gt;Send&lt;/button&gt;
-                &lt;/div&gt;
+<div class="code-box">
+    <!-- Sample Chatbot Code -->
+    <pre>
+        &lt;!-- Sample HTML structure for a simple chatbot --&gt;
+        &lt;div id="chatbot"&gt;
+            &lt;div id="chatbox"&gt;&lt;/div&gt;
+            &lt;input type="text" id="userInput" placeholder="Type a message..." /&gt;
+            &lt;button onclick="sendMessage()"&gt;Send&lt;/button&gt;
+        &lt;/div&gt;
 
-                &lt;script&gt;
-                    function sendMessage() {
-                        const userInput = document.getElementById("userInput").value;
-                        const chatbox = document.getElementById("chatbox");
-                        chatbox.innerHTML += "&lt;p&gt;User: " + userInput + "&lt;/p&gt;";
-                        // Simulate ChatGPT response
-                        chatbox.innerHTML += "&lt;p&gt;ChatGPT: Hello! How can I help you?&lt;/p&gt;";
-                    }
-                &lt;/script&gt;
-            </code>
-        </div>
-    </div>
+        &lt;script&gt;
+            function sendMessage() {
+                const userInput = document.getElementById("userInput").value;
+                const chatbox = document.getElementById("chatbox");
+                chatbox.innerHTML += "&lt;p&gt;User: " + userInput + "&lt;/p&gt;";
+                // Simulate ChatGPT response
+                chatbox.innerHTML += "&lt;p&gt;ChatGPT: Hello! How can I help you?&lt;/p&gt;";
+            }
+        &lt;/script&gt;
+    </pre>
+</div>
+
+
         <section id="prompt-engineering">
             <h2>Prompt Engineering</h2>
             <p>In this module, learn how to craft effective prompts to get the best responses from AI.</p>
