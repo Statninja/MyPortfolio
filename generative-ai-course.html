@@ -177,13 +177,18 @@
         <a href="#writing-book" onclick="activateSection('writing-book')">Writing a Book with AI</a>
     </div>
 
+    
     <!-- Main content area for each section -->
     <div id="course-content">
         <section id="intro">
-            <h2>Introduction to Generative AI</h2>
+             <h1>Chapter 1: Foundations of Generative AI with ChatGPT</h1>
+            <h2>Introduction to Generative AI and ChatGPT</h2>
             <p>Welcome to the world of Generative AI. In this course, we’ll explore the basics of Generative AI and how it’s transforming industries.</p>
             <p>Generative AI refers to algorithms, like ChatGPT, capable of creating new content based on the data they’ve been trained on. From text and code to images, audio, and video, generative AI models open up new possibilities for automation, creativity, and insights across various domains.</p>
-                   <h3>Learning Objectives</h3>
+            <p><span class="emoticon key-icon"></span> Generative AI, particularly through models like ChatGPT, is transforming various fields by enabling machines to generate content that feels remarkably human-like. Generative AI models are trained on vast datasets and can produce text, images, and more by understanding patterns in data.</p>
+        <h3><span class="emoticon building-icon"></span> Motivations and Potential: From Idea to Impact</h3>
+        <p>Generative AI holds the potential to revolutionize industries by automating content creation, enhancing customer service, and generating data-driven insights. As you embark on this journey, envision how your skills in generative AI could make an impact on fields ranging from customer service chatbots to AI-generated art and automated code generation.</p>
+            <h3>Learning Objectives</h3>
             <ul>
                 <li>Understand the fundamentals of generative AI</li>
                 <li>Explore real-world applications and use cases</li>
@@ -218,7 +223,50 @@
             </div>
         </section>
         </section>
+ <!-- Prompt Engineering for Beginners Section -->
+    <div class="section" id="prompt-engineering">
+        <h2>Prompt Engineering for Beginners</h2>
+        <h3><span class="emoticon building-icon"></span> Essentials of Prompt Crafting</h3>
+        <p>Prompt engineering is the art of crafting questions and instructions to get precise answers from AI. Clear instructions often yield the most relevant outputs from ChatGPT. Here’s a breakdown of effective prompt techniques:</p>
+        
+        <ul>
+            <li><strong>Be Specific:</strong> Provide detailed instructions to get the exact response you need.</li>
+            <li><strong>Define Roles:</strong> Ask the model to act as a particular expert, like “You are a data analyst…”</li>
+            <li><strong>Limit Output Length:</strong> Specify word count or bullet points if you need concise answers.</li>
+        </ul>
 
+        <!-- Visual Placeholder: Step-by-Step Prompt Engineering Process Infographic -->
+        <h3>Visual: Step-by-Step Prompt Engineering Process</h3>
+        <p>Prompt engineering is an iterative process. It's essential to experiment with different ideas and test the AI prompts to see the results. You may need multiple tries to optimize for accuracy and relevance. Continuous testing and iteration reduce the prompt size and help the model generate better output.
+          <div class="message-box">
+                    <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/chatty.png" alt="Chatbot">
+                    <div class="bot-message"> <p>  “Specify the goal,” “Use clear instructions,” and “Test responses”</p>
+
+        <h3><span class="emoticon key-icon"></span> Building a Chatbot for Your Portfolio Website</h3>
+        <p>Imagine integrating a chatbot powered by ChatGPT into your website portfolio. Not only does this add interactivity, but it also showcases your ability to work with AI tools. Here’s a sample code to get you started on building a simple chatbot:</p>
+        
+        <div class="code-box">
+            <!-- Sample Chatbot Code -->
+            <code>
+                &lt;!-- Sample HTML structure for a simple chatbot --&gt;
+                &lt;div id="chatbot"&gt;
+                    &lt;div id="chatbox"&gt;&lt;/div&gt;
+                    &lt;input type="text" id="userInput" placeholder="Type a message..." /&gt;
+                    &lt;button onclick="sendMessage()"&gt;Send&lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;script&gt;
+                    function sendMessage() {
+                        const userInput = document.getElementById("userInput").value;
+                        const chatbox = document.getElementById("chatbox");
+                        chatbox.innerHTML += "&lt;p&gt;User: " + userInput + "&lt;/p&gt;";
+                        // Simulate ChatGPT response
+                        chatbox.innerHTML += "&lt;p&gt;ChatGPT: Hello! How can I help you?&lt;/p&gt;";
+                    }
+                &lt;/script&gt;
+            </code>
+        </div>
+    </div>
         <section id="prompt-engineering">
             <h2>Prompt Engineering</h2>
             <p>In this module, learn how to craft effective prompts to get the best responses from AI.</p>
