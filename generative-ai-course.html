@@ -169,6 +169,7 @@
     padding: 10px;
     border-radius: 5px;
     overflow-x: auto;
+    font-family: 'Courier New', monospace;
 }
     </style>
 </head>
@@ -256,24 +257,25 @@
 <div class="code-box">
     <!-- Sample Chatbot Code -->
     <pre><code class="language-html">
-        &lt;!-- Sample HTML structure for a simple chatbot --&gt;
-        &lt;div id="chatbot"&gt;
-            &lt;div id="chatbox"&gt;&lt;/div&gt;
-            &lt;input type="text" id="userInput" placeholder="Type a message..." /&gt;
-            &lt;button onclick="sendMessage()"&gt;Send&lt;/button&gt;
-        &lt;/div&gt;
+        <!-- Sample HTML structure for a simple chatbot -->
+        <div id="chatbot">
+            <div id="chatbox"></div>
+            <input type="text" id="userInput" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
 
-        &lt;script&gt;
+        <script>
             function sendMessage() {
                 const userInput = document.getElementById("userInput").value;
                 const chatbox = document.getElementById("chatbox");
-                chatbox.innerHTML += "&lt;p&gt;User: " + userInput + "&lt;/p&gt;";
+                chatbox.innerHTML += "<p>User: " + userInput + "</p>";
                 // Simulate ChatGPT response
-                chatbox.innerHTML += "&lt;p&gt;ChatGPT: Hello! How can I help you?&lt;/p&gt;";
+                chatbox.innerHTML += "<p>ChatGPT: Hello! How can I help you?</p>";
             }
-        &lt;/script&gt;
+        </script>
     </code></pre>
 </div>
+
 
 
         <section id="prompt-engineering">
