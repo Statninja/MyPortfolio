@@ -797,7 +797,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="#work-with-me">Work With Silvia</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#products">AI Automation & Digitals</a></li>
-        <li><a href="#writing-book">Generative AI Course</a></li> <!-- New Course Link -->
+        <li><a href="generative-ai-course.html">Generative AI Course</a></li> <!-- New Course Link -->
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
@@ -1100,16 +1100,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const timelineItems = document.querySelectorAll('.timeline-item');
             timelineItems.forEach(item => observer.observe(item));
 
-            // Smooth Scrolling for Navigation
-            const navLinks = document.querySelectorAll('nav ul li a');
+           const navLinks = document.querySelectorAll('nav ul li a');
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {  // Only apply to internal links
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetSection = document.getElementById(targetId);
+            
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+});
+
 
         </script>
         <!-- Topmate widget script -->
