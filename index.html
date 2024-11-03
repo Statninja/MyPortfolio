@@ -1100,83 +1100,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      
             <a href="https://github.com/Statninja/SilviaCalzadaGil/blob/main/Images/Silvia%20Calzada%20Gil_Data%20Analyst_Sep2024E.pdf" class="download-cv" target="_blank">Download CV</a>
         </section>
-    <section id="generative-ai-course">
-    <h2>Generative AI Course</h2>
-    <p>Welcome to the Generative AI Course! Here, you’ll explore foundational concepts, learn prompt engineering, and create interactive projects.</p>
-    <!-- Add more content or links to course modules here -->
-     <!-- Sidebar with navigation links -->
-    <div id="sidebar">
-        <h2>Course Modules</h2>
-        <a href="#chapter1" onclick="loadContent('chapter1')">Chapter 1: Introduction</a>
-        <a href="#chapter2" onclick="loadContent('chapter2')">Chapter 2: Prompt Engineering</a>
-        <a href="#chapter3" onclick="loadContent('chapter3')">Chapter 3: AI Portfolio</a>
-        <a href="#chapter4" onclick="loadContent('chapter4')">Chapter 4: Prompt Examples</a>
-        <a href="#chapter5" onclick="loadContent('chapter5')">Chapter 5: Writing a Book</a>
+    
+<!-- Generative AI Course Section -->
+<section id="generative-ai-course">
+    <div id="course-sidebar">
+        <h3>Generative AI Course</h3>
+        <a href="#intro" onclick="activateSection('intro')">Introduction to Generative AI</a>
+        <a href="#prompt-engineering" onclick="activateSection('prompt-engineering')">Prompt Engineering</a>
+        <a href="#website-building" onclick="activateSection('website-building')">Building AI-Powered Websites</a>
+        <a href="#ml-project" onclick="activateSection('ml-project')">Creating an ML Project</a>
+        <a href="#examples" onclick="activateSection('examples')">Prompt Examples</a>
+        <a href="#writing-book" onclick="activateSection('writing-book')">Writing a Book with AI</a>
     </div>
 
-    <!-- Main content area -->
-    <div id="main-content">
-        <h1>Welcome to the Course</h1>
-        <p>Select a chapter from the left to begin.</p>
+    <div id="course-content">
+        <section id="intro">
+            <h2>Introduction to Generative AI</h2>
+            <p>This section will cover the basics of Generative AI and its applications across industries...</p>
+        </section>
 
-        <!-- Navigation buttons -->
-        <div class="nav-buttons">
-            <button onclick="navigate(-1)">Back</button>
-            <button onclick="navigate(1)">Next</button>
+        <section id="prompt-engineering">
+            <h2>Prompt Engineering</h2>
+            <p>Learn the essentials of crafting effective prompts to get the best responses from ChatGPT...</p>
+        </section>
+
+        <section id="website-building">
+            <h2>Building AI-Powered Websites</h2>
+            <p>Discover how to use Generative AI to create portfolio websites with interactive elements...</p>
+        </section>
+
+        <section id="ml-project">
+            <h2>Creating an ML Project</h2>
+            <p>This section walks through building a machine learning project from start to finish...</p>
+        </section>
+
+        <section id="examples">
+            <h2>Prompt Examples</h2>
+            <p>Explore examples of prompts and learn how small changes can yield different outputs...</p>
+        </section>
+
+        <section id="writing-book">
+            <h2>Writing a Book with AI</h2>
+            <p>Learn how to plan, outline, and create a book using AI-powered tools...</p>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="course-nav-buttons">
+            <button onclick="navigateCourse(-1)">Back</button>
+            <button onclick="navigateCourse(1)">Next</button>
         </div>
     </div>
+</section>
 
-    <script>
-        // Function to load content for each chapter
-        function loadContent(chapter) {
-            const content = {
-                chapter1: `
-                    <h1>Chapter 1: Introduction to Generative AI and ChatGPT</h1>
-                    <h2>What is Generative AI?</h2>
-                    <p>Generative AI is a type of artificial intelligence that can create new content, such as text, images, or audio, based on patterns it has learned from vast amounts of data. It powers applications like chatbots, creative writing, and data-driven storytelling.</p>
-                    <h2>Understanding the ChatGPT Interface</h2>
-                    <p>The ChatGPT interface allows users to input prompts and receive AI-generated responses. Key areas include:</p>
-                    <ul>
-                        <li><strong>Prompt Box:</strong> Where you type questions or instructions.</li>
-                        <li><strong>Response Display:</strong> Area where ChatGPT provides its answer.</li>
-                        <li><strong>Settings:</strong> Options to adjust response length, temperature (creativity), and tone.</li>
-                    </ul>
-                    <h2>Basics of Prompt Engineering</h2>
-                    <p>Prompt engineering involves crafting specific inputs to get the most useful responses from ChatGPT. Effective prompts are clear, concise, and often specify tone or format. For example:</p>
-                    <p><strong>Basic Prompt:</strong> "Describe the benefits of a portfolio website."</p>
-                    <p><strong>Refined Prompt:</strong> "Explain why a portfolio website is valuable for showcasing AI and ML projects, in two sentences."</p>
-                    <h2>Real-World Applications</h2>
-                    <p>Generative AI is used in various fields, including:</p>
-                    <ul>
-                        <li><strong>Customer Service:</strong> AI-powered chatbots to assist users.</li>
-                        <li><strong>Content Creation:</strong> Writing blog posts, social media content, and more.</li>
-                        <li><strong>Creative Projects:</strong> Generating stories, scripts, and even poetry.</li>
-                    </ul>
-                    <p>Explore how these examples apply to your own projects by creating and refining prompts that align with your goals.</p>
-                `,
-                chapter2: `<h1>Chapter 2: Prompt Engineering Basics</h1><p>In Chapter 2...</p>`,
-                chapter3: `<h1>Chapter 3: Building an AI-Powered Portfolio</h1><p>Let's dive into...</p>`,
-                chapter4: `<h1>Chapter 4: Prompt Examples and Results</h1><p>This chapter covers...</p>`,
-                chapter5: `<h1>Chapter 5: Writing a Book with AI</h1><p>Learn how to...</p>`
-            };
-            
-            document.getElementById('main-content').innerHTML = content[chapter] + `
-                <div class="nav-buttons">
-                    <button onclick="navigate(-1)">Back</button>
-                    <button onclick="navigate(1)">Next</button>
-                </div>`;
-        }
 
-        // Function to handle navigation between chapters
-        let currentChapter = 1;
-        
-        function navigate(direction) {
-            currentChapter += direction;
-            if (currentChapter < 1) currentChapter = 1;
-            if (currentChapter > 5) currentChapter = 5;
-            loadContent('chapter' + currentChapter);
-        }
-    </script>
+<script>
+let currentSectionIndex = 0;
+const sections = document.querySelectorAll('#course-content section');
+const sidebarLinks = document.querySelectorAll('#course-sidebar a');
+
+// Function to scroll smoothly to a section and activate sidebar link
+function activateSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    sidebarLinks.forEach(link => link.classList.remove('active'));
+    document.querySelector(`#course-sidebar a[href="#${id}"]`).classList.add('active');
+}
+
+// Function to handle Next and Back button navigation
+function navigateCourse(direction) {
+    currentSectionIndex = Math.min(Math.max(currentSectionIndex + direction, 0), sections.length - 1);
+    const sectionId = sections[currentSectionIndex].id;
+    activateSection(sectionId);
+}
+
+</script>
 </section>
 
         <!-- Contact Section -->
