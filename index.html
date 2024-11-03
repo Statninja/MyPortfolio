@@ -757,76 +757,7 @@
     height: 100%;
     z-index: -1; /* Places particles behind the cover content */
 }
-/* Sidebar styling */
-#course-sidebar {
-    position: fixed;
-    top: 100px; /* Adjust according to your navbar height */
-    left: 0;
-    width: 250px;
-    height: calc(100vh - 100px); /* Full height minus navbar */
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-}
 
-#course-sidebar h3 {
-    color: #ffcc00;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-#course-sidebar a {
-    color: white;
-    display: block;
-    padding: 10px 0;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-#course-sidebar a:hover {
-    background-color: #555;
-}
-
-/* Main course content area */
-#course-content {
-    margin-left: 270px; /* Width of sidebar + margin */
-    padding: 20px;
-    min-height: 100vh;
-}
-
-#course-content h2 {
-    color: #35424a;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#course-content p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Back and Next buttons */
-.course-nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.course-nav-buttons button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.course-nav-buttons button:hover {
-    background-color: #0056b3;
-}
 
     </style>
 </head>
@@ -1101,78 +1032,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://github.com/Statninja/SilviaCalzadaGil/blob/main/Images/Silvia%20Calzada%20Gil_Data%20Analyst_Sep2024E.pdf" class="download-cv" target="_blank">Download CV</a>
         </section>
     
-<!-- Generative AI Course Section -->
-<section id="generative-ai-course">
-    <div id="course-sidebar">
-        <h3>Generative AI Course</h3>
-        <a href="#intro" onclick="activateSection('intro')">Introduction to Generative AI</a>
-        <a href="#prompt-engineering" onclick="activateSection('prompt-engineering')">Prompt Engineering</a>
-        <a href="#website-building" onclick="activateSection('website-building')">Building AI-Powered Websites</a>
-        <a href="#ml-project" onclick="activateSection('ml-project')">Creating an ML Project</a>
-        <a href="#examples" onclick="activateSection('examples')">Prompt Examples</a>
-        <a href="#writing-book" onclick="activateSection('writing-book')">Writing a Book with AI</a>
-    </div>
 
-    <div id="course-content">
-        <section id="intro">
-            <h2>Introduction to Generative AI</h2>
-            <p>This section will cover the basics of Generative AI and its applications across industries...</p>
-        </section>
-
-        <section id="prompt-engineering">
-            <h2>Prompt Engineering</h2>
-            <p>Learn the essentials of crafting effective prompts to get the best responses from ChatGPT...</p>
-        </section>
-
-        <section id="website-building">
-            <h2>Building AI-Powered Websites</h2>
-            <p>Discover how to use Generative AI to create portfolio websites with interactive elements...</p>
-        </section>
-
-        <section id="ml-project">
-            <h2>Creating an ML Project</h2>
-            <p>This section walks through building a machine learning project from start to finish...</p>
-        </section>
-
-        <section id="examples">
-            <h2>Prompt Examples</h2>
-            <p>Explore examples of prompts and learn how small changes can yield different outputs...</p>
-        </section>
-
-        <section id="writing-book">
-            <h2>Writing a Book with AI</h2>
-            <p>Learn how to plan, outline, and create a book using AI-powered tools...</p>
-        </section>
-
-        <!-- Navigation Buttons -->
-        <div class="course-nav-buttons">
-            <button onclick="navigateCourse(-1)">Back</button>
-            <button onclick="navigateCourse(1)">Next</button>
-        </div>
-    </div>
-</section>
-
-
-<script>
-let currentSectionIndex = 0;
-const sections = document.querySelectorAll('#course-content section');
-const sidebarLinks = document.querySelectorAll('#course-sidebar a');
-
-// Function to scroll smoothly to a section and activate sidebar link
-function activateSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    sidebarLinks.forEach(link => link.classList.remove('active'));
-    document.querySelector(`#course-sidebar a[href="#${id}"]`).classList.add('active');
-}
-
-// Function to handle Next and Back button navigation
-function navigateCourse(direction) {
-    currentSectionIndex = Math.min(Math.max(currentSectionIndex + direction, 0), sections.length - 1);
-    const sectionId = sections[currentSectionIndex].id;
-    activateSection(sectionId);
-}
-
-</script>
 </section>
 
         <!-- Contact Section -->
