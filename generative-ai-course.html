@@ -51,11 +51,11 @@
 
         /* Main content styling */
         #course-content {
-            margin-left: 220px;
-            padding: 20px;
+            margin-left: 240px;
+            padding: 20px 20px 20px 40px; /* Increased left padding for more space */
             width: calc(100% - 270px);
             min-height: 100vh;
-            overflow-y: auto;
+             /*overflow-y: auto;*/
         }
 
         #course-content h2 {
@@ -71,7 +71,17 @@
             line-height: 1.6;
             color: #333;
         }
-
+        
+        /* Code box styling */
+        .code-box {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
         /* Back and Next buttons */
         .course-nav-buttons {
             display: flex;
