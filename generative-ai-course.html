@@ -163,18 +163,7 @@ button {
     position: relative;
 }
 
-.btn-3d::before {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    background: #0056b3;
-    border-radius: 6px;
-    z-index: -1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 .btn-3d:hover {
     transform: translateY(-2px);
@@ -293,14 +282,16 @@ button {
     }
 }
 
-function displayMessage(text, className) {
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", className);
-    messageDiv.innerText = text;
-
-    document.getElementById("chat-box").appendChild(messageDiv);
-    messageDiv.scrollIntoView({ behavior: "smooth" });
+function goBack() {
+    // Example action for the Back button
+    window.history.back(); // This will go back to the previous page
 }
+
+function goNext() {
+    // Example action for the Next button
+    window.location.href = "your_next_page.html"; // Replace with the actual URL of the next page
+}
+
 
     </script>
 </body>
