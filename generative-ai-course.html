@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar styling */
+        #course-sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #course-sidebar h3 {
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #course-sidebar a {
+            color: white;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            transition: background 0.3s;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        #course-sidebar a:hover, #course-sidebar a.active {
+            background-color: #555;
+        }
+
+        /* Main content styling */
+        #course-content {
+            margin-left: 270px;
+            padding: 20px;
+            width: calc(100% - 270px);
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        #course-content h2 {
+            color: #35424a;
+            font-size: 24px;
+            border-bottom: 2px solid #00A1E4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        #course-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Back and Next buttons */
+        .course-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .course-nav-buttons button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .course-nav-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar with course navigation -->
+    <div id="course-sidebar">
+        <h3>Generative AI Course</h3>
+        <a href="#intro" onclick="activateSection('intro')">Introduction to Generative AI</a>
+        <a href="#prompt-engineering" onclick="activateSection('prompt-engineering')">Prompt Engineering</a>
+        <a href="#website-building" onclick="activateSection('website-building')">Building AI-Powered Websites</a>
+        <a href="#ml-project" onclick="activateSection('ml-project')">Creating an ML Project</a>
+        <a href="#examples" onclick="activateSection('examples')">Prompt Examples</a>
+        <a href="#writing-book" onclick="activateSection('writing-book')">Writing a Book with AI</a>
+    </div>
+
+    <!-- Main content area for each section -->
+    <div id="course-content">
+        <section id="intro">
+            <h2>Introduction to Generative AI</h2>
+            <p>Welcome to the world of Generative AI. In this course, we’ll explore the basics of Generative AI and how it’s transforming industries.</p>
+        </section>
+
+        <section id="prompt-engineering">
+            <h2>Prompt Engineering</h2>
+            <p>In this module, learn how to craft effective prompts to get the best responses from AI.</p>
+        </section>
+
+        <section id="website-building">
+            <h2>Building AI-Powered Websites</h2>
+            <p>Discover how to use AI tools to create portfolio websites with interactive elements.</p>
+        </section>
+
+        <section id="ml-project">
+            <h2>Creating an ML Project</h2>
+            <p>This module walks you through building a machine learning project from start to finish.</p>
+        </section>
+
+        <section id="examples">
+            <h2>Prompt Examples</h2>
+            <p>Explore various prompt examples and see how different prompts yield different responses.</p>
+        </section>
+
+        <section id="writing-book">
+            <h2>Writing a Book with AI</h2>
+            <p>Learn how to plan, outline, and create a book using AI tools.</p>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="course-nav-buttons">
+            <button onclick="navigateCourse(-1)">Back</button>
+            <button onclick="navigateCourse(1)">Next</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for smooth navigation and activating sections
+        let currentSectionIndex = 0;
+        const sections = document.querySelectorAll('#course-content section');
+        const sidebarLinks = document.querySelectorAll('#course-sidebar a');
+
+        // Activate section based on sidebar link click
+        function activateSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            document.querySelector(`#course-sidebar a[href="#${id}"]`).classList.add('active');
+        }
+
+        // Navigate sections with Next and Back buttons
+        function navigateCourse(direction) {
+            currentSectionIndex = Math.min(Math.max(currentSectionIndex + direction, 0), sections.length - 1);
+            const sectionId = sections[currentSectionIndex].id;
+            activateSection(sectionId);
+        }
+    </script>
+</body>
+</html>
