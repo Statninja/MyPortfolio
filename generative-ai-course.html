@@ -131,49 +131,7 @@
     border-radius: 5px;
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-        /* Button Container */
-.button-container {
-    display: flex;
-    gap: 20px; /* Space between buttons */
-    justify-content: center;
-    margin-top: 20px;
-}
 
-/* 3D Button Style */
-.btn-3d {
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -4px 0 #004080;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-}
-
-
-
-.btn-3d:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 -4px 0 #003366;
-}
-
-.btn-3d:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -4px 0 #003366;
-}
 .message-box img {
     width: 30px; /* Adjust the width to your preferred size */
     height: 30px; /* Ensure height matches the width for uniform scaling */
@@ -181,7 +139,29 @@ button {
     margin-right: 10px;
 }
 
+  .course-nav-buttons .btn-3d {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -4px 0 #004080;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
 
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 -4px 0 #003366;
+        }
+
+        .btn-3d:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -4px 0 #003366;
+        }
     </style>
 </head>
 <body>
@@ -264,10 +244,10 @@ button {
             <p>Learn how to plan, outline, and create a book using AI tools.</p>
         </section>
 
-        <!-- Navigation Buttons -->
+     <!-- Navigation Buttons -->
         <div class="course-nav-buttons">
-            <button onclick="btn-3d">Back</button>
-            <button onclick="btn-3d">Next</button>
+            <button class="btn-3d" onclick="navigateCourse(-1)">Back</button>
+            <button class="btn-3d" onclick="navigateCourse(1)">Next</button>
         </div>
     </div>
 
