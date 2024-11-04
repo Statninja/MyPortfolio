@@ -1,1 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar styling */
+        #course-sidebar {
+            width: 260px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+        }
+
+        #course-sidebar h3 {
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #course-sidebar a {
+            color: white;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            transition: background 0.3s;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        #course-sidebar a:hover, #course-sidebar a.active {
+            background-color: #555;
+        }
+
+        /* Sidebar trending topics */
+        .trending-topics {
+            margin-top: 20px;
+        }
+        .trending-topics h4 {
+            color: #ffcc00;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .trending-topics a {
+            display: block;
+            color: #ccc;
+            font-size: 14px;
+            padding: 5px;
+            text-decoration: none;
+        }
+        .trending-topics a:hover {
+            color: #ffcc00;
+        }
+
+        /* Main content styling */
+        #course-content {
+            margin-left: 280px;
+            padding: 20px;
+            width: calc(100% - 280px);
+            min-height: 100vh;
+        }
+
+        #course-content h1, #course-content h2 {
+            color: #35424a;
+        }
+
+        #search-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        #search-bar input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #search-bar button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #keyword-summary {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+
+        /* Animations and hover effects */
+        .trending-topics a, #course-sidebar a, #course-content h1, #course-content h2 {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        #course-content h1:hover, #course-content h2:hover {
+            color: #007bff;
+            transform: scale(1.02);
+        }
+
+        .trending-topics a:hover {
+            color: #007bff;
+            transform: translateX(5px);
+        }
+
+        /* AI-generated summaries styling */
+        .ai-summary {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        /* Notifications styling */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 100;
+            animation: fadeInOut 5s ease;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            #course-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            #course-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 10px;
+            }
+            #search-bar input[type="text"] {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar with navigation and trending topics -->
+    <div id="course-sidebar">
+        <h3>Generative AI Blog</h3>
+        <a href="#ai-ml-project" onclick="activateSection('ai-ml-project')">AI & ML Project</a>
+        <a href="#intro" onclick="activateSection('intro')">Introduction</a>
+        <a href="#examples" onclick="activateSection('examples')">Prompt Examples</a>
+        <!-- Dynamic Trending Topics Section -->
+        <div class="trending-topics" id="trending-topics">
+            <h4>Trending Topics</h4>
+            <a href="#">Generative AI</a>
+            <a href="#">Machine Learning</a>
+            <a href="#">Natural Language Processing</a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="course-content">
+        <!-- AI Smart Search Bar -->
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search topics...">
+            <button onclick="aiSearch()">Search</button>
+        </div>
+
+        <!-- AI-Generated Keyword Summary -->
+        <div id="keyword-summary">
+            <h4>Keywords Summary</h4>
+            <p>Explore topics like Generative AI, Machine Learning, and NLP. Discover how they can transform industries and enhance your projects.</p>
+        </div>
+
+        <!-- Chapter Content -->
+        <section id="ai-ml-project">
+            <h1>Chapter X: AI & ML Project with Generative AI</h1>
+            <section id="intro">
+                <h2>Introduction to AI & ML Project Development with Generative AI</h2>
+                <p>Learn how to leverage generative AI to create a comprehensive AI and ML project from start to finish. This chapter will focus on integrating generative AI for data preprocessing, model selection, training, and evaluation.</p>
+            </section>
+
+            <!-- AI-generated summaries -->
+            <div class="ai-summary">
+                <strong>AI Insight:</strong> Generative AI can simplify complex tasks in AI/ML projects, making model building, training, and evaluation more efficient and accessible.
+            </div>
+            <!-- Further content and examples... -->
+        </section>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        New blog post available! <a href="#" style="color: #fff; text-decoration: underline;">Read now</a>
+    </div>
+
+    <script>
+        // AI Smart Search Functionality with Summarization
+        function aiSearch() {
+            const searchInput = document.getElementById("search-input").value;
+            if (!searchInput) {
+                alert("Please enter a search term.");
+                return;
+            }
+            // Placeholder alert for AI search functionality with summarization
+            alert(`Searching for "${searchInput}"...`); 
+            // This is where an API call would go to fetch summarized search results
+        }
+
+        // Activate sections on click
+        function activateSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Simulate Trending Topics Auto-Update
+        function updateTrendingTopics() {
+            const topics = ["Deep Learning", "Data Privacy", "AI Ethics", "Augmented Reality"];// Add new topics here
+            const trendingSection = document.getElementById("trending-topics");
+            trendingSection.innerHTML = `<h4>Trending Topics</h4>`;
+            topics.forEach(topic => {
+                let topicLink = document.createElement("a");
+                topicLink.href = "#";
+                topicLink.textContent = topic;
+                trendingSection.appendChild(topicLink);
+            });
+        }
+        setInterval(updateTrendingTopics, 30000); // Update every 30 seconds
+
+        // Show notification for new blog updates
+        function showNotification() {
+            const notification = document.getElementById("notification");
+            notification.style.display = "block";
+            setTimeout(() => { notification.style.display = "none"; }, 5000);
+        }
+
+        // Simulate new blog post notification
+        setInterval(showNotification, 60000); // Show every 60 seconds
+    </script>
+</body>
+</html>
 
