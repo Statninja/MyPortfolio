@@ -150,6 +150,13 @@
     text-align: right;
     color: #007bff;
 }
+message-box { margin-bottom: 15px; }
+        .student-message, .chatbot-message { padding: 10px; border-radius: 8px; }
+        .student-message { background-color: #f0f8ff; text-align: left; }
+        .chatbot-message { background-color: #e6f7ff; }
+        .code-box { background-color: #f4f4f4; padding: 10px; margin-top: 10px; border-radius: 5px; overflow-x: auto; }
+        pre { background-color: #333; color: #f8f8f2; padding: 10px; border-radius: 5px; font-size: 14px; }
+        .rendered-output { margin-top: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; }
 
 .bot-message {
     text-align: left;
@@ -448,32 +455,28 @@
         </div>
     </section>
 </section>
+       
+        
+        <div id="course-content">
         <section id="website-building">
             
-            <section id="intro">
+        <!-- Main Content Area for Chapter 3: Building AI-Powered Portfolio Websites -->
+    <div id="course-content">
+        <section id="website-building">
+            <!-- Section 1: Introduction to Website Building with Generative AI -->        
         <h2>Chapter 3: Building an AI-Powered Portfolio Website</h2>
         <p class="student-icon"> <strong>Introduction:</strong> Learn how to use ChatGPT to build a personalized portfolio website, complete with design, layout, and interactive features.</p>
             <p>Discover how to use AI tools to create portfolio websites with interactive elements.</p>
     </section>
-
+ <!-- Section 2: Concept Explanation -->
     <section id="concept-explanation">
-        <h2>Introduction to Website Building with Generative AI</h2>
-        <p class="chat-icon"> <strong>ChatGPT:</strong> "Generative AI can assist in creating, designing, and updating websites by generating code and content based on prompts."</p>
+        <p>Core HTML/CSS components and how ChatGPT can generate initial structures and designs.</p>
         
+        <p class="chat-icon"> <strong>ChatGPT:</strong> "Generative AI can assist in creating, designing, and updating websites by generating code and content based on prompts."</p>
         <div class="code-box">
-            <p> <!-- HTML/CSS Structure -->
-                <code>
-                    &lt;!-- Basic Website Layout --&gt;
-                    &lt;header&gt;
-                        &lt;h1&gt;My Portfolio&lt;/h1&gt;
-                        &lt;nav&gt;
-                            &lt;a href="#about"&gt;About Me&lt;/a&gt;
-                            &lt;a href="#projects"&gt;Projects&lt;/a&gt;
-                            &lt;a href="#contact"&gt;Contact&lt;/a&gt;
-                        &lt;/nav&gt;
-                    &lt;/header&gt;
-                </code>
-            </p>
+            
+        
+               
         </div>
 
         <!-- Rendered HTML Output -->
@@ -489,7 +492,18 @@
             </header>
         </div>
     </section>
-
+        
+!-- Rendered HTML Output -->
+            <div class="rendered-output">
+                <header>
+                    <h1>My Portfolio</h1>
+                    <nav>
+                        <a href="#about">About Me</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+                </header>
+            </div>
     <section id="portfolio-layout">
         <h2>Hands-On Example: Creating a Portfolio Layout</h2>
         <p class="student-icon"> 🎯 <strong>Goal:</strong> Create a modern layout with sections for projects, skills, and contact information.</p>
@@ -522,6 +536,7 @@
         <!-- Rendered HTML Output -->
         <div class="rendered-output">
             <header>
+                <h1>Styled Portfolio</h1>
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -572,12 +587,15 @@
     </section>
 
     <section id="practice-exercises">
-        <h2>Practice Exercises</h2>
-        <p class="student-icon"> 💡 <strong>Inspiration:</strong> Customize your portfolio by adding unique sections like “Skills” or an interactive gallery.</p>
-    </section>
-
+        <h2>5. Practice Exercises</h2>
+            <ul>
+                <li><span>💡</span> <strong>Exercise:</strong> Create a "Skills" section with a list of key technical skills.</li>
+                <li><span>🎯</span> <strong>Exercise:</strong> Customize the background color of the "About Me" section.</li>
+            </ul>
+        </section>
+            
     <section id="summary">
-        <h2>Summary and Key Takeaways</h2>
+        <h2>6. Summary and Key Takeaways</h2>
         <p class="student-icon"> 🔑 <strong>Recap:</strong> We’ve covered the essentials of creating a portfolio website using HTML, CSS, and ChatGPT.</p>
         <ul>
             <li>Use ChatGPT to create and refine HTML/CSS for your portfolio.</li>
@@ -588,6 +606,11 @@
 
     </section>
 
+
+
+
+
+        
         <section id="ml-project">
             <h2>Creating an ML Project</h2>
             <p>This module walks you through building a machine learning project from start to finish.</p>
