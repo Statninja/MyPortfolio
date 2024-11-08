@@ -13,6 +13,8 @@
     <script src="scripts/course-script.js"></script>
     <!-- generative-ai-course.html -->
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+    <script src="scripts/book-data.js"></script>
+
 
 
     <style>
@@ -807,6 +809,39 @@ function goNext() {
         // Load Pyodide on page load
         document.addEventListener("DOMContentLoaded", initializePyodide);
     </script>
+     <!-- Input for section name -->
+    <input type="text" id="sectionInput" placeholder="Enter section name, e.g., 'Support Vector Machines'">
+    <button onclick="displaySection()">Show Section</button>
+
+    <!-- Area to display content -->
+    <div id="output" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+        <!-- Content will be displayed here -->
+    </div>
+
+
+    </script>
+        <script>
+        function displaySection() {
+            // Retrieve section name from input
+            const sectionName = document.getElementById('sectionInput').value;
+            const outputDiv = document.getElementById('output');
+
+            // Clear previous content
+            outputDiv.innerHTML = '';
+
+            // Check if section exists in aiBook
+            if (aiBook[sectionName]) {
+                // Get content array for the section
+                const contentArray = aiBook[sectionName];
+                contentArray.forEach(paragraph => {
+                    const paraElement = document.createElement('p');
+                    paraElement.textContent = paragraph;
+                    outputDiv.appendChild(paraElement); // Display each paragraph in the output div
+                });
+            } else {
+                outputDiv.innerHTML = '<p>Section not found.</p>';
+            }
+        }
     </script>
 </body>
 </html>
