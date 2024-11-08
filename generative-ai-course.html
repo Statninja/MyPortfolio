@@ -14,6 +14,14 @@
     <!-- generative-ai-course.html -->
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
     <script src="scripts/book-data.js"></script>
+    <link rel="stylesheet" href="styles/course-style.css">
+      <!-- Pyodide Library -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+
+    <!-- Custom JavaScript files -->
+    <script src="scripts/book-data.js"></script> <!-- Contains the AI book content -->
+    <script src="scripts/course-script.js"></script> <!-- Contains custom functions like displaySection -->
+</head>
 
 
 
@@ -797,6 +805,7 @@ function goNext() {
         // Clear input field
         document.getElementById("userInput").value = "";
     }
+     </script>   
  <!-- Pyodide Initialization and Python Functionality -->
     <script>
         let pyodide;
@@ -809,17 +818,10 @@ function goNext() {
         // Load Pyodide on page load
         document.addEventListener("DOMContentLoaded", initializePyodide);
     </script>
-     <!-- Input for section name -->
-    <input type="text" id="sectionInput" placeholder="Enter section name, e.g., 'Support Vector Machines'">
-    <button onclick="displaySection()">Show Section</button>
-
-    <!-- Area to display content -->
-    <div id="output" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
-        <!-- Content will be displayed here -->
-    </div>
 
 
-    </script>
+
+   
         <script>
         function displaySection() {
             // Retrieve section name from input
