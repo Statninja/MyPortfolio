@@ -11,3 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// scripts/course-script.js pyodide
+
+let pyodide;
+
+async function initializePyodide() {
+    pyodide = await loadPyodide();
+    console.log("Pyodide loaded successfully.");
+}
+
+document.addEventListener("DOMContentLoaded", initializePyodide);
