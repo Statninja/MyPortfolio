@@ -185,14 +185,14 @@
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             #course-sidebar {
-                width: 200px;
+                width: 100%;
                 height: auto;
                 position: relative;
             }
             #course-content {
-                margin-left:220px;
+                margin:0;
                 width: 100%;
-                padding-left: 10px;
+                padding: 10px;
             }
             #search-bar input[type="text"] {
                 width: 70%;
@@ -207,7 +207,13 @@
            .course-sidebar {
     width: 200px; /* Adjust this value to make it narrower */
 }
-
+           .sidebar {
+    width: 200px; /* Adjust this value to make it narrower */
+}
+.content {
+    margin-left: 220px; /* Adjust this based on the new sidebar width */
+    padding-left: 10px; /* Fine-tune as needed */
+}
     </style>
 </head>
 <body>
