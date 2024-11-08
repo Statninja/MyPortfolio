@@ -190,6 +190,14 @@
             <a href="#">Generative AI</a>
             <a href="#">Machine Learning</a>
             <a href="#">Natural Language Processing</a>
+            <a href="#explainable-ai">Explainable AI (XAI)</a>
+            <a href="#multimodal-ai">Multimodal AI</a>
+            <a href="#deepfake-detection">Deepfake Detection</a>
+            <a href="#ai-ethics">AI Ethics</a>
+            <a href="#quantum-ml">Quantum Machine Learning</a>
+            <a href="#automl">AutoML</a>
+            <a href="#edge-ai">Edge AI</a>
+            <a href="#aiaas">AI as a Service (AIaaS)</a>
         </div>
     </div>
 
@@ -209,39 +217,49 @@
 
         <!-- Chapter Content -->
         <section id="ai-ml-project">
-            <h1>AI & ML Project Development with Generative AI</h1>
+            <h1></h1>
             <section id="intro">
-                <h2>Introduction to AI & ML Project Development with Generative AI</h2>
-                <p>Learn how to leverage generative AI to create a comprehensive AI and ML project from start to finish. This chapter will focus on integrating generative AI for data preprocessing, model selection, training, and evaluation.</p>
+                <h2>AI, ML Blog</h2>
+                <p>Everything you need to know about AI. Easy. Fast. </p>
             </section>
 
             <!-- AI-generated summaries -->
             <div class="ai-summary">
                 <strong>AI Insight:</strong> Generative AI can simplify complex tasks in AI/ML projects, making model building, training, and evaluation more efficient and accessible.
             </div>
-
-            <!-- Blog posts as separate sections -->
+            <!-- Further content and examples... -->
             <div id="generative-ai" class="blog-post">
-                <h2>Generative AI: The Power of Creation at Scale</h2>
-                <p>Generative AI is reshaping industries by crafting realistic content across text, image, and video. With endless applications, it’s a tool for both innovation and efficiency.</p>
-                <div class="ai-summary">
-                    <ul>
-                        <li><strong>AI Insight 1:</strong> Generative AI can dramatically enhance creative workflows in marketing and media.</li>
-                        <li><strong>AI Insight 2:</strong> It is transforming product personalization by generating custom content on demand.</li>
-                    </ul>
-                </div>     
-            </div>
+    <h2>Generative AI: The Power of Creation at Scale</h2>
+    <p>Generative AI is reshaping industries by crafting realistic content across text, image, and video. With endless applications, it’s a tool for both innovation and efficiency.</p>
+ 
+         <div class="ai-summary">
+                <ul>
+        <li><strong>AI Insight 1:</strong> Generative AI can dramatically enhance creative workflows in marketing and media.</li>
+        <li><strong>AI Insight 2:</strong> It is transforming product personalization by generating custom content on demand.</li>
+    </ul>
+        </div>     
+</div>
+      <div id="explainable-ai" class="blog-post">
+    <h2>Explainable AI (XAI): Making AI Transparent and Trustworthy</h2>
+    <p>Explainable AI gives us insights into how AI models make decisions, fostering trust in AI systems. This transparency is crucial for industries where accountability is key.</p>
 
-            <div id="explainable-ai" class="blog-post">
-                <h2>Explainable AI (XAI): Making AI Transparent and Trustworthy</h2>
-                <p>Explainable AI gives us insights into how AI models make decisions, fostering trust in AI systems. This transparency is crucial for industries where accountability is key.</p>
-                <div class="ai-summary">
-                    <ul>
-                        <li><strong>AI Insight 1:</strong> XAI is vital for sectors like healthcare, where AI decisions impact lives.</li>
-                        <li><strong>AI Insight 2:</strong> By explaining AI outcomes, XAI helps mitigate biases and enhance fairness.</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- AI Insight 1 -->
+    <div class="ai-summary">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 1:</strong> XAI is vital for sectors like healthcare, where AI decisions impact lives.</p>
+        </div>
+    </div>
+
+    <!-- AI Insight 2 -->
+    <div class="ai-summary">
+        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/chatty.png" alt="Chatty">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 2:</strong> By explaining AI outcomes, XAI helps mitigate biases and enhance fairness.</p>
+        </div>
+    </div>
+</div>
+
+    
         </section>
     </div>
 
@@ -253,29 +271,14 @@
     <script>
         // AI Smart Search Functionality with Summarization
         function aiSearch() {
-            const searchInput = document.getElementById("search-input").value.toLowerCase();
+            const searchInput = document.getElementById("search-input").value;
             if (!searchInput) {
                 alert("Please enter a search term.");
                 return;
             }
-
-            // Filter blog posts based on search input
-            const posts = document.querySelectorAll(".blog-post");
-            let found = false;
-
-            posts.forEach(post => {
-                const content = post.innerText.toLowerCase();
-                if (content.includes(searchInput)) {
-                    post.style.display = "block"; // Show matching post
-                    found = true;
-                } else {
-                    post.style.display = "none"; // Hide non-matching post
-                }
-            });
-
-            if (!found) {
-                alert(`No results found for "${searchInput}"`);
-            }
+            // Placeholder alert for AI search functionality with summarization
+            alert(`Searching for "${searchInput}"...`); 
+            // This is where an API call would go to fetch summarized search results
         }
 
         // Activate sections on click
@@ -285,12 +288,21 @@
 
         // Simulate Trending Topics Auto-Update
         function updateTrendingTopics() {
-            const topics = [
-                "Deep Learning", "Data Privacy", "AI Ethics", "Augmented Reality", "Generative AI",
-                "Explainable AI (XAI)", "Multimodal AI", "Deepfake Detection", "Quantum Machine Learning",
-                "AutoML", "Edge AI", "AI as a Service (AIaaS)", "NLP", "Transfer Learning", "AI in Healthcare",
-                "AI in Finance"
-            ];
+            const topics = ["Deep Learning", "Data Privacy", "AI Ethics", "Augmented Reality",  "Generative AI",
+        "Explainable AI (XAI)",
+        "Multimodal AI",
+        "Deepfake Detection",
+        "AI Ethics",
+        "Quantum Machine Learning",
+        "AutoML",
+        "Edge AI",
+        "AI as a Service (AIaaS)",
+        "Natural Language Processing (NLP)",
+        "Transfer Learning",
+        "AI-Integrated Hardware",
+        "Small Language Models (SLMs)",
+        "AI in Healthcare",
+        "AI in Finance"];// Add new topics here
             const trendingSection = document.getElementById("trending-topics");
             trendingSection.innerHTML = `<h4>Trending Topics</h4>`;
             topics.forEach(topic => {
