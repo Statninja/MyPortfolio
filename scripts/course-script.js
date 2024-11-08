@@ -21,3 +21,30 @@ async function initializePyodide() {
 }
 
 document.addEventListener("DOMContentLoaded", initializePyodide);
+
+// Chatbot interaction
+function sendMessage() {
+    const userInput = document.getElementById("userInput").value;
+    const chatbox = document.getElementById("chatbox");
+
+    // Check if input is empty
+    if (!userInput.trim()) return;
+
+    // Display the user's message
+    const userMessage = document.createElement("p");
+    userMessage.classList.add("user-message");
+    userMessage.textContent = "User: " + userInput;
+    chatbox.appendChild(userMessage);
+
+    // Clear the input field after sending
+    document.getElementById("userInput").value = '';
+
+    // Simulated response (for demonstration purposes)
+    const botMessage = document.createElement("p");
+    botMessage.classList.add("bot-message");
+    botMessage.textContent = "Bot: Hello! How can I help you?";
+    chatbox.appendChild(botMessage);
+
+    // Auto-scroll to the latest message
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
