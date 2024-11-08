@@ -92,9 +92,13 @@
         .trending-topics a:hover {
             color: #ffcc00;
         }
+/* Blog-specific sidebar styling */
+#blog-sidebar {
+    width: 180px; /* Adjust width for a narrower sidebar */
+}
 
         /* Main content styling */
-        #course-content {
+        #blog-content {
             margin-left: 280px;
             padding: 20px;
             width: calc(100% - 280px);
@@ -207,10 +211,10 @@
            .course-sidebar {
     width: 200px; /* Adjust this value to make it narrower */
 }
-           .sidebar {
+#blog-sidebar {
     width: 200px; /* Adjust this value to make it narrower */
 }
-.content {
+#blog-content {
     margin-left: 220px; /* Adjust this based on the new sidebar width */
     padding-left: 10px; /* Fine-tune as needed */
 }
@@ -218,7 +222,7 @@
 </head>
 <body>
   <!-- Sidebar with navigation and trending topics -->
-    <div id="course-sidebar">
+    <div id="blog-sidebar">
         <!-- Top Links -->
         <div class="top-links">
         <a href="index.html">← Back to Portfolio</a>
@@ -249,7 +253,7 @@
    </div>
 
     <!-- Main Content Area -->
-    <div id="course-content">
+    <div id="blog-content">
         <!-- AI Smart Search Bar -->
         <div id="search-bar">
             <input type="text" id="search-input" placeholder="Search topics...">
