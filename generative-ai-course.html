@@ -795,7 +795,18 @@ function goNext() {
         // Clear input field
         document.getElementById("userInput").value = "";
     }
+ <!-- Pyodide Initialization and Python Functionality -->
+    <script>
+        let pyodide;
 
+        async function initializePyodide() {
+            pyodide = await loadPyodide();
+            console.log("Pyodide loaded successfully.");
+        }
+
+        // Load Pyodide on page load
+        document.addEventListener("DOMContentLoaded", initializePyodide);
+    </script>
     </script>
 </body>
 </html>
