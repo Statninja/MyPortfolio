@@ -47,7 +47,11 @@ const aiBook = {
         "The form of the decision boundary and the way it is algorithmically or mathematically computed based on the training data differentiates one learning algorithm from another.",
         "In practice, there are two other essential differentiators of learning algorithms to consider: speed of model building and prediction processing time.",
         "In many practical cases, you might prefer a learning algorithm that builds a less accurate model fast. Additionally, you might prefer a less accurate model that is much quicker at making predictions."
-    ]
+    ],
+"Supervised Learning": [
+    "Supervised learning is a machine learning approach that uses labeled data to train models...",
+    "For example, email classification could involve labels like 'spam' or 'not spam'..."
+],
 
 };
 
