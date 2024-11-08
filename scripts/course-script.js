@@ -1,7 +1,6 @@
-// scripts/course-script.js
-
+// Smooth scrolling for sidebar links
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('#course-sidebar a').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             document.querySelector(this.getAttribute("href")).scrollIntoView({
@@ -11,15 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// scripts/course-script.js pyodide
-
+// Initialize Pyodide
 let pyodide;
-
 async function initializePyodide() {
-    pyodide = await loadPyodide();
+    pyodide = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/" });
     console.log("Pyodide loaded successfully.");
+
+    // Load the God Algorithm Python code from god_algorithm.py
+    const response = await fetch("python/god_algorithm.py");
+    const code = await response.text();
+    await pyodide.runPythonAsync(code);
+    console.log("God Algorithm loaded successfully.");
 }
 
+// Load Pyodide on page load
 document.addEventListener("DOMContentLoaded", initializePyodide);
 
 // Function to call `get_knowledge` from god_algorithm.py
@@ -35,7 +39,7 @@ async function searchKnowledge(keyword) {
 async function displaySection() {
     const keyword = document.getElementById("sectionInput").value;
     const outputDiv = document.getElementById("output");
-    
+
     // Clear previous results
     outputDiv.innerHTML = '';
 
@@ -46,4 +50,31 @@ async function displaySection() {
         paraElement.textContent = paragraph;
         outputDiv.appendChild(paraElement);
     });
+}
+
+// Chatbot interaction
+function sendMessage() {
+    const userInput = document.getElementById("userInput").value;
+    const chatbox = document.getElementById("chatbox");
+
+    // Check if input is empty
+    if (!userInput.trim()) return;
+
+    // Display the user's message
+    const userMessage = document.createElement("p");
+    userMessage.classList.add("user-message");
+    userMessage.textContent = "User: " + userInput;
+    chatbox.appendChild(userMessage);
+
+    // Clear the input field after sending
+    document.getElementById("userInput").value = '';
+
+    // Simulated response (for demonstration purposes)
+    const botMessage = document.createElement("p");
+    botMessage.classList.add("bot-message");
+    botMessage.textContent = "Bot: Hello! How can I help you?";
+    chatbox.appendChild(botMessage);
+
+    // Auto-scroll to the latest message
+    chatbox.scrollTop = chatbox.scrollHeight;
 }
