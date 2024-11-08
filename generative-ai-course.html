@@ -803,18 +803,28 @@ function goNext() {
         // Clear input field
         document.getElementById("userInput").value = "";
     }
-     </script>   
- <!-- Pyodide Initialization and Python Functionality -->
+     </script>  
     <script>
-        let pyodide;
-
-        async function initializePyodide() {
-            pyodide = await loadPyodide();
+          async function initializePyodide() {
+        // Load Pyodide if not already loaded
+        if (typeof pyodide === 'undefined') {
+            pyodide = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/" });
             console.log("Pyodide loaded successfully.");
-        }
 
-        // Load Pyodide on page load
+            // Load numpy explicitly
+            await pyodide.loadPackage("numpy");
+            console.log("Numpy loaded successfully.");
+
+            // Load the God Algorithm code if you have it
+            const response = await fetch("python/god_algorithm.py");
+            const code = await response.text();
+            await pyodide.runPythonAsync(code);
+            console.log("God Algorithm loaded successfully.");
+        }
+    }
+    // Call initialize on page load
         document.addEventListener("DOMContentLoaded", initializePyodide);
+
     </script>
 
 
