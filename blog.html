@@ -328,17 +328,35 @@
     </div>
 
     <script>
-        // AI Smart Search Functionality with Summarization
-        function aiSearch() {
-            const searchInput = document.getElementById("search-input").value;
-            if (!searchInput) {
-                alert("Please enter a search term.");
-                return;
-            }
-            // Placeholder alert for AI search functionality with summarization
-            alert(`Searching for "${searchInput}"...`); 
-            // This is where an API call would go to fetch summarized search results
+   // AI Smart Search Functionality to Filter Blog Posts
+function aiSearch() {
+    const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
+    if (!searchInput) {
+        alert("Please enter a search term.");
+        return;
+    }
+
+    // Select all blog post elements
+    const posts = document.querySelectorAll(".blog-post");
+    let found = false;
+
+    // Loop through each post and check if it contains the search term
+    posts.forEach(post => {
+        const content = post.textContent.toLowerCase();
+        if (content.includes(searchInput)) {
+            post.style.display = "block"; // Show matching post
+            found = true;
+        } else {
+            post.style.display = "none"; // Hide non-matching post
         }
+    });
+
+    // Alert if no matches were found
+    if (!found) {
+        alert(`No results found for "${searchInput}".`);
+    }
+}
+
 
         // Activate sections on click
         function activateSection(id) {
