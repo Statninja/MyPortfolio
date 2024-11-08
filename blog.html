@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generative AI Blog</title>
+    <title> AI Artificial Intelligence Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
@@ -185,6 +185,13 @@
     </style>
 </head>
 <body>
+    <nav>
+    <ul class="nav-links">
+        <li><a href="index.html">← Back to Portfolio</a></li>
+        <li><a href="generative-ai-course.html">Go to Course</a></li> <!-- New Course Link -->
+        <li><a href="mailto:silviacgil@gmail.com">Contact</a></li>
+    </ul>
+</nav>
     <!-- Sidebar with navigation and trending topics -->
     <div id="course-sidebar">
         <h3>Generative AI Blog</h3>
@@ -235,6 +242,76 @@
                 <strong>AI Insight:</strong> Generative AI can simplify complex tasks in AI/ML projects, making model building, training, and evaluation more efficient and accessible.
             </div>
             <!-- Further content and examples... -->
+           
+            <div id="multimodal-ai" class="blog-post">
+    <h2>Multimodal AI: Bridging Text, Image, and Sound for Intelligent Interaction</h2>
+    <p>Multimodal AI combines data from different sources—text, images, and audio—to create more adaptable, intelligent systems. By integrating multiple input types, it powers new applications like language translation in real-time and automated media generation.</p>
+
+    <!-- AI Insights -->
+    <div class="ai-summary">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 1:</strong> Multimodal AI enhances user interaction by processing various input formats, making it vital for real-time translation tools.</p>
+        </div>
+        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/chatty.png" alt="Chatty" class="chatty-image">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 2:</strong> It also powers advanced media applications, enabling cross-platform compatibility and interactive experiences.</p>
+        </div>
+    </div>
+</div>
+
+            
+ <div id="edge-ai" class="blog-post">
+    <h2>Edge AI: Bringing Intelligence Closer to the Data Source</h2>
+    <p>Edge AI enables real-time data processing and decision-making at the edge of a network, reducing latency and improving privacy. By processing data locally on devices, it powers applications in IoT, healthcare, and smart cities.</p>
+
+    <!-- AI Insights -->
+    <div class="ai-summary">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 1:</strong> Edge AI supports faster data processing in IoT applications, enhancing responsiveness in smart homes and wearable devices.</p>
+        </div>
+        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/chatty.png" alt="Chatty" class="chatty-image">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 2:</strong> It also strengthens data security, as sensitive data remains processed locally, ideal for healthcare and finance sectors.</p>
+        </div>
+    </div>
+</div>
+           
+<div id="transfer-learning" class="blog-post">
+    <h2>Transfer Learning: Building on Existing Knowledge for Faster AI Training</h2>
+    <p>Transfer learning enables AI models to build on pre-existing knowledge from similar tasks, dramatically reducing the time and data required for training. This method is especially useful for language translation and image recognition tasks.</p>
+
+    <!-- AI Insights -->
+    <div class="ai-summary">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 1:</strong> Transfer learning accelerates model training, making it efficient for smaller datasets in NLP and image recognition.</p>
+        </div>
+        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/chatty.png" alt="Chatty" class="chatty-image">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 2:</strong> This technique is especially impactful for companies with limited data resources, making AI more accessible.</p>
+        </div>
+    </div>
+</div>
+            
+<div id="ai-healthcare" class="blog-post">
+    <h2>AI in Healthcare: Revolutionizing Diagnosis and Personalized Medicine</h2>
+    <p>AI is transforming healthcare by enabling earlier disease detection and personalized treatment plans. Through predictive models, healthcare providers can offer more accurate diagnoses and tailor treatments to individual patients.</p>
+
+    <!-- AI Insights -->
+    <div class="ai-summary">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 1:</strong> AI-driven diagnostics improve early detection rates, especially in fields like oncology and cardiology.</p>
+        </div>
+        <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/chatty.png" alt="Chatty" class="chatty-image">
+        <div class="insight-box blue-box">
+            <p><strong>AI Insight 2:</strong> Personalized medicine with AI optimizes treatment plans, reducing adverse effects and enhancing patient outcomes.</p>
+        </div>
+    </div>
+</div>
+            
+            
+            
+            
+            
             <div id="generative-ai" class="blog-post">
     <h2>Generative AI: The Power of Creation at Scale</h2>
     <p>Generative AI is reshaping industries by crafting realistic content across text, image, and video. With endless applications, it’s a tool for both innovation and efficiency.</p>
@@ -386,6 +463,7 @@ function aiSearch() {
         "AI-Integrated Hardware",
         "Small Language Models (SLMs)",
         "AI in Healthcare",
+                            
         "AI in Finance"];// Add new topics here
             const trendingSection = document.getElementById("trending-topics");
             trendingSection.innerHTML = `<h4>Trending Topics</h4>`;
