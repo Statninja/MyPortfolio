@@ -13,17 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
 // Initialize Pyodide
 let pyodide;
 async function initializePyodide() {
+    // Load Pyodide
     pyodide = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/" });
     console.log("Pyodide loaded successfully.");
 
-    // Load the God Algorithm Python code from god_algorithm.py
+    // Load numpy package
+    await pyodide.loadPackage("numpy");
+    console.log("Numpy loaded successfully.");
+
+    // Load the God Algorithm Python code
     const response = await fetch("python/god_algorithm.py");
     const code = await response.text();
     await pyodide.runPythonAsync(code);
     console.log("God Algorithm loaded successfully.");
 }
 
-// Load Pyodide on page load
+// Run Pyodide initialization on page load
 document.addEventListener("DOMContentLoaded", initializePyodide);
 
 // Function to call `get_knowledge` from god_algorithm.py
@@ -52,7 +57,7 @@ async function displaySection() {
     });
 }
 
-// Chatbot interaction
+// Chatbot interaction function
 function sendMessage() {
     const userInput = document.getElementById("userInput").value;
     const chatbox = document.getElementById("chatbox");
