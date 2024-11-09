@@ -60,12 +60,15 @@
         }
 
         .iframe-container {
-            width: 100%;
-            height: 275px;
+        
+            width: 300%; /* Increase width to display more map content */
+            height: 300%; /* Increase height accordingly */
             border: none;
-            transform: scale(0.8); /* Adjust scale factor to zoom out */
-            transform-origin: 0 0; /* Ensures scaling begins from the top left */
+            transform: scale(0.3); /* Scale down to fit more of the map in view */
+            transform-origin: top left; /* Ensures scaling starts from the top left */
             overflow: hidden;
+            border-radius: 10px; /* Optional: adds rounded corners */
+            pointer-events: none; /* Prevents interaction within the iframe */
         }
 
         .link-button {
