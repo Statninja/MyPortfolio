@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI UX Designer Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #0d0d0d;
+            color: #00e6e6;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .dashboard-container {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #00e6e6;
+            text-shadow: 0 0 20px #00e6e6;
+        }
+
+        .iframe-card {
+            position: relative;
+            background-color: #111;
+            border: 2px solid #00e6e6;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+        }
+
+        .iframe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .link-button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #00e6e6;
+            color: #0d0d0d;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        .link-button:hover {
+            transform: translateY(-5px);
+            background-color: #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Navigation Button */
+        .nav-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 15px;
+            border-radius: 50%;
+            background-color: #00e6e6;
+            color: #0d0d0d;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-button" onclick="window.location.href='https://silviacalzadagil.com'">
+        ← Home
+    </div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">AI Designer Space Station Dashboard</div>
+
+        <!-- Card for each website iframe -->
+        <div class="iframe-card">
+            <iframe class="iframe-container" src="https://marsoncall.com"></iframe>
+            <div style="text-align: center;">
+                <button class="link-button" onclick="window.open('https://marsoncall.com')">Visit Mars</button>
+            </div>
+        </div>
+
+        <div class="iframe-card">
+            <iframe class="iframe-container" src="https://panditadata.com"></iframe>
+            <div style="text-align: center;">
+                <button class="link-button" onclick="window.open('https://panditadata.com')">Finest Digital Mapping</button>
+            </div>
+        </div>
+
+        <!-- Add more iframe-cards as needed -->
+         <div class="iframe-card">
+            <iframe class="iframe-container" src="https://www.panditanimation.com"></iframe>
+            <div style="text-align: center;">
+                <button class="link-button" onclick="window.open('https://www.panditanimation.com')">Live Earthquakes</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
