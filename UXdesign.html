@@ -3,158 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI UX Designer Projects</title>
-    <style>
-        /* General Styles */
-        body {
-            background-color: #0d0d0d;
-            color: #00e6e6;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        
-        .dashboard-container {
-            width: 90%;
-            max-width: 1100px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .dashboard-header {
-            text-align: center;
-            font-size: 1.6em;
-            font-weight: bold;
-            color: #00e6e6;
-            text-shadow: 0 0 20px #00e6e6;
-        }
-
-        .iframe-card {
-            position: relative;
-            background-color: #111;
-            border: 2px solid #00e6e6;
-            border-radius: 15px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 550px;
-            margin: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-        }
-
-        .iframe-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-        }
-
-        .iframe-container {
-        
-            width: 150%; /* Increase width to display more map content */
-            height: 150%; /* Increase height accordingly */
-            border: none;
-            transform: scale(0.65); /* Scale down to fit more of the map in view */
-            transform-origin: center center; /* Ensures scaling starts from the top left */
-            overflow: hidden;
-            border-radius: 10px; /* Optional: adds rounded corners */
-            pointer-events: none; /* Prevents interaction within the iframe */
-        }
-
-        .link-button {
-            margin: 10px;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 8px;
-            background-color: #00e6e6;
-            color: #0d0d0d;
-            font-size: 0.9em;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-        }
-
-        .link-button:hover {
-            transform: translateY(-4px);
-            background-color: #00ffff;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
-        }
-
-        /* Navigation Button */
-        .nav-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px;
-            border-radius: 50%;
-            background-color: #00e6e6;
-            color: #0d0d0d;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.3s;
-        }
-
-        .nav-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-        }
-    </style>
+    <title>Silvia Calzada Gil | Portfolio</title>
+    
 </head>
+    <style>/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Landing Section */
+.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.landing h1 {
+    font-size: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.landing p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.explore-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #007bff, #00c6ff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Showcase Section */
+.showcase {
+    display: grid;
+    gap: 20px;
+    padding: 50px;
+}
+
+.project {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #1a1a1a;
+    transition: transform 0.3s ease;
+    margin: 20px 0;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project-frame {
+    width: 100%;
+    height: 300px;
+    transform: scale(0.8); /* Initial zoomed out */
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.project:hover .project-frame {
+    transform: scale(1); /* Zoom in on hover */
+}
+
+.project-details {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.project:hover .project-details {
+    opacity: 1;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    background-color: #333;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #007bff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style>
 <body>
 
-    <div class="nav-button" onclick="window.location.href='https://silviacalzadagil.com'">
-        ← Home
-    </div>
+    <!-- Landing Section -->
+    <section class="landing">
+        <h1>Silvia Calzada Gil</h1>
+        <p>Crafting visionary websites & AI solutions</p>
+        <button class="explore-btn" onclick="scrollToShowcase()">Explore My Work</button>
+    </section>
 
-    <div class="dashboard-container">
-        <div class="dashboard-header">AI UX Designer Projects/div>
-
-        <!-- Card for each website iframe -->
-        <div class="iframe-card">
-            <iframe class="iframe-container" src="https://marsoncall.com"></iframe>
-            <div style="text-align: center;">
-                <button class="link-button" onclick="window.open('https://marsoncall.com')">Visit Mars</button>
+    <!-- Showcase Section -->
+    <section class="showcase" id="showcase">
+        <!-- PanditaData -->
+        <div class="project" id="panditadata">
+            <iframe src="https://panditadata.com" class="project-frame"></iframe>
+            <div class="project-details">
+                <h2>PanditaData</h2>
+                <p>Innovative geospatial solutions.</p>
             </div>
         </div>
 
-        <div class="iframe-card">
-            <iframe class="iframe-container" src="https://panditadata.com"></iframe>
-            <div style="text-align: center;">
-                <button class="link-button" onclick="window.open('https://panditadata.com')">Digital Mapping</button>
+        <!-- Mars on Call -->
+        <div class="project" id="marsoncall">
+            <iframe src="https://marsoncall.com" class="project-frame"></iframe>
+            <div class="project-details">
+                <h2>Mars on Call</h2>
+                <p>Explore Mars through immersive mapping.</p>
             </div>
         </div>
 
-        <!-- Add more iframe-cards as needed -->
-        <div class="iframe-card">
-    <!-- Replace iframe with an image, icon, or text to represent the content -->
-    <div style="padding: 20px; background-color: #111; border-radius: 15px; text-align: center;">
-        <!-- Example icon or placeholder -->
-        <p style="font-size: 1.5em; color: #00e6e6;">🌎</p>
-        <p style="color: #00e6e6; font-weight: bold;">Live Earthquakes</p>
-    </div>
-    <div style="text-align: center;">
-        <button class="link-button" onclick="window.open('https://www.panditanimation.com', '_blank')">Visit Live Earthquakes</button>
-    </div>
-</div>
-
-     <div class="iframe-card">
-            <iframe class="iframe-container" src="https://silviacalzadagil.com"></iframe>
-            <div style="text-align: center;">
-                <button class="link-button" onclick="window.open('https://silviacalzadagil.com')">AI &ML Porfolio</button>
+        <!-- Pandita Animation -->
+        <div class="project" id="panditanimation">
+            <iframe src="https://www.panditanimation.com" class="project-frame"></iframe>
+            <div class="project-details">
+                <h2>Pandita Animation</h2>
+                <p>Dynamic animations for AI-driven content.</p>
             </div>
         </div>
-    </div>
 
+        <!-- Silvia Calzada Gil -->
+        <div class="project" id="silviacalzadagil">
+            <iframe src="https://silviacalzadagil.com" class="project-frame"></iframe>
+            <div class="project-details">
+                <h2>Silvia Calzada Gil</h2>
+                <p>Your ultimate AI and ML portfolio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#panditadata">PanditaData</a>
+        <a href="#marsoncall">Mars on Call</a>
+        <a href="#panditanimation">Pandita Animation</a>
+        <a href="#silviacalzadagil">Silvia Calzada Gil</a>
+    </nav>
+
+    <script>function scrollToShowcase() {
+    document.getElementById("showcase").scrollIntoView({ behavior: "smooth" });
+}
+</script>
 </body>
 </html>
