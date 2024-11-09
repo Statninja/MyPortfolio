@@ -1186,15 +1186,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </script>
     <script>
-    function loadReadme(url) {
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("readme-content").innerHTML = marked(data); // Convert Markdown to HTML
-                document.getElementById("readme-content").style.display = 'block'; // Show the content
-            })
-            .catch(error => console.error('Error loading README:', error));
-    }
+   function loadMarkedLibrary(callback) {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    script.onload = callback;
+    document.head.appendChild(script);
+}
+
+function loadReadme(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("readme-content").innerHTML = marked(data);
+            document.getElementById("readme-content").style.display = 'block';
+        })
+        .catch(error => console.error('Error loading README:', error));
+}
+
+// Load marked.js, then fetch README
+loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
     console.log(typeof marked); // Should output "function" if marked is loaded
 </script>
 
