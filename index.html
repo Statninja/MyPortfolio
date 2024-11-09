@@ -37,6 +37,7 @@
 
     <!-- Particles.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
         /* CSS Variables for Light and Dark Themes */
@@ -757,6 +758,14 @@
     height: 100%;
     z-index: -1; /* Places particles behind the cover content */
 }
+.readme-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: none; /* Initially hidden */
+}
 
 
     </style>
@@ -1000,6 +1009,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://www.panditanimation.com" target="_blank">
             <img src="https://raw.githubusercontent.com/Statninja/SilviaCalzadaGil/refs/heads/main/Images/Screenshot%202024-10-28%20003539.png" width="400" height="250" >
             </a>
+            <!-- Button to Load README -->
+            <button onclick="loadReadme('https://raw.githubusercontent.com/yourusername/yourproject/main/README.md')">View Project README</button>
+
+    <!-- Section to Display README Content -->
+    <div id="readme-content" class="readme-section"></div>
         </div>
 
         <div class="iframe-container">
@@ -1167,6 +1181,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }, 1500);
             }, 3000); // Adjust delay for cover display as needed
         });
+
+        function loadReadme(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("readme-content").innerHTML = marked(data); // Convert Markdown to HTML
+            document.getElementById("readme-content").style.display = 'block'; // Display content
+        })
+        .catch(error => console.error('Error loading README:', error));
+}
     </script>
 
 </body>
