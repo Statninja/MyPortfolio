@@ -16,9 +16,16 @@
 
 /* Body */
 body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    overflow-x: hidden;
+            background-color: #0d0d0d;
+            color: #00e6e6;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
 }
 
 /* Landing Section */
@@ -159,11 +166,35 @@ body {
 
 .visit-link:hover {
     background-color: #00cccc;
-}
 
+}
+ /* Go Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #00e6e6;
+            color: #0d0d0d;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-4px);
+            background-color: #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
 </style>
 <body>
-
+<!-- Go Back Button -->
+    <button class="back-button" onclick="window.location.href='index.html'">← Go Back</button>
+    
     <!-- Landing Section -->
     <section class="landing">
         <h1>Silvia Calzada Gil</h1>
