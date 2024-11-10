@@ -1,52 +1,127 @@
-// Pseudo Vue/React structure
-import L from 'leaflet';
-import html2canvas from 'html2canvas';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customizable Map App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map { width: 100%; height: 600px; }
+        #controls { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+        #legalNoticeModal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none; }
+    </style>
+</head>
+<body>
 
-// Map component setup
-const MyMapApp = () => {
-  // State variables
-  const [basemap, setBasemap] = useState('dark'); // Basemap selection
-  const [events, setEvents] = useState([]); // Events array with { id, coords, icon, message }
-  const [title, setTitle] = useState(""); // Title of the map
-  const [lineColor, setLineColor] = useState("#000000"); // Default line color
-  
-  // Function to initialize the Leaflet map with Nominatim and options
-  const initMap = () => {
-    // Create map instance and basemap layers...
-    L.map('map').setView([0, 0], 2);
-    
-    // Add Nominatim for city search and event marker functionality
-    addNominatimSearch();
-  };
+<h2>Customizable Map App</h2>
+<input type="text" id="mapTitleInput" placeholder="Enter map title here" style="width: 100%; font-size: 20px;" />
 
-  // Function to add events with customization
-  const addEvent = (eventData) => {
-    setEvents([...events, eventData]);
-    // Add event marker to map with popup options, icons, and event line...
-  };
-  
-  // Function to save map as image
-  const saveMap = async (format) => {
-    const canvas = await html2canvas(document.getElementById('map'));
-    const link = document.createElement('a');
-    link.download = `map.${format}`;
-    link.href = canvas.toDataURL(`image/${format}`);
-    link.click();
-  };
-  
-  // Render map and UI components
-  return (
-    <div>
-      <h1>Map App</h1>
-      <input placeholder="Map Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <select onChange={(e) => setBasemap(e.target.value)}>
+<div id="controls">
+    <input type="text" id="locationSearch" placeholder="Enter city name">
+    <button id="searchButton">Search Location</button>
+
+    <label for="basemapSelector">Basemap:</label>
+    <select id="basemapSelector">
         <option value="dark">Dark</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
         <option value="red">Red</option>
-      </select>
-      <button onClick={() => saveMap('png')}>Save as PNG</button>
-      {/* Render Leaflet map with events, popups, and settings */}
-    </div>
-  );
-};
+    </select>
+
+    <label for="lineColor">Line Color:</label>
+    <input type="color" id="lineColor" value="#FF0000">
+
+    <label for="fontSelect">Font:</label>
+    <select id="fontSelect">
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+    </select>
+
+    <label for="fontSize">Font Size:</label>
+    <input type="number" id="fontSize" value="14">
+
+    <label for="fontColor">Font Color:</label>
+    <input type="color" id="fontColor" value="#000000">
+
+    <button id="saveMapBtn">Save Map</button>
+    <button id="legalNoticeBtn">Legal Notice</button>
+</div>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<div id="legalNoticeModal" style="background: #fff; padding: 20px; border-radius: 5px; width: 300px;">
+    <p>This app does not store any images or personal data. All images are used only in the browser session.</p>
+    <button onclick="document.getElementById('legalNoticeModal').style.display='none'">Close</button>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    const map = L.map('map').setView([51.505, -0.09], 13);
+    const basemaps = {
+        "dark": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; CartoDB' }),
+        "green": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }),
+        "blue": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }),
+        "red": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' })
+    };
+    basemaps["dark"].addTo(map);
+
+    document.getElementById("basemapSelector").addEventListener("change", function() {
+        map.eachLayer((layer) => map.removeLayer(layer));
+        basemaps[this.value].addTo(map);
+    });
+
+    const locations = [];
+    document.getElementById("searchButton").addEventListener("click", () => {
+        const cityName = document.getElementById("locationSearch").value;
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${cityName}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const lat = data[0].lat;
+                    const lon = data[0].lon;
+                    map.setView([lat, lon], 13);
+                    addLocation(lat, lon, `${cityName} - Searched Location`, "path/to/icon.png", "Custom Popup Message");
+                } else {
+                    alert("Location not found.");
+                }
+            })
+            .catch(error => console.error("Error fetching location:", error));
+    });
+
+    function addLocation(lat, lon, date, iconUrl, popupMessage) {
+        const font = document.getElementById("fontSelect").value;
+        const fontSize = document.getElementById("fontSize").value;
+        const fontColor = document.getElementById("fontColor").value;
+        const selectedIcon = iconUrl || "path/to/default/icon.png";
+
+        const icon = L.icon({ iconUrl: selectedIcon, iconSize: [30, 30] });
+        const marker = L.marker([lat, lon], { icon }).addTo(map);
+        const popupContent = `
+            <div style="font-family: ${font}; font-size: ${fontSize}px; color: ${fontColor};">
+                <b>${date}</b><br>${popupMessage}
+            </div>`;
+        marker.bindPopup(popupContent).openPopup();
+
+        locations.push([lat, lon]);
+        if (locations.length > 1) {
+            const polyline = L.polyline(locations, { color: document.getElementById("lineColor").value }).addTo(map);
+        }
+    }
+
+    document.getElementById("saveMapBtn").addEventListener("click", () => {
+        html2canvas(document.getElementById("map")).then(canvas => {
+            const link = document.createElement("a");
+            link.download = "myMap.png";
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    });
+
+    document.getElementById("legalNoticeBtn").addEventListener("click", () => {
+        document.getElementById("legalNoticeModal").style.display = "block";
+    });
+</script>
+
+</body>
+</html>
