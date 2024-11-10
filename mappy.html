@@ -8,6 +8,7 @@
         #map { width: 100%; height: 600px; }
         #controls { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
         #legalNoticeModal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none; }
+        #popupCustomization img { max-width: 100%; height: auto; }
     </style>
 </head>
 <body>
@@ -42,6 +43,16 @@
 
     <label for="fontColor">Font Color:</label>
     <input type="color" id="fontColor" value="#000000">
+
+    <label for="iconSelect">Event Icon:</label>
+    <select id="iconSelect">
+        <option value="https://path/to/wedding-icon.png">Wedding</option>
+        <option value="https://path/to/travel-icon.png">Travel</option>
+        <option value="https://path/to/romance-icon.png">Romance</option>
+        <!-- Add more icons here -->
+    </select>
+
+    <input type="file" id="imageUpload" accept="image/*">
 
     <button id="saveMapBtn">Save Map</button>
     <button id="legalNoticeBtn">Legal Notice</button>
@@ -89,17 +100,33 @@
             .catch(error => console.error("Error fetching location:", error));
     });
 
-    function addLocation(lat, lon, date, iconUrl, popupMessage) {
+    document.getElementById("imageUpload").addEventListener("change", handleImageUpload);
+
+    function handleImageUpload() {
+        const file = document.getElementById("imageUpload").files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imgSrc = e.target.result;
+                addLocation(51.505, -0.09, "Image Uploaded Location", document.getElementById("iconSelect").value, "Custom Popup Message", imgSrc);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function addLocation(lat, lon, date, iconUrl, popupMessage, imgSrc = '') {
         const font = document.getElementById("fontSelect").value;
         const fontSize = document.getElementById("fontSize").value;
         const fontColor = document.getElementById("fontColor").value;
-        const selectedIcon = iconUrl || "path/to/default/icon.png";
+        const selectedIcon = iconUrl || "https://path/to/default/icon.png";
 
         const icon = L.icon({ iconUrl: selectedIcon, iconSize: [30, 30] });
         const marker = L.marker([lat, lon], { icon }).addTo(map);
+
         const popupContent = `
             <div style="font-family: ${font}; font-size: ${fontSize}px; color: ${fontColor};">
                 <b>${date}</b><br>${popupMessage}
+                ${imgSrc ? `<img src="${imgSrc}" style="max-width: 100%; height: auto;">` : ''}
             </div>`;
         marker.bindPopup(popupContent).openPopup();
 
