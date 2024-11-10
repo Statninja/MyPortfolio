@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Customizable Map App</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <style>
-        #map { width: 100%; height: 600px; }
-        #controls { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
-        #legalNoticeModal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none; }
+        #map { width: 100%; height: 600px; margin-top: 20px; }
+        #controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        #legalNoticeModal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border-radius: 5px; display: none; }
         #popupCustomization img { max-width: 100%; height: auto; }
     </style>
 </head>
@@ -54,19 +57,18 @@
 
     <input type="file" id="imageUpload" accept="image/*">
 
-    <button id="saveMapBtn">Save Map</button>
+    <button id="saveMapBtn">Save as PNG</button>
+    <button id="saveMapPDFBtn">Save as PDF</button>
     <button id="legalNoticeBtn">Legal Notice</button>
 </div>
 
-<div id="map" style="width: 100%; height: 600px;"></div>
+<div id="map"></div>
 
-<div id="legalNoticeModal" style="background: #fff; padding: 20px; border-radius: 5px; width: 300px;">
+<div id="legalNoticeModal">
     <p>This app does not store any images or personal data. All images are used only in the browser session.</p>
     <button onclick="document.getElementById('legalNoticeModal').style.display='none'">Close</button>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script>
     const map = L.map('map').setView([51.505, -0.09], 13);
     const basemaps = {
@@ -92,7 +94,7 @@
                     const lat = data[0].lat;
                     const lon = data[0].lon;
                     map.setView([lat, lon], 13);
-                    addLocation(lat, lon, `${cityName} - Searched Location`, "path/to/icon.png", "Custom Popup Message");
+                    addLocation(lat, lon, `${cityName} - Searched Location`, document.getElementById("iconSelect").value, "Custom Popup Message", new Date().toLocaleString());
                 } else {
                     alert("Location not found.");
                 }
@@ -108,13 +110,13 @@
             const reader = new FileReader();
             reader.onload = (e) => {
                 const imgSrc = e.target.result;
-                addLocation(51.505, -0.09, "Image Uploaded Location", document.getElementById("iconSelect").value, "Custom Popup Message", imgSrc);
+                addLocation(51.505, -0.09, "Image Uploaded Location", document.getElementById("iconSelect").value, "Custom Popup Message", new Date().toLocaleString(), imgSrc);
             };
             reader.readAsDataURL(file);
         }
     }
 
-    function addLocation(lat, lon, date, iconUrl, popupMessage, imgSrc = '') {
+    function addLocation(lat, lon, date, iconUrl, popupMessage, timestamp, imgSrc = '') {
         const font = document.getElementById("fontSelect").value;
         const fontSize = document.getElementById("fontSize").value;
         const fontColor = document.getElementById("fontColor").value;
@@ -125,7 +127,7 @@
 
         const popupContent = `
             <div style="font-family: ${font}; font-size: ${fontSize}px; color: ${fontColor};">
-                <b>${date}</b><br>${popupMessage}
+                <b>${date}</b><br>${popupMessage}<br><small>${timestamp}</small>
                 ${imgSrc ? `<img src="${imgSrc}" style="max-width: 100%; height: auto;">` : ''}
             </div>`;
         marker.bindPopup(popupContent).openPopup();
@@ -142,6 +144,15 @@
             link.download = "myMap.png";
             link.href = canvas.toDataURL();
             link.click();
+        });
+    });
+
+    document.getElementById("saveMapPDFBtn").addEventListener("click", () => {
+        html2canvas(document.getElementById("map")).then(canvas => {
+            const imgData = canvas.toDataURL("image/jpeg");
+            const pdf = new jspdf.jsPDF("landscape");
+            pdf.addImage(imgData, 'JPEG', 10, 10, 280, 150);
+            pdf.save("myMap.pdf");
         });
     });
 
