@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customizable Map App</title>
+    <title>Interactive Map with Customization Options</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<h2>Customizable Map App</h2>
+<h2>Interactive Map with Customization Options</h2>
 <input type="text" id="mapTitleInput" placeholder="Enter map title here" style="width: 100%; font-size: 20px;" />
 
 <div id="controls">
@@ -57,6 +57,7 @@
 
     <input type="file" id="imageUpload" accept="image/*">
 
+    <input type="text" id="popupMessageInput" placeholder="Enter message for popup" style="width: 100%; margin-top: 10px;">
     <button id="saveMapBtn">Save as PNG</button>
     <button id="saveMapPDFBtn">Save as PDF</button>
     <button id="legalNoticeBtn">Legal Notice</button>
@@ -94,7 +95,7 @@
                     const lat = data[0].lat;
                     const lon = data[0].lon;
                     map.setView([lat, lon], 13);
-                    addLocation(lat, lon, `${cityName} - Searched Location`, document.getElementById("iconSelect").value, "Custom Popup Message", new Date().toLocaleString());
+                    addLocation(lat, lon, `${cityName} - Searched Location`, document.getElementById("iconSelect").value, document.getElementById("popupMessageInput").value, new Date().toLocaleString());
                 } else {
                     alert("Location not found.");
                 }
@@ -110,7 +111,7 @@
             const reader = new FileReader();
             reader.onload = (e) => {
                 const imgSrc = e.target.result;
-                addLocation(51.505, -0.09, "Image Uploaded Location", document.getElementById("iconSelect").value, "Custom Popup Message", new Date().toLocaleString(), imgSrc);
+                addLocation(51.505, -0.09, "Image Uploaded Location", document.getElementById("iconSelect").value, document.getElementById("popupMessageInput").value, new Date().toLocaleString(), imgSrc);
             };
             reader.readAsDataURL(file);
         }
