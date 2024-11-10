@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personalized Travel Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <h2>My Special Places Map</h2>
+    <div id="map" style="width: 100%; height: 600px;"></div>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20, 0], 2);  // Set initial view
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Array to store markers and paths
+        const locations = [];
+
+        function addLocation(lat, lng, date, message, imageUrl) {
+            const icon = L.icon({
+                iconUrl: 'custom-icon.png', // customize this path
+                iconSize: [30, 30]
+            });
+
+            const marker = L.marker([lat, lng], { icon }).addTo(map);
+
+            const popupContent = `
+                <h4>${date}</h4>
+                <p>${message}</p>
+                ${imageUrl ? `<img src="${imageUrl}" width="100%" />` : ''}
+            `;
+            marker.bindPopup(popupContent);
+
+            if (locations.length > 0) {
+                const lastLocation = locations[locations.length - 1];
+                L.polyline([lastLocation, [lat, lng]], { color: 'blue' }).addTo(map);
+            }
+            locations.push([lat, lng]);
+        }
+
+        // Example: Add location with custom data
+        addLocation(48.8584, 2.2945, "2022-04-15", "Fell in love here!", "path/to/image.jpg");
+    </script>
+</body>
+</html>
