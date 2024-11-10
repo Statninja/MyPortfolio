@@ -3,89 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalized Travel Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <title>Custom Map App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <style>
         #map { height: 600px; width: 100%; }
-        #form-container {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
+        #control-panel {
+            margin: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-        input, textarea, button {
-            margin: 5px 0;
-            padding: 5px;
-        }
+        #popup-form { margin-top: 10px; }
+        input[type="text"], input[type="file"], select { width: 100%; margin-top: 5px; padding: 5px; }
     </style>
 </head>
 <body>
-    <h2>My Special Places Map</h2>
-    <div id="map"></div>
 
-    <div id="form-container">
-        <label>Latitude: <input type="text" id="lat" placeholder="Enter Latitude"></label>
-        <label>Longitude: <input type="text" id="lng" placeholder="Enter Longitude"></label>
-        <label>Date: <input type="text" id="date" placeholder="Enter Date (e.g., 2022-04-15)"></label>
-        <label>Message: <textarea id="message" placeholder="Enter a message for this location"></textarea></label>
-        <label>Image URL: <input type="text" id="image-url" placeholder="Enter Image URL (optional)"></label>
-        <button onclick="addLocation()">Add Location</button>
+<div id="control-panel">
+    <h3>Customize Your Map</h3>
+    <label for="basemap-select">Choose Basemap:</label>
+    <select id="basemap-select">
+        <option value="dark">Dark</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+    </select>
+
+    <div id="popup-form">
+        <h4>Add Marker with Custom Popup</h4>
+        <input type="text" id="city-input" placeholder="Enter city name..." />
+        <button onclick="searchCity()">Search City</button><br>
+
+        <label for="popup-message">Popup Message:</label>
+        <input type="text" id="popup-message" placeholder="Enter message for popup" />
+
+        <label for="popup-image">Upload Image:</label>
+        <input type="file" id="popup-image" accept="image/*" />
+
+        <label for="popup-color">Text Color:</label>
+        <input type="color" id="popup-color" value="#000000" />
+
+        <label for="line-color">Line Color:</label>
+        <input type="color" id="line-color" value="#0000ff" />
+
+        <button onclick="addMarkerWithPopup()">Add Marker</button>
     </div>
+</div>
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        const map = L.map('map').setView([20, 0], 2);
+<div id="map"></div>
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+<script>
+    // Initialize map
+    var map = L.map('map').setView([20, 0], 2);
 
-        const locations = [];
+    // Basemap Layers
+    var basemaps = {
+        dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors' }),
+        green: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }),
+        blue: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }),
+        red: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' })
+    };
 
-        function addLocation() {
-            const lat = parseFloat(document.getElementById("lat").value);
-            const lng = parseFloat(document.getElementById("lng").value);
-            const date = document.getElementById("date").value;
-            const message = document.getElementById("message").value;
-            const imageUrl = document.getElementById("image-url").value;
+    // Set default basemap
+    basemaps.dark.addTo(map);
 
-            if (isNaN(lat) || isNaN(lng)) {
-                alert("Please enter valid latitude and longitude.");
-                return;
-            }
+    // Basemap selector
+    document.getElementById('basemap-select').addEventListener('change', function() {
+        let selectedBasemap = this.value;
+        map.eachLayer(function(layer) {
+            map.removeLayer(layer);
+        });
+        basemaps[selectedBasemap].addTo(map);
+    });
 
-            const icon = L.icon({
-                iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png', // Customize with your own icon if needed
-                iconSize: [30, 30]
+    // Array to hold all markers for connecting lines
+    var markers = [];
+    
+    // Function to search and locate city using Nominatim
+    function searchCity() {
+        let city = document.getElementById('city-input').value;
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.length > 0) {
+                    let lat = data[0].lat;
+                    let lon = data[0].lon;
+                    map.setView([lat, lon], 10);
+                    addMarker(lat, lon);
+                } else {
+                    alert("City not found!");
+                }
             });
+    }
 
-            const marker = L.marker([lat, lng], { icon }).addTo(map);
+    // Function to add marker with customized popup
+    function addMarkerWithPopup() {
+        let message = document.getElementById('popup-message').value;
+        let textColor = document.getElementById('popup-color').value;
+        let lineColor = document.getElementById('line-color').value;
+        let fileInput = document.getElementById('popup-image').files[0];
 
-            const popupContent = `
-                <h4>${date}</h4>
-                <p>${message}</p>
-                ${imageUrl ? `<img src="${imageUrl}" width="100%" />` : ''}
-            `;
-            marker.bindPopup(popupContent);
-
-            if (locations.length > 0) {
-                const lastLocation = locations[locations.length - 1];
-                L.polyline([lastLocation, [lat, lng]], { color: 'blue' }).addTo(map);
-            }
-
-            locations.push([lat, lng]);
-
-            map.setView([lat, lng], 5);  // Center map on the new marker
-            clearForm();
+        if (markers.length > 0) {
+            // Draw line from last marker to the new one
+            let lastMarkerLatLng = markers[markers.length - 1].getLatLng();
+            let line = L.polyline([lastMarkerLatLng, [currentLat, currentLng]], { color: lineColor }).addTo(map);
         }
 
-        function clearForm() {
-            document.getElementById("lat").value = "";
-            document.getElementById("lng").value = "";
-            document.getElementById("date").value = "";
-            document.getElementById("message").value = "";
-            document.getElementById("image-url").value = "";
+        let popupContent = `<div style="color: ${textColor}; font-size: 14px;">${message}</div>`;
+        
+        // Add image if available
+        if (fileInput) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                popupContent += `<img src="${e.target.result}" alt="popup image" style="width: 100%; max-width: 150px; margin-top: 10px;" />`;
+                addMarkerWithContent(currentLat, currentLng, popupContent);
+            };
+            reader.readAsDataURL(fileInput);
+        } else {
+            addMarkerWithContent(currentLat, currentLng, popupContent);
         }
-    </script>
+    }
+
+    // Helper function to create marker with popup content
+    function addMarkerWithContent(lat, lng, content) {
+        let marker = L.marker([lat, lng]).addTo(map);
+        marker.bindPopup(content).openPopup();
+        markers.push(marker); // Store marker in array for path drawing
+    }
+</script>
 </body>
 </html>
