@@ -1,139 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Map App</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <style>
-        #map { height: 600px; width: 100%; }
-        #control-panel {
-            margin: 10px;
-            padding: 10px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        #popup-form { margin-top: 10px; }
-        input[type="text"], input[type="file"], select { width: 100%; margin-top: 5px; padding: 5px; }
-    </style>
-</head>
-<body>
+// Pseudo Vue/React structure
+import L from 'leaflet';
+import html2canvas from 'html2canvas';
 
-<div id="control-panel">
-    <h3>Customize Your Map</h3>
-    <label for="basemap-select">Choose Basemap:</label>
-    <select id="basemap-select">
+// Map component setup
+const MyMapApp = () => {
+  // State variables
+  const [basemap, setBasemap] = useState('dark'); // Basemap selection
+  const [events, setEvents] = useState([]); // Events array with { id, coords, icon, message }
+  const [title, setTitle] = useState(""); // Title of the map
+  const [lineColor, setLineColor] = useState("#000000"); // Default line color
+  
+  // Function to initialize the Leaflet map with Nominatim and options
+  const initMap = () => {
+    // Create map instance and basemap layers...
+    L.map('map').setView([0, 0], 2);
+    
+    // Add Nominatim for city search and event marker functionality
+    addNominatimSearch();
+  };
+
+  // Function to add events with customization
+  const addEvent = (eventData) => {
+    setEvents([...events, eventData]);
+    // Add event marker to map with popup options, icons, and event line...
+  };
+  
+  // Function to save map as image
+  const saveMap = async (format) => {
+    const canvas = await html2canvas(document.getElementById('map'));
+    const link = document.createElement('a');
+    link.download = `map.${format}`;
+    link.href = canvas.toDataURL(`image/${format}`);
+    link.click();
+  };
+  
+  // Render map and UI components
+  return (
+    <div>
+      <h1>Map App</h1>
+      <input placeholder="Map Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <select onChange={(e) => setBasemap(e.target.value)}>
         <option value="dark">Dark</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
         <option value="red">Red</option>
-    </select>
-
-    <div id="popup-form">
-        <h4>Add Marker with Custom Popup</h4>
-        <input type="text" id="city-input" placeholder="Enter city name..." />
-        <button onclick="searchCity()">Search City</button><br>
-
-        <label for="popup-message">Popup Message:</label>
-        <input type="text" id="popup-message" placeholder="Enter message for popup" />
-
-        <label for="popup-image">Upload Image:</label>
-        <input type="file" id="popup-image" accept="image/*" />
-
-        <label for="popup-color">Text Color:</label>
-        <input type="color" id="popup-color" value="#000000" />
-
-        <label for="line-color">Line Color:</label>
-        <input type="color" id="line-color" value="#0000ff" />
-
-        <button onclick="addMarkerWithPopup()">Add Marker</button>
+      </select>
+      <button onClick={() => saveMap('png')}>Save as PNG</button>
+      {/* Render Leaflet map with events, popups, and settings */}
     </div>
-</div>
-
-<div id="map"></div>
-
-<script>
-    // Initialize map
-    var map = L.map('map').setView([20, 0], 2);
-
-    // Basemap Layers
-    var basemaps = {
-        dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors' }),
-        green: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }),
-        blue: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }),
-        red: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' })
-    };
-
-    // Set default basemap
-    basemaps.dark.addTo(map);
-
-    // Basemap selector
-    document.getElementById('basemap-select').addEventListener('change', function() {
-        let selectedBasemap = this.value;
-        map.eachLayer(function(layer) {
-            map.removeLayer(layer);
-        });
-        basemaps[selectedBasemap].addTo(map);
-    });
-
-    // Array to hold all markers for connecting lines
-    var markers = [];
-    
-    // Function to search and locate city using Nominatim
-    function searchCity() {
-        let city = document.getElementById('city-input').value;
-        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.length > 0) {
-                    let lat = data[0].lat;
-                    let lon = data[0].lon;
-                    map.setView([lat, lon], 10);
-                    addMarker(lat, lon);
-                } else {
-                    alert("City not found!");
-                }
-            });
-    }
-
-    // Function to add marker with customized popup
-    function addMarkerWithPopup() {
-        let message = document.getElementById('popup-message').value;
-        let textColor = document.getElementById('popup-color').value;
-        let lineColor = document.getElementById('line-color').value;
-        let fileInput = document.getElementById('popup-image').files[0];
-
-        if (markers.length > 0) {
-            // Draw line from last marker to the new one
-            let lastMarkerLatLng = markers[markers.length - 1].getLatLng();
-            let line = L.polyline([lastMarkerLatLng, [currentLat, currentLng]], { color: lineColor }).addTo(map);
-        }
-
-        let popupContent = `<div style="color: ${textColor}; font-size: 14px;">${message}</div>`;
-        
-        // Add image if available
-        if (fileInput) {
-            let reader = new FileReader();
-            reader.onload = function (e) {
-                popupContent += `<img src="${e.target.result}" alt="popup image" style="width: 100%; max-width: 150px; margin-top: 10px;" />`;
-                addMarkerWithContent(currentLat, currentLng, popupContent);
-            };
-            reader.readAsDataURL(fileInput);
-        } else {
-            addMarkerWithContent(currentLat, currentLng, popupContent);
-        }
-    }
-
-    // Helper function to create marker with popup content
-    function addMarkerWithContent(lat, lng, content) {
-        let marker = L.marker([lat, lng]).addTo(map);
-        marker.bindPopup(content).openPopup();
-        markers.push(marker); // Store marker in array for path drawing
-    }
-</script>
-</body>
-</html>
+  );
+};
