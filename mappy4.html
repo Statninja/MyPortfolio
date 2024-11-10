@@ -2,29 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalized Travel Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map { height: 600px; width: 100%; }
+        #form-container {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <h2>My Special Places Map</h2>
-    <div id="map" style="width: 100%; height: 600px;"></div>
+    <div id="map"></div>
 
+    <div id="form-container">
+        <label>Latitude: <input type="text" id="lat" placeholder="Enter Latitude"></label>
+        <label>Longitude: <input type="text" id="lng" placeholder="Enter Longitude"></label>
+        <label>Date: <input type="text" id="date" placeholder="Enter Date (e.g., 2022-04-15)"></label>
+        <label>Message: <textarea id="message" placeholder="Enter a message for this location"></textarea></label>
+        <label>Image URL: <input type="text" id="image-url" placeholder="Enter Image URL (optional)"></label>
+        <button onclick="addLocation()">Add Location</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        // Initialize the map
-        const map = L.map('map').setView([20, 0], 2);  // Set initial view
+        const map = L.map('map').setView([20, 0], 2);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Array to store markers and paths
         const locations = [];
 
-        function addLocation(lat, lng, date, message, imageUrl) {
+        function addLocation() {
+            const lat = parseFloat(document.getElementById("lat").value);
+            const lng = parseFloat(document.getElementById("lng").value);
+            const date = document.getElementById("date").value;
+            const message = document.getElementById("message").value;
+            const imageUrl = document.getElementById("image-url").value;
+
+            if (isNaN(lat) || isNaN(lng)) {
+                alert("Please enter valid latitude and longitude.");
+                return;
+            }
+
             const icon = L.icon({
-                iconUrl: 'custom-icon.png', // customize this path
+                iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png', // Customize with your own icon if needed
                 iconSize: [30, 30]
             });
 
@@ -41,11 +72,20 @@
                 const lastLocation = locations[locations.length - 1];
                 L.polyline([lastLocation, [lat, lng]], { color: 'blue' }).addTo(map);
             }
+
             locations.push([lat, lng]);
+
+            map.setView([lat, lng], 5);  // Center map on the new marker
+            clearForm();
         }
 
-        // Example: Add location with custom data
-        addLocation(48.8584, 2.2945, "2022-04-15", "Fell in love here!", "path/to/image.jpg");
+        function clearForm() {
+            document.getElementById("lat").value = "";
+            document.getElementById("lng").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("message").value = "";
+            document.getElementById("image-url").value = "";
+        }
     </script>
 </body>
 </html>
