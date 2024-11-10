@@ -2,50 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Personalized Travel Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Map App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+        #control-panel {
+            margin: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-    <h2>My Special Places Map</h2>
-    <div id="map" style="width: 100%; height: 600px;"></div>
 
-    <script>
-        // Initialize the map
-        const map = L.map('map').setView([20, 0], 2);  // Set initial view
+<div id="control-panel">
+    <h3>Customize Your Map</h3>
+    <label for="basemap-select">Choose Basemap:</label>
+    <select id="basemap-select">
+        <option value="dark">Dark</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+    </select>
+    <button onclick="addMarker()">Add Marker</button>
+</div>
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+<div id="map"></div>
 
-        // Array to store markers and paths
-        const locations = [];
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([20, 0], 2);
 
-        function addLocation(lat, lng, date, message, imageUrl) {
-            const icon = L.icon({
-                iconUrl: 'custom-icon.png', // customize this path
-                iconSize: [30, 30]
-            });
+    // Basemap Layers
+    var basemaps = {
+        dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors' }),
+        green: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }),
+        blue: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }),
+        red: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' })
+    };
 
-            const marker = L.marker([lat, lng], { icon }).addTo(map);
+    // Set default basemap
+    basemaps.dark.addTo(map);
 
-            const popupContent = `
-                <h4>${date}</h4>
-                <p>${message}</p>
-                ${imageUrl ? `<img src="${imageUrl}" width="100%" />` : ''}
-            `;
-            marker.bindPopup(popupContent);
+    // Basemap selector logic
+    document.getElementById('basemap-select').addEventListener('change', function() {
+        let selectedBasemap = this.value;
+        map.eachLayer(function(layer) {
+            map.removeLayer(layer);
+        });
+        basemaps[selectedBasemap].addTo(map);
+    });
 
-            if (locations.length > 0) {
-                const lastLocation = locations[locations.length - 1];
-                L.polyline([lastLocation, [lat, lng]], { color: 'blue' }).addTo(map);
-            }
-            locations.push([lat, lng]);
+    // Add Marker with Popup
+    function addMarker() {
+        let lat = prompt("Enter Latitude:");
+        let lng = prompt("Enter Longitude:");
+        let message = prompt("Enter Message for Popup:");
+
+        if (lat && lng && message) {
+            let marker = L.marker([lat, lng]).addTo(map);
+            marker.bindPopup(`<div style="font-size:14px; color:black;">${message}</div>`).openPopup();
+        } else {
+            alert("Please provide valid Latitude, Longitude, and Message.");
         }
+    }
+</script>
 
-        // Example: Add location with custom data
-        addLocation(48.8584, 2.2945, "2022-04-15", "Fell in love here!", "path/to/image.jpg");
-    </script>
 </body>
 </html>
