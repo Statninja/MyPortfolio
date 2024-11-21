@@ -1,0 +1,52 @@
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+
+# Allow crawling of everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://silviacalzadagil.com/sitemap.xml
+
+# Delay for crawlers (prevent server overload)
+Crawl-delay: 10
+
+# Allow search engines to index valuable resources
+User-agent: Googlebot
+Allow: /blog/
+Allow: /generative-ai-course.html
+
+User-agent: Bingbot
+Allow: /blog/
+Allow: /generative-ai-course.html
+
+User-agent: Yandex
+Allow: /blog/
+Allow: /portfolio/
+
+# Disallow certain bots
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SEMrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+
+# Special rules for media and files
+User-agent: *
+Disallow: /uploads/private-files/
+Allow: /uploads/public-images/
+
+# Block query strings if unnecessary
+Disallow: /*?*  # Prevent indexing of URLs with query parameters
+
+# Block indexing of duplicate or unnecessary pages
+Disallow: /tag/
+Disallow: /category/
+Disallow: /search/
+
+# Ensure JavaScript and CSS files are accessible for rendering
+User-agent: *
+Allow: /*.js
+Allow: /*.css
