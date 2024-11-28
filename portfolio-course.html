@@ -3,220 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Course Navigation</title>
+    <title>AI Portfolio Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General Reset and Styling */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
             display: flex;
-            min-height: 100vh;
-            background: #0d1117;
-            color: #c9d1d9;
+            height: 100vh;
             overflow: hidden;
         }
-
-        /* Sidebar Navigation */
+        /* Sidebar Styling */
         .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 70px;
-            height: 100%;
-            background: linear-gradient(180deg, #1f1f1f, #333333);
+            width: 250px;
+            background-color: #333;
+            color: #fff;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 1rem 0;
-            z-index: 10;
-            transition: width 0.3s ease;
-        }
-        .sidebar:hover {
-            width: 250px;
-        }
-        .sidebar .logo {
-            font-size: 1.5rem;
-            color: #58a6ff;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            transition: opacity 0.3s ease;
-        }
-        .sidebar:hover .logo {
-            opacity: 1;
-        }
-        .sidebar a {
-            width: 60px;
-            height: 60px;
-            margin: 1rem 0;
-            background: #161b22;
-            color: #c9d1d9;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            position: relative;
-        }
-        .sidebar a span {
-            display: none;
-            margin-left: 10px;
-            font-size: 1rem;
-            color: #fff;
-        }
-        .sidebar:hover a span {
-            display: inline;
-        }
-        .sidebar a:hover {
-            background: #58a6ff;
-            color: #fff;
-        }
-        .sidebar a.active {
-            background: #58a6ff;
-            color: #fff;
-        }
-
-        /* Main Content */
-        .main {
-            flex: 1;
-            margin-left: 70px;
-            padding: 2rem;
+            padding: 1rem;
             overflow-y: auto;
-            transition: margin-left 0.3s ease;
         }
-        .sidebar:hover ~ .main {
-            margin-left: 250px;
+        .sidebar h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            text-align: center;
         }
-        section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: #161b22;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
         }
-        section h2 {
-            font-size: 1.8rem;
-            color: #58a6ff;
+        .sidebar ul li {
             margin-bottom: 1rem;
         }
-        section p {
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sidebar ul li a:hover {
+            color: #00e1ff;
+        }
+        /* Main Content Styling */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .main-content h1 {
+            font-size: 2rem;
+        }
+        .main-content p {
             line-height: 1.6;
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 60px;
-            }
-            .sidebar a span {
-                display: none;
-            }
-            .main {
-                margin-left: 60px;
-            }
         }
     </style>
 </head>
 <body>
 
     <!-- Sidebar Navigation -->
-    <nav class="sidebar">
-        <div class="logo">Aletheia</div>
-        <a href="#introduction" class="active">
-            📘 <span>Introduction</span>
-        </a>
-        <a href="#homepage">
-            🏠 <span>Home Page</span>
-        </a>
-        <a href="#about">
-            👤 <span>About Me</span>
-        </a>
-        <a href="#portfolio">
-            📂 <span>Portfolio</span>
-        </a>
-        <a href="#contact">
-            📩 <span>Contact</span>
-        </a>
-        <a href="#blog">
-            📝 <span>Blog</span>
-        </a>
-    </nav>
+    <aside class="sidebar">
+        <h2>Course Navigation</h2>
+        <ul id="navigation">
+            <li><a href="#introduction"><i class="fas fa-info-circle"></i> Introduction</a></li>
+            <li><a href="#setup"><i class="fas fa-tools"></i> Project Setup</a></li>
+            <li><a href="#design"><i class="fas fa-paint-brush"></i> Design Choices</a></li>
+            <li><a href="#homepage"><i class="fas fa-home"></i> Building the Home Page</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About Me Section</a></li>
+            <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio Showcase</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Form</a></li>
+            <li><a href="#blog"><i class="fas fa-blog"></i> Blog Section</a></li>
+            <li><a href="#navbar"><i class="fas fa-bars"></i> Navigation Bar</a></li>
+            <li><a href="#styling"><i class="fas fa-magic"></i> Advanced Styling</a></li>
+            <li><a href="#responsive"><i class="fas fa-mobile-alt"></i> Responsive Design</a></li>
+            <li><a href="#seo"><i class="fas fa-chart-line"></i> SEO Basics</a></li>
+            <li><a href="#social"><i class="fas fa-share-alt"></i> Social Media Links</a></li>
+            <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="#video"><i class="fas fa-video"></i> Videos</a></li>
+            <li><a href="#analytics"><i class="fas fa-chart-pie"></i> Analytics</a></li>
+            <li><a href="#accessibility"><i class="fas fa-universal-access"></i> Accessibility</a></li>
+            <li><a href="#deploy"><i class="fas fa-cloud-upload-alt"></i> Deployment</a></li>
+            <li><a href="#domain"><i class="fas fa-globe"></i> Custom Domain</a></li>
+        </ul>
+    </aside>
 
-    <!-- Main Content -->
-    <div class="main">
-        <!-- Section Example -->
-        <section id="introduction">
-            <h2>Introduction to the Course</h2>
-            <p>Welcome to this futuristic course on creating AI-powered portfolio websites. Each section guides you with structured content.</p>
-        </section>
+    <!-- Main Content Area -->
+    <main class="main-content" id="content">
+        <h1>Welcome to the Course!</h1>
+        <p>Select a section from the sidebar to start learning.</p>
+    </main>
 
-        <section id="homepage">
-            <h2>Building the Home Page</h2>
-            <p>The homepage is the first impression visitors have of your portfolio. This section explains how to design it.</p>
-        </section>
-
-        <section id="about">
-            <h2>About Me Section</h2>
-            <p>Learn to craft a compelling 'About Me' section, highlighting your skills and experiences.</p>
-        </section>
-
-        <section id="portfolio">
-            <h2>Portfolio Showcase</h2>
-            <p>Showcase your projects with style using visually engaging portfolio sections.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Form</h2>
-            <p>Add an easy-to-use contact form to allow users to reach you directly.</p>
-        </section>
-
-        <section id="blog">
-            <h2>Blog Section</h2>
-            <p>Learn how to create a dynamic blog section to share updates and insights.</p>
-        </section>
-    </div>
-
+    <!-- JavaScript for Navigation -->
     <script>
-        const links = document.querySelectorAll('.sidebar a');
-        const sections = document.querySelectorAll('.main section');
+        const content = document.getElementById('content');
+        const navigation = document.getElementById('navigation');
 
-        // Update active link on scroll
-        window.addEventListener('scroll', () => {
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+        // Define the course content
+        const sections = {
+            introduction: {
+                title: "Introduction to Portfolio Websites",
+                content: `<p>Learn the importance of having a portfolio website, target audience, and real-life case studies of successful portfolios.</p>`
+            },
+            setup: {
+                title: "Project Setup",
+                content: `<p>Discover the tools, tech stack, and environment setup needed to kickstart your portfolio project.</p>`
+            },
+            design: {
+                title: "Design Choices and UI Planning",
+                content: `<p>Explore design principles, wireframes, and UI tools like Figma to plan your website's appearance.</p>`
+            },
+            homepage: {
+                title: "Building the Home Page",
+                content: `<p>Create a hero section, navigation bar, and call-to-action buttons for an engaging homepage.</p>`
+            },
+            about: {
+                title: "Creating the About Me Section",
+                content: `<p>Write a compelling bio and style your About Me section with images and typography.</p>`
+            },
+            portfolio: {
+                title: "Portfolio Showcase",
+                content: `<p>Design an interactive portfolio section with project cards, hover effects, and modals.</p>`
+            },
+            contact: {
+                title: "Contact Form",
+                content: `<p>Add a contact form with input validation to allow users to get in touch.</p>`
+            },
+            blog: {
+                title: "Blog Section",
+                content: `<p>Build a blog section to share insights, with pagination and easy content updates.</p>`
+            },
+            navbar: {
+                title: "Custom Navigation Bar",
+                content: `<p>Create a sticky, responsive navigation bar with smooth scroll effects.</p>`
+            },
+            styling: {
+                title: "Styling with Advanced CSS",
+                content: `<p>Add animations, transitions, and layout enhancements with advanced CSS techniques.</p>`
+            },
+            responsive: {
+                title: "Responsive Design",
+                content: `<p>Ensure your site looks great on all devices using a mobile-first approach and media queries.</p>`
+            },
+            seo: {
+                title: "SEO Basics",
+                content: `<p>Optimize your website's metadata, keywords, and content to improve search engine visibility.</p>`
+            },
+            social: {
+                title: "Adding Social Media Links",
+                content: `<p>Add stylish icons linking to your social media profiles in the footer or header.</p>`
+            },
+            gallery: {
+                title: "Creating a Gallery",
+                content: `<p>Showcase additional visuals with a responsive image gallery and lightbox effect.</p>`
+            },
+            video: {
+                title: "Embedding Videos",
+                content: `<p>Embed videos and interactive elements to showcase project demos or tutorials.</p>`
+            },
+            analytics: {
+                title: "Analytics Integration",
+                content: `<p>Set up Google Analytics to track user behavior and improve your site's performance.</p>`
+            },
+            accessibility: {
+                title: "Accessibility Features",
+                content: `<p>Implement ARIA roles, keyboard navigation, and color contrast adjustments to make your site accessible.</p>`
+            },
+            deploy: {
+                title: "Deployment",
+                content: `<p>Host your portfolio on GitHub Pages, Netlify, or Vercel, and make it live online.</p>`
+            },
+            domain: {
+                title: "Custom Domain Setup",
+                content: `<p>Connect a custom domain to your site and enable HTTPS for a professional URL.</p>`
+            }
+        };
 
-            links.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scrolling for sidebar links
-        links.forEach(link => {
-            link.addEventListener('click', e => {
+        // Add event listeners to sidebar links
+        navigation.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
                 e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-            });
+                const sectionKey = e.target.getAttribute('href').substring(1); // Get the section key
+                loadSection(sectionKey);
+            }
         });
+
+        // Function to load content dynamically
+        function loadSection(key) {
+            const section = sections[key];
+            if (section) {
+                content.innerHTML = `
+                    <h1>${section.title}</h1>
+                    ${section.content}
+                `;
+            }
+        }
     </script>
 
 </body>
