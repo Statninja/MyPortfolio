@@ -3,72 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Course Navigation</title>
+    <title>Futuristic Course Navigation</title>
     <style>
         /* General Reset and Styling */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d1117; /* Dark background for futuristic feel */
-            color: #c9d1d9; /* Soft white for readability */
+            background-color: #0d1117; /* Dark futuristic background */
+            color: #c9d1d9; /* Soft text color */
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        /* Header Navigation */
-        .header {
+        /* Sidebar Navigation */
+        .sidebar {
             position: fixed;
-            top: 0;
             left: 0;
-            width: 100%;
-            height: 70px; /* Logical height */
-            background: linear-gradient(90deg, #1f1f1f, #333333);
+            top: 0;
+            width: 80px; /* Compact width */
+            height: 100%;
+            background: linear-gradient(180deg, #1f1f1f, #333333);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
+            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
             z-index: 100;
         }
-        .header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #58a6ff;
-            text-transform: uppercase;
-        }
-        .header .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .header .nav-links a {
+        .sidebar a {
+            width: 60px;
+            height: 60px;
+            margin: 1rem 0;
+            background: #161b22;
             color: #c9d1d9;
-            text-decoration: none;
-            font-size: 1rem;
+            border-radius: 50%;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
         }
-        .header .nav-links a:hover {
-            color: #58a6ff;
+        .sidebar a:hover {
+            background: #58a6ff; /* Futuristic highlight */
+            color: #fff;
+            transform: scale(1.1);
         }
-        .header .nav-links a.active {
-            color: #58a6ff;
+        .sidebar a.active {
+            background: #58a6ff;
+            color: #fff;
         }
 
         /* Main Content */
-        main {
-            padding-top: 90px; /* Space for fixed header */
-            margin: 0 auto;
-            max-width: 1200px;
+        .main {
+            margin-left: 80px; /* Adjust for sidebar width */
+            overflow-y: auto;
+            height: 100%;
+            width: calc(100% - 80px);
             padding: 2rem;
+            box-sizing: border-box;
         }
-
-        /* Section Styling */
         section {
             margin-bottom: 3rem;
             padding: 2rem;
-            background: #161b22; /* Subtle background for contrast */
+            background: #161b22;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
@@ -86,42 +86,36 @@
             scroll-behavior: smooth;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #1f1f1f;
-            color: #8b949e;
-            margin-top: 2rem;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem;
+            .sidebar {
+                width: 60px;
+            }
+            .sidebar a {
+                width: 50px;
+                height: 50px;
+            }
+            .main {
+                margin-left: 60px;
+                width: calc(100% - 60px);
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="header">
-        <div class="logo">Aletheia AI</div>
-        <nav class="nav-links">
-            <a href="#introduction" data-section="introduction"><span>📘</span> Introduction</a>
-            <a href="#homepage" data-section="homepage"><span>🏠</span> Home Page</a>
-            <a href="#about" data-section="about"><span>👤</span> About</a>
-            <a href="#portfolio" data-section="portfolio"><span>📂</span> Portfolio</a>
-            <a href="#contact" data-section="contact"><span>📩</span> Contact</a>
-            <!-- Add more links dynamically -->
-        </nav>
-    </header>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a href="#introduction" data-section="introduction" class="active">📘</a>
+        <a href="#homepage" data-section="homepage">🏠</a>
+        <a href="#about" data-section="about">👤</a>
+        <a href="#portfolio" data-section="portfolio">📂</a>
+        <a href="#contact" data-section="contact">📩</a>
+        <!-- Add more icons as needed -->
+    </div>
 
     <!-- Main Content -->
-    <main>
+    <div class="main">
         <!-- Example Section -->
         <section id="introduction">
             <h2>Introduction</h2>
@@ -147,17 +141,12 @@
             <h2>Contact Form</h2>
             <p>Add a form for visitors to easily contact you for collaborations or job offers.</p>
         </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        &copy; 2024 Aletheia AI Academia. All Rights Reserved.
-    </footer>
+    </div>
 
     <!-- JavaScript for Active Navigation Highlight -->
     <script>
-        const links = document.querySelectorAll('.nav-links a');
-        const sections = document.querySelectorAll('main section');
+        const links = document.querySelectorAll('.sidebar a');
+        const sections = document.querySelectorAll('.main section');
 
         // Update active link on scroll
         window.addEventListener('scroll', () => {
@@ -174,6 +163,15 @@
                 if (link.getAttribute('href') === `#${currentSection}`) {
                     link.classList.add('active');
                 }
+            });
+        });
+
+        // Smooth scrolling to sections on click
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('href').substring(1);
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
