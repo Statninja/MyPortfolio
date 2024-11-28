@@ -922,6 +922,129 @@
     margin-top: 10px;
     display: none; /* Initially hidden */
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Section - About Me</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .faq-section {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .faq-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .faq {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+    .faq-question {
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background-color: #f0f0f0;
+    }
+
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: #777;
+    }
+
+    .faq-question.active::after {
+      content: "-";
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-top: 1px solid #ddd;
+    }
+
+    .faq-answer.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="faq-section">
+    <h1 class="faq-title">About Me - FAQ</h1>
+
+    <div class="faq">
+      <div class="faq-question">Who is Silvia Calzada Gil?</div>
+      <div class="faq-answer">
+        I am an AI portfolio creator and consultant specializing in data science, artificial intelligence, and visual storytelling. My mission is to make complex AI concepts accessible and engaging for everyone.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">What services do you provide?</div>
+      <div class="faq-answer">
+        I offer custom AI solutions, educational content, and visual storytelling. Whether you need machine learning models, AI courses, or creative presentations, I provide tailored services to suit your needs.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How easy is it to work with you?</div>
+      <div class="faq-answer">
+        I prioritize clear communication and transparency. I make it easy for clients to collaborate by simplifying AI processes and delivering solutions that fit seamlessly into their workflows.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">Where can I see your portfolio?</div>
+      <div class="faq-answer">
+        You can explore my portfolio on my website at <a href="https://silviacalzadagil.com" target="_blank">https://silviacalzadagil.com</a>. It showcases my projects, services, and AI expertise.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle active class on the clicked question
+        question.classList.toggle('active');
+
+        // Show or hide the answer
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('visible');
+      });
+    });
+  </script>
+
+</body>
+</html>
 
 
     </style>
