@@ -3,367 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website AI Guide - Syllabus</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>AI Portfolio Course</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        /* General Styling */
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #0f0f0f, #1a1a1a);
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
             color: #fff;
-        }
-        header {
-            text-align: center;
-            padding: 15px;
-            background: #00e1ff;
-            color: #0f0f0f;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            margin-top: 10px;
-            font-size: 1.2rem;
-        }
-        main {
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 225, 255, 0.3);
-        }
-        section h2 {
-            color: #00e1ff;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        section p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 10px;
-        }
-        .user-query {
-            margin-top: 15px;
-            font-size: 1rem;
-            color: #00ffff;
-        }
-        .answer-output {
-            margin-top: 10px;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 10px;
-            border-radius: 5px;
-            color: #ccc;
-            font-family: 'Courier New', monospace;
-        }
-        syllabus {
-    max-width: 600px; /* Limit the width to make it narrower */
-    margin: 0 auto;   /* Center the syllabus horizontally */
-    padding: 20px;    /* Add some padding for better readability */
-    background-color: #f9f9f9; /* Optional: Light background for contrast */
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
-    font-size: 1rem; /* Maintain a standard font size */
-    line-height: 1.6; /* Improve readability with proper line spacing */
-}
-    </style>
-</head>
-<body>
-    <header>
-       
-        <h1>Portfolio Website AI Guide</h1>
-        <p>Syllabus: Learn how to create a stunning AI-powered portfolio website.</p>
-       
-    </header>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Portfolio Guide</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: #1e1e2f;
             display: flex;
+            flex-direction: row;
             height: 100vh;
             overflow: hidden;
         }
-        /* Sidebar Styling */
+
+        /* Navigation Section */
         .sidebar {
-            width: 250px;
+            width: 20%; /* Adjust the width for a slimmer sidebar */
             background-color: #333;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
             padding: 1rem;
             overflow-y: auto;
+            border-right: 2px solid #444;
         }
-        .sidebar h2 {
-            margin: 0;
+
+        .sidebar h1 {
             font-size: 1.5rem;
             text-align: center;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-        .sidebar ul li {
+            color: #08fdd8;
             margin-bottom: 1rem;
         }
-        .sidebar ul li a {
-            color: #fff;
+
+        .sidebar p {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar a {
+            display: block;
             text-decoration: none;
+            color: #fff;
             font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s ease, color 0.3s ease;
         }
-        .sidebar ul li a:hover {
-            color: #00e1ff;
+
+        .sidebar a:hover {
+            background-color: #08fdd8;
+            color: #333;
         }
-        /* Main Content Styling */
-        .main-content {
-            flex: 1;
+
+        .sidebar a.active {
+            background-color: #444;
+            color: #08fdd8;
+        }
+
+        /* Content Section */
+        .content {
+            width: 80%; /* Adjust the width for more content space */
             padding: 2rem;
             overflow-y: auto;
         }
-        .main-content h1 {
+
+        .content h2 {
             font-size: 2rem;
+            color: #08fdd8;
+            margin-bottom: 1rem;
         }
-        .main-content p {
+
+        .content .section {
+            background-color: #2b2d42;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .content .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .content .section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content .section p {
+            font-size: 1rem;
             line-height: 1.6;
+        }
+
+        /* Scrollbar Customization */
+        .sidebar::-webkit-scrollbar,
+        .content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb,
+        .content::-webkit-scrollbar-thumb {
+            background: #08fdd8;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-
     <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <h2>Course Navigation</h2>
-        <ul id="navigation">
-            <li><a href="#introduction"><i class="fas fa-info-circle"></i> Introduction</a></li>
-            <li><a href="#setup"><i class="fas fa-tools"></i> Project Setup</a></li>
-            <li><a href="#design"><i class="fas fa-paint-brush"></i> Design Choices</a></li>
-            <li><a href="#homepage"><i class="fas fa-home"></i> Building the Home Page</a></li>
-            <li><a href="#about"><i class="fas fa-user"></i> About Me Section</a></li>
-            <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio Showcase</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Form</a></li>
-            <li><a href="#blog"><i class="fas fa-blog"></i> Blog Section</a></li>
-            <li><a href="#navbar"><i class="fas fa-bars"></i> Navigation Bar</a></li>
-            <li><a href="#styling"><i class="fas fa-magic"></i> Advanced Styling</a></li>
-            <li><a href="#responsive"><i class="fas fa-mobile-alt"></i> Responsive Design</a></li>
-            <li><a href="#seo"><i class="fas fa-chart-line"></i> SEO Basics</a></li>
-            <li><a href="#social"><i class="fas fa-share-alt"></i> Social Media Links</a></li>
-            <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-            <li><a href="#video"><i class="fas fa-video"></i> Videos</a></li>
-            <li><a href="#analytics"><i class="fas fa-chart-pie"></i> Analytics</a></li>
-            <li><a href="#accessibility"><i class="fas fa-universal-access"></i> Accessibility</a></li>
-            <li><a href="#deploy"><i class="fas fa-cloud-upload-alt"></i> Deployment</a></li>
-            <li><a href="#domain"><i class="fas fa-globe"></i> Custom Domain</a></li>
-        </ul>
-    </aside>
+    <div class="sidebar">
+        <h1>Portfolio Course</h1>
+        <p>Syllabus: Learn to create a stunning portfolio website.</p>
+        <a href="#introduction" class="active">Introduction</a>
+        <a href="#project-setup">Project Setup</a>
+        <a href="#design">Design Choices</a>
+        <a href="#home-page">Building the Home Page</a>
+        <a href="#about-me">About Me Section</a>
+        <a href="#projects">Portfolio Showcase</a>
+        <a href="#contact-form">Contact Form</a>
+        <a href="#blog">Blog Section</a>
+        <a href="#navbar">Navigation Bar</a>
+        <a href="#advanced-styling">Advanced Styling</a>
+        <a href="#responsive-design">Responsive Design</a>
+        <a href="#seo-basics">SEO Basics</a>
+        <a href="#social-links">Social Media Links</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#deployment">Deployment</a>
+        <a href="#custom-domain">Custom Domain</a>
+    </div>
 
-    <!-- Main Content Area -->
-    <main class="main-content" id="content">
-        <h1>Welcome to the Course!</h1>
-        <p>Select a section from the sidebar to start learning.</p>
-    </main>
+    <!-- Content Section -->
+    <div class="content">
+        <!-- Example Section -->
+        <div id="introduction" class="section">
+            <h2>Introduction</h2>
+            <p>In this section, you’ll learn about the importance of having a portfolio website, who should have one, and why. We’ll explore examples of successful portfolios and understand how they create impact.</p>
+            <p><strong>Key takeaway:</strong> A great portfolio is your digital first impression.</p>
+        </div>
 
-    <!-- JavaScript for Navigation -->
-    <script>
-        const content = document.getElementById('content');
-        const navigation = document.getElementById('navigation');
-
-        // Define the course content
-        const sections = {
-            introduction: {
-                title: "Introduction to Portfolio Websites",
-                content: `<p>Learn the importance of having a portfolio website, target audience, and real-life case studies of successful portfolios.</p>`
-            },
-            setup: {
-                title: "Project Setup",
-                content: `<p>Discover the tools, tech stack, and environment setup needed to kickstart your portfolio project.</p>`
-            },
-            design: {
-                title: "Design Choices and UI Planning",
-                content: `<p>Explore design principles, wireframes, and UI tools like Figma to plan your website's appearance.</p>`
-            },
-            homepage: {
-                title: "Building the Home Page",
-                content: `<p>Create a hero section, navigation bar, and call-to-action buttons for an engaging homepage.</p>`
-            },
-            about: {
-                title: "Creating the About Me Section",
-                content: `<p>Write a compelling bio and style your About Me section with images and typography.</p>`
-            },
-            portfolio: {
-                title: "Portfolio Showcase",
-                content: `<p>Design an interactive portfolio section with project cards, hover effects, and modals.</p>`
-            },
-            contact: {
-                title: "Contact Form",
-                content: `<p>Add a contact form with input validation to allow users to get in touch.</p>`
-            },
-            blog: {
-                title: "Blog Section",
-                content: `<p>Build a blog section to share insights, with pagination and easy content updates.</p>`
-            },
-            navbar: {
-                title: "Custom Navigation Bar",
-                content: `<p>Create a sticky, responsive navigation bar with smooth scroll effects.</p>`
-            },
-            styling: {
-                title: "Styling with Advanced CSS",
-                content: `<p>Add animations, transitions, and layout enhancements with advanced CSS techniques.</p>`
-            },
-            responsive: {
-                title: "Responsive Design",
-                content: `<p>Ensure your site looks great on all devices using a mobile-first approach and media queries.</p>`
-            },
-            seo: {
-                title: "SEO Basics",
-                content: `<p>Optimize your website's metadata, keywords, and content to improve search engine visibility.</p>`
-            },
-            social: {
-                title: "Adding Social Media Links",
-                content: `<p>Add stylish icons linking to your social media profiles in the footer or header.</p>`
-            },
-            gallery: {
-                title: "Creating a Gallery",
-                content: `<p>Showcase additional visuals with a responsive image gallery and lightbox effect.</p>`
-            },
-            video: {
-                title: "Embedding Videos",
-                content: `<p>Embed videos and interactive elements to showcase project demos or tutorials.</p>`
-            },
-            analytics: {
-                title: "Analytics Integration",
-                content: `<p>Set up Google Analytics to track user behavior and improve your site's performance.</p>`
-            },
-            accessibility: {
-                title: "Accessibility Features",
-                content: `<p>Implement ARIA roles, keyboard navigation, and color contrast adjustments to make your site accessible.</p>`
-            },
-            deploy: {
-                title: "Deployment",
-                content: `<p>Host your portfolio on GitHub Pages, Netlify, or Vercel, and make it live online.</p>`
-            },
-            domain: {
-                title: "Custom Domain Setup",
-                content: `<p>Connect a custom domain to your site and enable HTTPS for a professional URL.</p>`
-            }
-        };
-
-        // Add event listeners to sidebar links
-        navigation.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                e.preventDefault();
-                const sectionKey = e.target.getAttribute('href').substring(1); // Get the section key
-                loadSection(sectionKey);
-            }
-        });
-
-        // Function to load content dynamically
-        function loadSection(key) {
-            const section = sections[key];
-            if (section) {
-                content.innerHTML = `
-                    <h1>${section.title}</h1>
-                    ${section.content}
-                `;
-            }
-        }
-    </script>
-
-
-
-    <main>
-        <!-- Introduction -->
-        <section>
-            <h2>Introduction to Portfolio Websites</h2>
-            <p>Overview: Importance of having a portfolio website.</p>
-            <p>Target Audience: Who should have a portfolio and why.</p>
-            <p>Case Study: Examples of successful portfolio sites.</p>
-            <div class="user-query">
-                <strong>User Query:</strong> “Why should I create a portfolio website?”
-            </div>
-            <div class="answer-output">
-                <strong>Answer & Code Output:</strong>
-                <pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Portfolio Website&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Welcome to My Portfolio&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                </pre>
-            </div>
-        </section>
-
-        <!-- Project Setup -->
-        <section>
+        <div id="project-setup" class="section">
             <h2>Project Setup</h2>
-            <p>Tech Stack: HTML, CSS, JavaScript, and any optional libraries.</p>
-            <p>Local Environment Setup: Step-by-step guide (Node.js, Git, etc.).</p>
-            <div class="user-query">
-                <strong>User Query:</strong> “How do I set up my project environment?”
-            </div>
-            <div class="answer-output">
-                <strong>Answer & Rendered Output:</strong>
-                <p>Initial project folder structure:</p>
-                <pre>
-/project
-|-- index.html
-|-- style.css
-|-- script.js
-                </pre>
-            </div>
-        </section>
+            <p>Set up your environment with HTML, CSS, and JavaScript. Organize your files into folders for easy management. Create a main file called `index.html` for your website’s homepage.</p>
+            <p><strong>Tip:</strong> Use a version control system like Git for backups and collaboration.</p>
+        </div>
 
-        <!-- Design Choices -->
-        <section>
-            <h2>Design Choices and UI Planning</h2>
-            <p>Basic Design Principles: Layout, color schemes, typography.</p>
-            <p>Creating a Wireframe: Planning the layout.</p>
-            <p>Tools & Resources: Figma, Adobe XD, etc.</p>
-            <div class="user-query">
-                <strong>User Query:</strong> “How should I design my website?”
-            </div>
-            <div class="answer-output">
-                <strong>Answer & Rendered Output:</strong>
-                <p>Sample Wireframe:</p>
-                <pre>
----------------------------------
-|   Header                      |
-|--------------------------------|
-|   About Me Section            |
-|--------------------------------|
-|   Portfolio Section           |
-|--------------------------------|
-|   Contact Section             |
----------------------------------
-                </pre>
-            </div>
-        </section>
+        <div id="design" class="section">
+            <h2>Design Choices</h2>
+            <p>Choose a design style that reflects your personal brand. Decide on a color palette, typography, and layout that resonates with your goals.</p>
+            <p><strong>Pro Tip:</strong> Use tools like Figma or Canva to prototype your design before coding.</p>
+        </div>
 
-        <!-- Add more sections here following the structure above -->
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p style="text-align: center; margin-top: 20px;">&copy; 2024 Aletheia AI Academia. All Rights Reserved.</p>
-        </footer>
-    </main>
+        <!-- Add more sections as needed -->
+    </div>
 </body>
 </html>
