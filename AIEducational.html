@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f0f0f">
+    <title>AI Galactic Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+<style>
+  /* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero .logo h1 {
+    font-size: 3rem;
+    color: #00e1ff;
+    text-shadow: 0 0 15px #00e1ff, 0 0 30px #00ffff;
+}
+
+.hero .logo p {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+/* Background Animation */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/random/1920x1080?stars') center/cover;
+    animation: scrollStars 20s linear infinite;
+}
+
+.background .glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 225, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: pulseGlow 5s infinite alternate;
+}
+
+@keyframes scrollStars {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+@keyframes pulseGlow {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Course Grid */
+.courses {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00e1ff;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.course {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00e1ff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 225, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 225, 255, 0.8);
+}
+
+.course h3 {
+    color: #00e1ff;
+    margin-bottom: 10px;
+}
+
+.course p {
+    color: #ccc;
+}
+
+.futuristic-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #00e1ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.futuristic-btn:hover {
+    background: #00ffff;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0a0a0a;
+    color: #888;
+}
+
+</style>
+</head>
+<body>
+    <div id="container">
+        <!-- Animated background -->
+        <div class="background">
+            <div class="stars"></div>
+            <div class="glow"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="logo">
+                <h1>AI Galactic Academy</h1>
+                <p>Your Journey to the Future Starts Here</p>
+            </div>
+        </header>
+
+        <!-- Courses Section -->
+        <main>
+            <section class="courses">
+                <h2>Choose Your AI Adventure</h2>
+                <div class="course-grid">
+                    <!-- Course 1 -->
+                    <div class="course">
+                        <h3>Build a Portfolio Website</h3>
+                        <p>Create a professional portfolio to showcase your AI projects.</p>
+                        <a href="portfolio-course.html" class="btn futuristic-btn">Explore</a>
+                    </div>
+                    <!-- Course 2 -->
+                    <div class="course">
+                        <h3>AI Basics</h3>
+                        <p>Master the foundations of Artificial Intelligence in record time.</p>
+                        <a href="ai-basics-course.html" class="btn futuristic-btn">Explore</a>
+                    </div>
+                    <!-- Course 3 -->
+                    <div class="course">
+                        <h3>AI Predictive Models</h3>
+                        <p>Learn how to predict the future with cutting-edge AI algorithms.</p>
+                        <a href="ai-predictive-course.html" class="btn futuristic-btn">Explore</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+<script>
+// Glow Effect on Hover
+document.querySelectorAll('.course').forEach(course => {
+    course.addEventListener('mouseenter', () => {
+        course.classList.add('hovered');
+    });
+    course.addEventListener('mouseleave', () => {
+        course.classList.remove('hovered');
+    });
+});
+
+// Smooth Scroll (if required for internal navigation)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 AI Galactic Academy | Designed for Dreamers.</p>
+        </footer>
+    </div>
+</body>
+</html>
