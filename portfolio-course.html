@@ -102,23 +102,162 @@
         const navigation = document.getElementById('navigation');
 
         // Define the course content
-        const sections = {
-            introduction: {
-                title: "Introduction to Portfolio Websites",
-                content: `<p>Learn the importance of having a portfolio website, target audience, and real-life case studies of successful portfolios.</p>`
-            },
-            setup: {
-                title: "Project Setup",
-                content: `<p>Discover the tools, tech stack, and environment setup needed to kickstart your portfolio project.</p>`
-            },
-            design: {
-                title: "Design Choices and UI Planning",
-                content: `<p>Explore design principles, wireframes, and UI tools like Figma to plan your website's appearance.</p>`
-            },
-            homepage: {
-                title: "Building the Home Page",
-                content: `<p>Create a hero section, navigation bar, and call-to-action buttons for an engaging homepage.</p>`
-            },
+           const sections = {
+                    introduction: {
+                        title: "Introduction to Portfolio Websites",
+                        content: `
+                            <p>Having a portfolio website is essential for showcasing your skills, projects, and expertise. Here's why:</p>
+                            <ul>
+                                <li><strong>Professional Branding:</strong> It acts as your digital resume, giving a professional impression.</li>
+                                <li><strong>Accessibility:</strong> Potential clients or employers can view your work anytime, anywhere.</li>
+                                <li><strong>Customization:</strong> A portfolio allows you to present your work in a unique and personalized way.</li>
+                            </ul>
+                            <h3>Case Studies</h3>
+                            <p>Explore these inspiring portfolio examples:</p>
+                            <ul>
+                                <li><a href="#" target="_blank">John Doe - Web Developer Portfolio</a></li>
+                                <li><a href="#" target="_blank">Jane Smith - Designer Portfolio</a></li>
+                            </ul>
+                        `
+                    },
+                    setup: {
+                        title: "Project Setup",
+                        content: `
+                            <p>Before diving into development, set up your tools and environment:</p>
+                            <h3>Tools Required</h3>
+                            <ul>
+                                <li><strong>Text Editor:</strong> Use VS Code for its flexibility and plugins.</li>
+                                <li><strong>Version Control:</strong> Install Git to manage your code versions.</li>
+                                <li><strong>Browser:</strong> Test your site on modern browsers like Chrome or Firefox.</li>
+                            </ul>
+                            <h3>File Structure</h3>
+                            <pre><code>
+                /my-portfolio
+                |-- index.html
+                |-- style.css
+                |-- script.js
+                |-- assets/
+                    |-- images/
+                    |-- css/
+                    |-- js/
+                            </code></pre>
+                            <p>Organizing your files is key for scalability and maintenance.</p>
+                        `
+                    },
+                    design: {
+                        title: "Design Choices and UI Planning",
+                        content: `
+                            <p>Good design makes your portfolio stand out. Follow these steps:</p>
+                            <h3>Design Principles</h3>
+                            <ul>
+                                <li><strong>Consistency:</strong> Maintain uniform colors, fonts, and layout styles.</li>
+                                <li><strong>Accessibility:</strong> Use clear typography and ensure color contrast is readable.</li>
+                                <li><strong>Simplicity:</strong> Avoid clutter; focus on showcasing your work effectively.</li>
+                            </ul>
+                            <h3>Tools for Planning</h3>
+                            <ul>
+                                <li><a href="https://www.figma.com/" target="_blank">Figma</a>: Ideal for creating wireframes and prototypes.</li>
+                                <li><a href="https://www.adobe.com/products/xd.html" target="_blank">Adobe XD</a>: Great for detailed UI/UX design.</li>
+                            </ul>
+                            <h3>Wireframe Example</h3>
+                            <pre><code>
+                ----------------------------
+                |       HEADER            |
+                ----------------------------
+                |  About Me Section       |
+                ----------------------------
+                |  Portfolio Section      |
+                ----------------------------
+                |  Contact Section        |
+                ----------------------------
+                            </code></pre>
+                        `
+                    },
+                    homepage: {
+                        title: "Building the Home Page",
+                        content: `
+                            <p>The homepage is the face of your portfolio. Include the following:</p>
+                            <h3>Hero Section</h3>
+                            <p>Introduce yourself with a professional tagline:</p>
+                            <pre><code>
+                <section class="hero">
+                    <h1>Hi, I'm [Your Name]</h1>
+                    <p>Creative [Your Profession] Specializing in Modern Web Design</p>
+                    <button>View My Work</button>
+                </section>
+                            </code></pre>
+                            <h3>Navigation Bar</h3>
+                            <p>Add a sticky navbar for seamless navigation:</p>
+                            <pre><code>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                            </code></pre>
+                        `
+                    },
+                    about: {
+                        title: "Creating the About Me Section",
+                        content: `
+                            <p>The About Me section should highlight your journey and skills.</p>
+                            <h3>Content</h3>
+                            <ul>
+                                <li>Write a brief bio: Focus on your professional background and achievements.</li>
+                                <li>Add a professional photo for a personal touch.</li>
+                            </ul>
+                            <h3>Example</h3>
+                            <pre><code>
+                <section class="about">
+                    <img src="profile.jpg" alt="Your Photo">
+                    <h2>About Me</h2>
+                    <p>I'm a passionate web developer with 5+ years of experience...</p>
+                </section>
+                            </code></pre>
+                        `
+                    },
+                    portfolio: {
+                        title: "Portfolio Showcase",
+                        content: `
+                            <p>Showcase your projects in an interactive way.</p>
+                            <h3>Project Cards</h3>
+                            <pre><code>
+                <div class="project-card">
+                    <img src="project1-thumbnail.jpg" alt="Project 1 Screenshot">
+                    <h3>Project Title</h3>
+                    <p>Short description of the project.</p>
+                </div>
+                            </code></pre>
+                            <h3>Hover Effects</h3>
+                            <p>Add CSS for interactivity:</p>
+                            <pre><code>
+                .project-card:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+                            </code></pre>
+                        `
+                    },
+                    contact: {
+                        title: "Contact Form",
+                        content: `
+                            <p>Allow visitors to get in touch with you:</p>
+                            <h3>Form Example</h3>
+                            <pre><code>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                            </code></pre>
+                        `
+                    },
+                    
+                };
+                 ,
             about: {
                 title: "Creating the About Me Section",
                 content: `<p>Write a compelling bio and style your About Me section with images and typography.</p>`
