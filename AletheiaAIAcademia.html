@@ -203,7 +203,95 @@ footer {
     text-shadow: 0 0 5px #00ffff, 0 0 15px #00e1ff;
     letter-spacing: 1.5px;
 }
+/* Footer */
+.footer {
+    background: linear-gradient(45deg, #0f0f0f, #1a1a1a);
+    padding: 20px;
+    color: #fff;
+}
 
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.footer-branding h3 {
+    color: #00e1ff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .futuristic-quote {
+        font-size: 1.8rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .futuristic-quote {
+        font-size: 1.6rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .futuristic-quote {
+        font-size: 1.4rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 5px;
+    }
+}
 
 </style>
 </head>
@@ -225,7 +313,9 @@ footer {
         <!-- Hero Section -->
         <header class="hero">
             <div class="logo">
-                <h1>>Aletheia AI Academia</h1>
+                <h1>Aletheia AI Academia</h1>
+                <h2>Welcome to the Future of AI Education</h2>
+                <p>Discover the knowledge and tools to shape tomorrow's world with cutting-edge artificial intelligence education.</p>
                 <p>Your Journey to the Future Starts Here and Now</p>
             </div>
         </header>
