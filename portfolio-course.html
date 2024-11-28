@@ -3,74 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Course Navigation</title>
+    <title>Modern Course Navigation</title>
     <style>
-        /* General Styling */
+        /* General Reset and Styling */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            color: #fff;
-            background-color: #0d1117; /* Dark futuristic background */
-            line-height: 1.6;
+            background-color: #0d1117; /* Dark background for futuristic feel */
+            color: #c9d1d9; /* Soft white for readability */
         }
 
-        /* Sticky Sidebar Navigation */
-        .sidebar {
+        /* Header Navigation */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
-            width: 250px;
-            background: linear-gradient(180deg, #1f1f1f, #333333);
+            width: 100%;
+            height: 70px; /* Logical height */
+            background: linear-gradient(90deg, #1f1f1f, #333333);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding-top: 2rem;
-            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 10;
+            padding: 0 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 100;
         }
-        .sidebar h1 {
+        .header .logo {
             font-size: 1.5rem;
+            font-weight: bold;
             color: #58a6ff;
-            margin-bottom: 2rem;
+            text-transform: uppercase;
         }
-        .sidebar a {
-            text-decoration: none;
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header .nav-links a {
             color: #c9d1d9;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
-            border-radius: 5px;
-            width: 80%;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
-        .sidebar a:hover,
-        .sidebar a.active {
-            background-color: #58a6ff;
-            color: #0d1117;
+        .header .nav-links a:hover {
+            color: #58a6ff;
+        }
+        .header .nav-links a.active {
+            color: #58a6ff;
         }
 
         /* Main Content */
         main {
-            margin-left: 270px; /* Leave space for sidebar */
+            padding-top: 90px; /* Space for fixed header */
+            margin: 0 auto;
+            max-width: 1200px;
             padding: 2rem;
         }
+
+        /* Section Styling */
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             padding: 2rem;
-            background: #161b22;
+            background: #161b22; /* Subtle background for contrast */
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         section h2 {
-            color: #58a6ff;
             font-size: 1.8rem;
+            color: #58a6ff;
+            margin-bottom: 1rem;
         }
-        .section-end {
-            text-align: center;
-            color: #8b949e;
-            margin-top: 2rem;
+        section p {
+            line-height: 1.6;
         }
 
         /* Smooth Scroll */
@@ -78,96 +86,92 @@
             scroll-behavior: smooth;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-            }
-            main {
-                margin-left: 220px;
-            }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1f1f1f;
+            color: #8b949e;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 576px) {
-            .sidebar {
-                position: static;
-                width: 100%;
-                height: auto;
-                flex-direction: row;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header .nav-links {
                 flex-wrap: wrap;
-                justify-content: space-around;
-                padding: 1rem 0;
-                box-shadow: none;
-            }
-            main {
-                margin-left: 0;
-            }
-            .sidebar a {
-                width: auto;
-                margin: 0.25rem;
-                padding: 0.5rem;
+                justify-content: center;
+                gap: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <h1>Aletheia AI</h1>
-        <a href="#introduction" data-section="introduction">Introduction</a>
-        <a href="#homepage" data-section="homepage">Building the Home Page</a>
-        <a href="#about" data-section="about">About Me Section</a>
-        <a href="#portfolio" data-section="portfolio">Portfolio Showcase</a>
-        <a href="#contact" data-section="contact">Contact Form</a>
-        <!-- Add more links dynamically -->
-    </div>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo">Aletheia AI</div>
+        <nav class="nav-links">
+            <a href="#introduction" data-section="introduction"><span>📘</span> Introduction</a>
+            <a href="#homepage" data-section="homepage"><span>🏠</span> Home Page</a>
+            <a href="#about" data-section="about"><span>👤</span> About</a>
+            <a href="#portfolio" data-section="portfolio"><span>📂</span> Portfolio</a>
+            <a href="#contact" data-section="contact"><span>📩</span> Contact</a>
+            <!-- Add more links dynamically -->
+        </nav>
+    </header>
 
     <!-- Main Content -->
     <main>
-        <!-- Section Example -->
+        <!-- Example Section -->
         <section id="introduction">
-            <h2>Introduction to Portfolio Websites</h2>
-            <p>Overview: Importance of having a portfolio website.</p>
-            <p>Target Audience: Who should have a portfolio and why.</p>
-            <p>Case Study: Examples of successful portfolio sites.</p>
-            <div class="section-end">End of Introduction</div>
+            <h2>Introduction</h2>
+            <p>Welcome to the course. Learn how to create a modern, AI-powered portfolio website.</p>
         </section>
 
         <section id="homepage">
             <h2>Building the Home Page</h2>
-            <p>The homepage is the first impression visitors have of your portfolio. It should introduce who you are, highlight your key skills, and invite users to explore further.</p>
-            <div class="section-end">End of Home Page Section</div>
+            <p>The homepage is the first impression visitors have of your portfolio. Make it engaging!</p>
         </section>
 
         <section id="about">
             <h2>About Me Section</h2>
-            <p>Create a compelling bio that introduces your personality, experience, and skills.</p>
-            <div class="section-end">End of About Me Section</div>
+            <p>This section will cover how to create an engaging bio to showcase your skills.</p>
         </section>
 
-        <!-- Add more sections dynamically -->
+        <section id="portfolio">
+            <h2>Portfolio Showcase</h2>
+            <p>Display your projects effectively with a well-designed portfolio gallery.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Form</h2>
+            <p>Add a form for visitors to easily contact you for collaborations or job offers.</p>
+        </section>
     </main>
 
-    <!-- JavaScript for Active Link Highlight -->
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Aletheia AI Academia. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript for Active Navigation Highlight -->
     <script>
-        const links = document.querySelectorAll('.sidebar a');
+        const links = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('main section');
 
-        // Update active link based on scroll position
+        // Update active link on scroll
         window.addEventListener('scroll', () => {
-            let current = '';
+            let currentSection = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150; // Adjust for early activation
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+                const sectionTop = section.offsetTop - 150; // Trigger slightly earlier
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
                 }
             });
 
             links.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                if (link.getAttribute('href') === `#${currentSection}`) {
                     link.classList.add('active');
                 }
             });
