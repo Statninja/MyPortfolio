@@ -6,14 +6,17 @@
     <title>Futuristic Course Navigation</title>
     <style>
         /* General Reset and Styling */
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #0d1117; /* Dark futuristic background */
-            color: #c9d1d9; /* Soft text color */
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
+            background: #0d1117;
+            color: #c9d1d9;
             overflow: hidden;
         }
 
@@ -22,15 +25,28 @@
             position: fixed;
             left: 0;
             top: 0;
-            width: 80px; /* Compact width */
+            width: 70px;
             height: 100%;
             background: linear-gradient(180deg, #1f1f1f, #333333);
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 1rem 0;
-            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
-            z-index: 100;
+            z-index: 10;
+            transition: width 0.3s ease;
+        }
+        .sidebar:hover {
+            width: 250px;
+        }
+        .sidebar .logo {
+            font-size: 1.5rem;
+            color: #58a6ff;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+        .sidebar:hover .logo {
+            opacity: 1;
         }
         .sidebar a {
             width: 60px;
@@ -44,12 +60,22 @@
             align-items: center;
             text-decoration: none;
             font-size: 1.5rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        .sidebar a span {
+            display: none;
+            margin-left: 10px;
+            font-size: 1rem;
+            color: #fff;
+        }
+        .sidebar:hover a span {
+            display: inline;
         }
         .sidebar a:hover {
-            background: #58a6ff; /* Futuristic highlight */
+            background: #58a6ff;
             color: #fff;
-            transform: scale(1.1);
         }
         .sidebar a.active {
             background: #58a6ff;
@@ -58,12 +84,14 @@
 
         /* Main Content */
         .main {
-            margin-left: 80px; /* Adjust for sidebar width */
-            overflow-y: auto;
-            height: 100%;
-            width: calc(100% - 80px);
+            flex: 1;
+            margin-left: 70px;
             padding: 2rem;
-            box-sizing: border-box;
+            overflow-y: auto;
+            transition: margin-left 0.3s ease;
+        }
+        .sidebar:hover ~ .main {
+            margin-left: 250px;
         }
         section {
             margin-bottom: 3rem;
@@ -81,7 +109,7 @@
             line-height: 1.6;
         }
 
-        /* Smooth Scroll */
+        /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -91,13 +119,11 @@
             .sidebar {
                 width: 60px;
             }
-            .sidebar a {
-                width: 50px;
-                height: 50px;
+            .sidebar a span {
+                display: none;
             }
             .main {
                 margin-left: 60px;
-                width: calc(100% - 60px);
             }
         }
     </style>
@@ -105,45 +131,62 @@
 <body>
 
     <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <a href="#introduction" data-section="introduction" class="active">📘</a>
-        <a href="#homepage" data-section="homepage">🏠</a>
-        <a href="#about" data-section="about">👤</a>
-        <a href="#portfolio" data-section="portfolio">📂</a>
-        <a href="#contact" data-section="contact">📩</a>
-        <!-- Add more icons as needed -->
-    </div>
+    <nav class="sidebar">
+        <div class="logo">Aletheia</div>
+        <a href="#introduction" class="active">
+            📘 <span>Introduction</span>
+        </a>
+        <a href="#homepage">
+            🏠 <span>Home Page</span>
+        </a>
+        <a href="#about">
+            👤 <span>About Me</span>
+        </a>
+        <a href="#portfolio">
+            📂 <span>Portfolio</span>
+        </a>
+        <a href="#contact">
+            📩 <span>Contact</span>
+        </a>
+        <a href="#blog">
+            📝 <span>Blog</span>
+        </a>
+    </nav>
 
     <!-- Main Content -->
     <div class="main">
-        <!-- Example Section -->
+        <!-- Section Example -->
         <section id="introduction">
-            <h2>Introduction</h2>
-            <p>Welcome to the course. Learn how to create a modern, AI-powered portfolio website.</p>
+            <h2>Introduction to the Course</h2>
+            <p>Welcome to this futuristic course on creating AI-powered portfolio websites. Each section guides you with structured content.</p>
         </section>
 
         <section id="homepage">
             <h2>Building the Home Page</h2>
-            <p>The homepage is the first impression visitors have of your portfolio. Make it engaging!</p>
+            <p>The homepage is the first impression visitors have of your portfolio. This section explains how to design it.</p>
         </section>
 
         <section id="about">
             <h2>About Me Section</h2>
-            <p>This section will cover how to create an engaging bio to showcase your skills.</p>
+            <p>Learn to craft a compelling 'About Me' section, highlighting your skills and experiences.</p>
         </section>
 
         <section id="portfolio">
             <h2>Portfolio Showcase</h2>
-            <p>Display your projects effectively with a well-designed portfolio gallery.</p>
+            <p>Showcase your projects with style using visually engaging portfolio sections.</p>
         </section>
 
         <section id="contact">
             <h2>Contact Form</h2>
-            <p>Add a form for visitors to easily contact you for collaborations or job offers.</p>
+            <p>Add an easy-to-use contact form to allow users to reach you directly.</p>
+        </section>
+
+        <section id="blog">
+            <h2>Blog Section</h2>
+            <p>Learn how to create a dynamic blog section to share updates and insights.</p>
         </section>
     </div>
 
-    <!-- JavaScript for Active Navigation Highlight -->
     <script>
         const links = document.querySelectorAll('.sidebar a');
         const sections = document.querySelectorAll('.main section');
@@ -152,7 +195,7 @@
         window.addEventListener('scroll', () => {
             let currentSection = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150; // Trigger slightly earlier
+                const sectionTop = section.offsetTop - 100;
                 if (window.scrollY >= sectionTop) {
                     currentSection = section.getAttribute('id');
                 }
@@ -166,12 +209,12 @@
             });
         });
 
-        // Smooth scrolling to sections on click
+        // Smooth scrolling for sidebar links
         links.forEach(link => {
-            link.addEventListener('click', (e) => {
+            link.addEventListener('click', e => {
                 e.preventDefault();
-                const sectionId = link.getAttribute('href').substring(1);
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+                const targetId = link.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
