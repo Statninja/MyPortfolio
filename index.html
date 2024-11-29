@@ -1032,13 +1032,15 @@
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        // Toggle active class on the clicked question
-        question.classList.toggle('active');
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isVisible = answer.style.display === 'block';
 
-        // Show or hide the answer
-        const answer = question.nextElementSibling;
-        answer.classList.toggle('visible');
+        // Hide all answers first
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+
+        // Toggle the clicked answer
+        answer.style.display = isVisible ? 'none' : 'block';
       });
     });
   </script>
