@@ -922,76 +922,66 @@
     margin-top: 10px;
     display: none; /* Initially hidden */
 }
+        
+   .faq-section {
+      max-width: 800px;
+      margin: auto;
+    }
+
+ .faq-section {
+      margin: 20px;
+    }
+
+    .faq-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .toggle-faq-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .toggle-faq-btn:hover {
+      background-color: #45a049;
+    }
+
+    .faq {
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      background-color: #f4f4f4;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .faq-answer {
+      padding: 10px;
+      background-color: #fff;
+      display: none; /* Initially hide answers */
+    }
+
+    .faq-section.hidden {
+      display: none; /* Hide the entire FAQ section */
+    }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ Section - About Me</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    .faq-section {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .faq-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #444;
-    }
-
-    .faq {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      background-color: #fff;
-    }
-
-    .faq-question {
-      padding: 15px 20px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question:hover {
-      background-color: #f0f0f0;
-    }
-
-    .faq-question::after {
-      content: "+";
-      font-size: 1.5rem;
-      color: #777;
-    }
-
-    .faq-question.active::after {
-      content: "-";
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 15px 20px;
-      font-size: 1rem;
-      line-height: 1.6;
-      border-top: 1px solid #ddd;
-    }
-
-    .faq-answer.visible {
-      display: block;
-    }
-  </style>
+  
 </head>
 <body>
 
