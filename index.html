@@ -937,13 +937,11 @@
    .faq-section {
       max-width: 800px;
       margin: auto;
-     display: none; /* Initially hide the entire FAQ section */
+      padding-top: 40px; 
+      display: none; /* Initially hide the entire FAQ section */
     }
 
-   .faq-section {
-      margin: 20px;
-      padding-top: 40px; /* Add space to account for the header */
-    }
+   
 
     .faq-title {
       font-size: 24px;
@@ -1002,7 +1000,7 @@
 <body>
 
   <div class="faq-section">
-    <button class="toggle-faq-btn">Toggle FAQ</button>
+    <button class="toggle-faq-btn">ShowFAQ</button>
 
     <div class="faq">
       <div class="faq-question">About Me</div>
@@ -1035,6 +1033,25 @@
   </div>
 
  <script>
+   // Toggle the entire FAQ section visibility
+    const toggleBtn = document.querySelector('.toggle-faq-btn');
+    const faqSection = document.querySelector('.faq-section');
+
+    toggleBtn.addEventListener('click', function() {
+      // Toggle FAQ section visibility
+      if (faqSection.style.display === 'none' || faqSection.style.display === '') {
+        faqSection.style.display = 'block'; // Show FAQ section
+        toggleBtn.textContent = 'Hide FAQ'; // Change button text
+        // Show all FAQ questions now that the section is visible
+        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'block');
+      } else {
+        faqSection.style.display = 'none'; // Hide FAQ section
+        toggleBtn.textContent = 'Show FAQ'; // Change button text
+        // Hide all FAQ questions when the section is hidden
+        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'none');
+      }
+    });
+
     // Toggle individual FAQ answer visibility
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
@@ -1048,25 +1065,6 @@
         // Toggle the clicked answer
         answer.style.display = isVisible ? 'none' : 'block';
       });
-    });
-
-  // Toggle the entire FAQ section visibility
-    const toggleBtn = document.querySelector('.toggle-faq-btn');
-    const faqSection = document.querySelector('.faq-section');
-
-    toggleBtn.addEventListener('click', function() {
-      // Toggle FAQ section visibility
-      if (faqSection.style.display === 'none') {
-        faqSection.style.display = 'block'; // Show FAQ section
-        toggleBtn.textContent = 'Hide FAQ'; // Change button text
-        // Show all FAQ questions now that the section is visible
-        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'block');
-      } else {
-        faqSection.style.display = 'none'; // Hide FAQ section
-        toggleBtn.textContent = 'Show FAQ'; // Change button text
-        // Hide all FAQ questions when the section is hidden
-        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'none');
-      }
     });
   </script>
 
