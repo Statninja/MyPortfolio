@@ -934,22 +934,16 @@
     display: none; /* Initially hidden */
 }
         
-   .faq-section {
+ /* Container for the FAQ section */
+    .faq-section {
       max-width: 800px;
       margin: auto;
       padding-top: 40px; 
-     /* display: none;  Initially hide the entire FAQ section */
+      display: none; /* Initially hide the entire FAQ section */
     }
 
-   
-
-    .faq-title {
-      font-size: 24px;
-      font-weight: bold;
-     
-    }
-
-   .toggle-faq-btn {
+    /* Style for the FAQ button */
+    .toggle-faq-btn {
       background-color: #4CAF50;
       color: white;
       padding: 10px;
@@ -957,36 +951,34 @@
       cursor: pointer;
       margin-bottom: 10px;
       display: block; /* Ensure the button is visible */
+      text-align: center;
     }
 
     .toggle-faq-btn:hover {
       background-color: #45a049;
     }
 
+    /* Style for each FAQ block */
     .faq {
       margin-bottom: 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      overflow: hidden;
     }
 
+    /* Style for the FAQ question */
     .faq-question {
       background-color: #f4f4f4;
       padding: 10px;
       cursor: pointer;
       font-size: 18px;
       font-weight: bold;
-      display: none; /* Initially hide all questions */
     }
 
+    /* Initially hide all answers */
     .faq-answer {
       padding: 10px;
       background-color: #fff;
-      display: none; /* Initially hide answers */
-    }
-
-    .faq-section.hidden {
-      display: none; /* Hide the entire FAQ section */
+      display: none;
     }
 </style>
 
@@ -999,9 +991,11 @@
 </head>
 <body>
 
-  <div class="faq-section">
-    <button class="toggle-faq-btn">ShowFAQ</button>
+ <!-- FAQ Button to show/hide FAQ section -->
+  <button class="toggle-faq-btn">Show FAQ</button>
 
+  <!-- FAQ Section (Initially hidden) -->
+  <div class="faq-section">
     <div class="faq">
       <div class="faq-question">About Me</div>
       <div class="faq-answer">
@@ -1029,10 +1023,7 @@
         You can explore my portfolio on my website at <a href="https://silviacalzadagil.com" target="_blank">https://silviacalzadagil.com</a>. It showcases my projects, services, and AI expertise.
       </div>
     </div>
-
   </div>
-
-
 
 
 
@@ -1457,22 +1448,24 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
     console.log(typeof marked); // Should output "function" if marked is loaded
 </script>
 
- <script>
-   // Toggle the entire FAQ section visibility
+<script>
+    // Get the button and FAQ section elements
     const toggleBtn = document.querySelector('.toggle-faq-btn');
     const faqSection = document.querySelector('.faq-section');
 
+    // Event listener for the FAQ button to toggle visibility
     toggleBtn.addEventListener('click', function() {
-      // Toggle FAQ section visibility
       if (faqSection.style.display === 'none' || faqSection.style.display === '') {
-        faqSection.style.display = 'block'; // Show FAQ section
-        toggleBtn.textContent = 'Hide FAQ'; // Change button text
+        // Show the FAQ section
+        faqSection.style.display = 'block';
+        toggleBtn.textContent = 'Hide FAQ';  // Change the button text
         // Show all FAQ questions now that the section is visible
         document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'block');
       } else {
-        faqSection.style.display = 'none'; // Hide FAQ section
-        toggleBtn.textContent = 'Show FAQ'; // Change button text
-        // Hide all FAQ questions when the section is hidden
+        // Hide the FAQ section
+        faqSection.style.display = 'none';
+        toggleBtn.textContent = 'Show FAQ';  // Change the button text
+        // Hide all FAQ questions
         document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'none');
       }
     });
@@ -1487,7 +1480,7 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
         // Hide all answers first
         document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
 
-        // Toggle the clicked answer
+        // Toggle the clicked answer visibility
         answer.style.display = isVisible ? 'none' : 'block';
       });
     });
