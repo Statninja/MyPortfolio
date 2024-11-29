@@ -935,46 +935,36 @@
 }
         
  /* Container for the FAQ section */
-         .faq-section {
-            margin: 20px 0;
-        }
-        .faq-section.hidden {
-            display: none; /* Initially hide the FAQ section */
-        }
-        .faq {
-            margin-top: 20px;
-        }
-        .faq-item {
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .faq-item h3 {
-            margin: 0;
-            background: #f4f4f4;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .faq-item p {
-            margin: 0;
-            padding: 10px;
-            display: none; /* Initially hide answers */
-            background: #fff;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
+        /* Container for the FAQ section */
+.faq-section {
+  margin: 20px 0;
+}
+
+.faq-section.hidden {
+  display: none; /* Initially hide the FAQ section */
+}
+
+.faq-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-item h3 {
+  margin: 0;
+  background: #f4f4f4;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 10px;
+  display: none; /* Initially hide answers */
+  background: #fff;
+}
+
 </style>
 
 
@@ -1019,18 +1009,16 @@
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
             <div class="faq-item">
-                <h3 class="faq-question">About Me?</h3>
+                <h3 class="faq-question">About Me</h3>
                 <p> I am an AI portfolio creator and consultant specializing in data science, artificial intelligence, and visual storytelling. My mission is to make complex AI concepts accessible and engaging for everyone.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">What services do you provide?</h3>
-                <p>I offer custom AI solutions, educational content, and visual storytelling. Whether you need machine learning models, AI courses, or creative presentations, I provide tailored services to suit your needs.
-</p>
+                <p>I offer custom AI solutions, educational content, and visual storytelling. Whether you need machine learning models, AI courses, or creative presentations, I provide tailored services to suit your needs.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">How easy is it to work with you?</h3>
-                <p> I prioritize clear communication and transparency. I make it easy for clients to collaborate by simplifying AI processes and delivering solutions that fit seamlessly into their workflows.
-</p>
+                <p> I prioritize clear communication and transparency. I make it easy for clients to collaborate by simplifying AI processes and delivering solutions that fit seamlessly into their workflows.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">What do the map markers represent?</h3>
@@ -1040,7 +1028,6 @@
                 <h3 class="faq-question">Where can I see your portfolio?</h3>
                 <p> You can explore my portfolio on my website at <a href="https://silviacalzadagil.com" target="_blank">https://silviacalzadagil.com</a>. It showcases my projects, services, and AI expertise.</p>
             </div>
-            
         </div>
     </div>
 </div>
@@ -1438,19 +1425,28 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
 </script>
 
  <script>
-    // Toggle FAQ Section Visibility
-    document.getElementById('toggle-faq-btn').addEventListener('click', function () {
-        const faqSection = document.getElementById('faq-section');
-        faqSection.classList.toggle('hidden');
-    });
+  // Toggle FAQ Section Visibility
+document.getElementById('toggle-faq-btn').addEventListener('click', function () {
+    const faqSection = document.getElementById('faq-section');
+    // Toggle the 'hidden' class to show or hide the FAQ section
+    faqSection.classList.toggle('hidden');
 
-    // Toggle Each FAQ Item
-    document.querySelectorAll('.faq-question').forEach((question) => {
-        question.addEventListener('click', function () {
-            const answer = this.nextElementSibling;
-            answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
-        });
+    // Toggle button text between Show and Hide FAQ
+    if (faqSection.classList.contains('hidden')) {
+        this.textContent = 'Show FAQ';
+    } else {
+        this.textContent = 'Hide FAQ';
+    }
+});
+
+// Toggle Each FAQ Item Answer Visibility
+document.querySelectorAll('.faq-question').forEach((question) => {
+    question.addEventListener('click', function () {
+        const answer = this.nextElementSibling;
+        // Toggle the visibility of the answer
+        answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
     });
+});
     </script>
 
 </body>
