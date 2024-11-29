@@ -950,14 +950,14 @@
      
     }
 
-    .toggle-faq-btn {
+   /* .toggle-faq-btn {
       background-color: #4CAF50;
       color: white;
       padding: 10px;
       border: none;
       cursor: pointer;
       margin-bottom: 10px;
-    }
+    }*/
 
     .toggle-faq-btn:hover {
       background-color: #45a049;
@@ -1047,12 +1047,19 @@
       });
     });
 
-    // Toggle the entire FAQ section
+  // Toggle the entire FAQ section visibility
     const toggleBtn = document.querySelector('.toggle-faq-btn');
     const faqSection = document.querySelector('.faq-section');
 
     toggleBtn.addEventListener('click', function() {
-      faqSection.classList.toggle('hidden');
+      // Toggle FAQ section visibility
+      if (faqSection.style.display === 'none') {
+        faqSection.style.display = 'block'; // Show FAQ section
+        toggleBtn.textContent = 'Hide FAQ'; // Change button text
+      } else {
+        faqSection.style.display = 'none'; // Hide FAQ section
+        toggleBtn.textContent = 'Show FAQ'; // Change button text
+      }
     });
   </script>
 
