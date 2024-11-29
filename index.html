@@ -1028,9 +1028,9 @@
 
   </div>
 
-  <script>
+ <script>
+    // Toggle individual FAQ answer visibility
     const faqQuestions = document.querySelectorAll('.faq-question');
-
     faqQuestions.forEach(question => {
       question.addEventListener('click', function() {
         const answer = this.nextElementSibling;
@@ -1042,6 +1042,14 @@
         // Toggle the clicked answer
         answer.style.display = isVisible ? 'none' : 'block';
       });
+    });
+
+    // Toggle the entire FAQ section
+    const toggleBtn = document.querySelector('.toggle-faq-btn');
+    const faqSection = document.querySelector('.faq-section');
+
+    toggleBtn.addEventListener('click', function() {
+      faqSection.classList.toggle('hidden');
     });
   </script>
 
