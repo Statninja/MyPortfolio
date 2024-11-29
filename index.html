@@ -1032,41 +1032,7 @@
 
   </div>
 
- <script>
-   // Toggle the entire FAQ section visibility
-    const toggleBtn = document.querySelector('.toggle-faq-btn');
-    const faqSection = document.querySelector('.faq-section');
 
-    toggleBtn.addEventListener('click', function() {
-      // Toggle FAQ section visibility
-      if (faqSection.style.display === 'none' || faqSection.style.display === '') {
-        faqSection.style.display = 'block'; // Show FAQ section
-        toggleBtn.textContent = 'Hide FAQ'; // Change button text
-        // Show all FAQ questions now that the section is visible
-        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'block');
-      } else {
-        faqSection.style.display = 'none'; // Hide FAQ section
-        toggleBtn.textContent = 'Show FAQ'; // Change button text
-        // Hide all FAQ questions when the section is hidden
-        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'none');
-      }
-    });
-
-    // Toggle individual FAQ answer visibility
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', function() {
-        const answer = this.nextElementSibling;
-        const isVisible = answer.style.display === 'block';
-
-        // Hide all answers first
-        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-
-        // Toggle the clicked answer
-        answer.style.display = isVisible ? 'none' : 'block';
-      });
-    });
-  </script>
 
 
 
@@ -1491,7 +1457,41 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
     console.log(typeof marked); // Should output "function" if marked is loaded
 </script>
 
+ <script>
+   // Toggle the entire FAQ section visibility
+    const toggleBtn = document.querySelector('.toggle-faq-btn');
+    const faqSection = document.querySelector('.faq-section');
 
+    toggleBtn.addEventListener('click', function() {
+      // Toggle FAQ section visibility
+      if (faqSection.style.display === 'none' || faqSection.style.display === '') {
+        faqSection.style.display = 'block'; // Show FAQ section
+        toggleBtn.textContent = 'Hide FAQ'; // Change button text
+        // Show all FAQ questions now that the section is visible
+        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'block');
+      } else {
+        faqSection.style.display = 'none'; // Hide FAQ section
+        toggleBtn.textContent = 'Show FAQ'; // Change button text
+        // Hide all FAQ questions when the section is hidden
+        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'none');
+      }
+    });
+
+    // Toggle individual FAQ answer visibility
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isVisible = answer.style.display === 'block';
+
+        // Hide all answers first
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+
+        // Toggle the clicked answer
+        answer.style.display = isVisible ? 'none' : 'block';
+      });
+    });
+  </script>
 
 </body>
 </html>
