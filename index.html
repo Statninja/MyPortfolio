@@ -935,44 +935,60 @@
 }
         
  /* Container for the FAQ section */
-        /* Container for the FAQ section */
+ .faq-section {
+      max-width: 800px;
+      margin: auto;
+    }
 
-.faq-container {
-    margin-top: 100px; /* Adjust for navbar height */
-}
-        
-.faq-section {
-   margin-top: 100px; /* Adjust this value based on the height of your navbar */
-    min-height: 200px; /* Ensure it's tall enough to be visible */
-    position: relative;
-    z-index: 100; /* Ensure it's above other con*/
-}
+    .faq-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
 
-.faq-section.hidden {
-  display: none; /* Initially hide the FAQ section */
-}
+    .faq {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
 
-.faq-item {
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-}
+    .faq-question {
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.faq-item h3 {
-  margin: 0;
-  background: #f4f4f4;
-  padding: 10px;
-  cursor: pointer;
-}
+    .faq-question:hover {
+      background-color: #f0f0f0;
+    }
 
-.faq-item p {
-  margin: 0;
-  padding: 10px;
-  display: none; /* Initially hide answers */
-  background: #fff;
-}
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: #777;
+    }
 
+    .faq-question.active::after {
+      content: "-";
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-top: 1px solid #ddd;
+    }
+
+    .faq-answer.visible {
+      display: block;
+    }
 </style>
 
 
@@ -983,34 +999,7 @@
   
 </head>
 <body>
-
-<!-- Main Content Starts Here -->
-
-    <!-- Insert all your main content here (navbar, sections, etc.) -->
-    <!-- Toggle Switch -->
-    <div class="toggle-container">
-        <div class="toggle">
-            <input type="checkbox" id="theme-toggle">
-            <label for="theme-toggle">
-                <img src="https://img.icons8.com/?size=100&id=648&format=png&color=000000" alt="Sun" class="sun-icon">
-                <img src="https://img.icons8.com/?size=100&id=101342&format=png&color=000000" alt="Moon" class="moon-icon">
-            </label>
-        </div>
-    </div>
-
-<!-- Navbar -->
-<nav>
-    <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#work-with-me">Work With Silvia</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#products">AI Automation & Digitals</a></li>
-        <li><a href="AletheiaAIAcademia.html">Aletheia AI Academia</a></li> <!-- New AI Academia Link -->
-        <li><a href="blog.html">AI & ML Blog</a></li>
-        <li><a href="mailto:silviacgil@gmail.com">Contact</a></li>
-    </ul>
-</nav>
-  <!-- FAQ Section -->
+ <!-- FAQ Section -->
 <div class="faq-container">
     <button id="toggle-faq-btn" class="faq-toggle-btn">Show FAQ</button>
     <div class="faq-section hidden" id="faq-section">
@@ -1039,6 +1028,33 @@
         </div>
     </div>
 </div>
+<!-- Main Content Starts Here -->
+
+    <!-- Insert all your main content here (navbar, sections, etc.) -->
+    <!-- Toggle Switch -->
+    <div class="toggle-container">
+        <div class="toggle">
+            <input type="checkbox" id="theme-toggle">
+            <label for="theme-toggle">
+                <img src="https://img.icons8.com/?size=100&id=648&format=png&color=000000" alt="Sun" class="sun-icon">
+                <img src="https://img.icons8.com/?size=100&id=101342&format=png&color=000000" alt="Moon" class="moon-icon">
+            </label>
+        </div>
+    </div>
+
+<!-- Navbar -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#work-with-me">Work With Silvia</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#products">AI Automation & Digitals</a></li>
+        <li><a href="AletheiaAIAcademia.html">Aletheia AI Academia</a></li> <!-- New AI Academia Link -->
+        <li><a href="blog.html">AI & ML Blog</a></li>
+        <li><a href="mailto:silviacgil@gmail.com">Contact</a></li>
+    </ul>
+</nav>
+ 
     <!-- Overview Section -->
     <section id="overview">
         <h2>Overview</h2>
@@ -1434,25 +1450,17 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
 
  <script>
   // Toggle FAQ Section Visibility
-document.getElementById('toggle-faq-btn').addEventListener('click', function () {
-    const faqSection = document.getElementById('faq-section');
-    // Toggle the 'hidden' class to show or hide the FAQ section
-    faqSection.classList.toggle('hidden');
+ const faqQuestions = document.querySelectorAll('.faq-question');
 
-    // Toggle button text between Show and Hide FAQ
-    if (faqSection.classList.contains('hidden')) {
-        this.textContent = 'Show FAQ';
-    } else {
-        this.textContent = 'Hide FAQ';
-    }
-});
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle active class on the clicked question
+        question.classList.toggle('active');
 
-// Toggle Each FAQ Item Answer Visibility
-document.querySelectorAll('.faq-question').forEach((question) => {
-    question.addEventListener('click', function () {
-        const answer = this.nextElementSibling;
-        // Toggle the visibility of the answer
-        answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+        // Show or hide the answer
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('visible');
+      });
     });
 });
     </script>
