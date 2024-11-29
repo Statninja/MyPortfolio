@@ -937,6 +937,7 @@
    .faq-section {
       max-width: 800px;
       margin: auto;
+     display: none; /* Initially hide the entire FAQ section */
     }
 
    .faq-section {
@@ -957,6 +958,7 @@
       border: none;
       cursor: pointer;
       margin-bottom: 10px;
+      display: block; /* Ensure the button is visible */
     }
 
     .toggle-faq-btn:hover {
@@ -976,6 +978,7 @@
       cursor: pointer;
       font-size: 18px;
       font-weight: bold;
+      display: none; /* Initially hide all questions */
     }
 
     .faq-answer {
@@ -1056,9 +1059,13 @@
       if (faqSection.style.display === 'none') {
         faqSection.style.display = 'block'; // Show FAQ section
         toggleBtn.textContent = 'Hide FAQ'; // Change button text
+        // Show all FAQ questions now that the section is visible
+        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'block');
       } else {
         faqSection.style.display = 'none'; // Hide FAQ section
         toggleBtn.textContent = 'Show FAQ'; // Change button text
+        // Hide all FAQ questions when the section is hidden
+        document.querySelectorAll('.faq-question').forEach(q => q.style.display = 'none');
       }
     });
   </script>
