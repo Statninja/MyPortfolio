@@ -969,6 +969,32 @@
 .faq-toggle-btn:hover {
     background-color: #0056b3;
 }
+        /* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+    /* Ensure the button is responsive on mobile */
+    .faq-toggle-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem; /* Slightly smaller font on mobile */
+        width: 100%; /* Button takes full width on small screens */
+        text-align: center; /* Center-align text */
+    }
+
+    /* Make sure the FAQ section is also responsive */
+    .faq-section {
+        margin-top: 10px; /* Less margin on mobile */
+    }
+
+    /* Adjust the FAQ question and answer for mobile */
+    .faq-question {
+        padding: 10px;
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .faq-answer {
+        font-size: 0.95rem; /* Slightly smaller font for answers */
+        padding: 10px;
+    }
+}
 </style>
 </head>
 <body>
