@@ -1004,29 +1004,40 @@
     <button id="toggle-faq-btn" class="faq-toggle-btn">Show FAQ</button>
     <div class="faq-section hidden" id="faq-section">
         <h2>Frequently Asked Questions</h2>
-        <div class="faq">
-            <div class="faq-item">
-                <h3 class="faq-question">About Me</h3>
-                <p> I am an AI portfolio creator and consultant specializing in data science, artificial intelligence, and visual storytelling. My mission is to make complex AI concepts accessible and engaging for everyone.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">What services do you provide?</h3>
-                <p>I offer custom AI solutions, educational content, and visual storytelling. Whether you need machine learning models, AI courses, or creative presentations, I provide tailored services to suit your needs.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">How easy is it to work with you?</h3>
-                <p> I prioritize clear communication and transparency. I make it easy for clients to collaborate by simplifying AI processes and delivering solutions that fit seamlessly into their workflows.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">What do the map markers represent?</h3>
-                <p>The map markers represent the locations of active wildfires and volcanoes. You can click on them to view more details.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Where can I see your portfolio?</h3>
-                <p> You can explore my portfolio on my website at <a href="https://silviacalzadagil.com" target="_blank">https://silviacalzadagil.com</a>. It showcases my projects, services, and AI expertise.</p>
-            </div>
-        </div>
+       <div class="faq-section">
+    <button class="toggle-faq-btn">Show FAQ</button>
+    <h1 class="faq-title">About Me - FAQ</h1>
+
+    <div class="faq">
+      <div class="faq-question">Who is Silvia Calzada Gil?</div>
+      <div class="faq-answer">
+        I am an AI portfolio creator and consultant specializing in data science, artificial intelligence, and visual storytelling. My mission is to make complex AI concepts accessible and engaging for everyone.
+      </div>
     </div>
+
+    <div class="faq">
+      <div class="faq-question">What services do you provide?</div>
+      <div class="faq-answer">
+        I offer custom AI solutions, educational content, and visual storytelling. Whether you need machine learning models, AI courses, or creative presentations, I provide tailored services to suit your needs.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How easy is it to work with you?</div>
+      <div class="faq-answer">
+        I prioritize clear communication and transparency. I make it easy for clients to collaborate by simplifying AI processes and delivering solutions that fit seamlessly into their workflows.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">Where can I see your portfolio?</div>
+      <div class="faq-answer">
+        You can explore my portfolio on my website at <a href="https://silviacalzadagil.com" target="_blank">https://silviacalzadagil.com</a>. It showcases my projects, services, and AI expertise.
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
 <!-- Main Content Starts Here -->
 
@@ -1450,19 +1461,34 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
 
  <script>
   // Toggle FAQ Section Visibility
- const faqQuestions = document.querySelectorAll('.faq-question');
-
+  const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        // Toggle active class on the clicked question
-        question.classList.toggle('active');
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isVisible = answer.style.display === 'block';
 
-        // Show or hide the answer
-        const answer = question.nextElementSibling;
-        answer.classList.toggle('visible');
+        // Hide all answers first
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+
+        // Toggle the clicked answer
+        answer.style.display = isVisible ? 'none' : 'block';
       });
     });
-});
+
+    // Toggle the entire FAQ section visibility
+    const toggleBtn = document.querySelector('.toggle-faq-btn');
+    const faqSection = document.querySelector('.faq-section');
+
+    toggleBtn.addEventListener('click', function() {
+      // Toggle FAQ section visibility
+      if (faqSection.style.display === 'none') {
+        faqSection.style.display = 'block'; // Show FAQ section
+        toggleBtn.textContent = 'Hide FAQ'; // Change button text
+      } else {
+        faqSection.style.display = 'none'; // Hide FAQ section
+        toggleBtn.textContent = 'Show FAQ'; // Change button text
+      }
+    });
     </script>
 
 </body>
