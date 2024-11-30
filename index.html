@@ -929,60 +929,33 @@
 }
         
  /* Container for the FAQ section */
-  .faq-section {
-      max-width: 800px;
-      margin: auto;
-    }
+/* Initially hide the FAQ section */
+.faq-section.hidden {
+    display: none;
+}
 
-    .faq-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #444;
-    }
+/* Other existing CSS remains the same */
+.faq-question {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .faq {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      background-color: #fff;
-    }
+.faq-answer {
+    display: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-top: 1px solid #ddd;
+}
 
-    .faq-question {
-      padding: 15px 20px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question:hover {
-      background-color: #f0f0f0;
-    }
-
-    .faq-question::after {
-      content: "+";
-      font-size: 1.5rem;
-      color: #777;
-    }
-
-    .faq-question.active::after {
-      content: "-";
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 15px 20px;
-      font-size: 1rem;
-      line-height: 1.6;
-      border-top: 1px solid #ddd;
-    }
-
-    .faq-answer.visible {
-      display: block;
-    }
+.faq-answer.visible {
+    display: block;
+}
 </style>
 </head>
 <body>
@@ -998,41 +971,36 @@
 <div class="faq-container">
     <button id="toggle-faq-btn" class="faq-toggle-btn">Show FAQ</button>
     <div class="faq-section hidden" id="faq-section">
-        <h2>Frequently Asked Questions</h2>
-       <div class="faq-section">
-    <button class="toggle-faq-btn">Show FAQ</button>
-    <h1 class="faq-title">About Me - FAQ</h1>
+        <h1 class="faq-title">About Me - FAQ</h1>
 
-    <div class="faq">
-      <div class="faq-question">My Role</div>
-      <div class="faq-answer">
-        I am an AI portfolio creator and consultant specializing in data science, artificial intelligence, and website designer. My mission is to make complex AI concepts accessible and engaging for everyone.
-      </div>
+        <div class="faq">
+            <div class="faq-question">My Role</div>
+            <div class="faq-answer">
+                I am an AI portfolio creator and consultant specializing in data science, artificial intelligence, and website design.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question">What services do you provide?</div>
+            <div class="faq-answer">
+                I offer custom AI solutions, educational content, and visual storytelling.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question">How easy is it to work with you?</div>
+            <div class="faq-answer">
+                I prioritize clear communication and transparency.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question">Where can I see your portfolio?</div>
+            <div class="faq-answer">
+                You can explore my portfolio on my website.
+            </div>
+        </div>
     </div>
-
-    <div class="faq">
-      <div class="faq-question">What services do you provide?</div>
-      <div class="faq-answer">
-        I offer custom AI solutions, educational content, and visual storytelling. Whether you need machine learning models, AI courses, or creative websites to inspire, I provide tailored services to suit your needs.
-      </div>
-    </div>
-
-    <div class="faq">
-      <div class="faq-question">How easy is it to work with you?</div>
-      <div class="faq-answer">
-        I prioritize clear communication and transparency. I make it easy for clients to collaborate by simplifying AI processes and delivering solutions that fit seamlessly into their workflows.
-      </div>
-    </div>
-
-    <div class="faq">
-      <div class="faq-question">Where can I see your portfolio?</div>
-      <div class="faq-answer">
-        You can explore my portfolio on my website at <a href="https://silviacalzadagil.com" target="_blank">https://silviacalzadagil.com</a>. It showcases my projects, services, and AI expertise.
-      </div>
-    </div>
-
-  </div>
-</div>
 </div>
 <!-- Main Content Starts Here -->
 
@@ -1455,36 +1423,33 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
 </script>
 
  <script>
-  // Toggle FAQ Section Visibility
-  const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', function() {
-        const answer = this.nextElementSibling;
-        const isVisible = answer.style.display === 'block';
+ // Toggle FAQ Section Visibility
+const toggleBtn = document.querySelector('#toggle-faq-btn');
+const faqSection = document.querySelector('#faq-section');
 
-        // Hide all answers first
-        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+// Toggle the FAQ section visibility when the button is clicked
+toggleBtn.addEventListener('click', function() {
+    // Toggle the 'hidden' class for the FAQ section
+    faqSection.classList.toggle('hidden');
+    
+    // Change the button text based on visibility
+    if (faqSection.classList.contains('hidden')) {
+        toggleBtn.textContent = 'Show FAQ';
+    } else {
+        toggleBtn.textContent = 'Hide FAQ';
+    }
+});
 
-        // Toggle the clicked answer
-        answer.style.display = isVisible ? 'none' : 'block';
-      });
+// Toggle the visibility of individual answers
+const faqQuestions = document.querySelectorAll('.faq-question');
+faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+        const answer = this.nextElementSibling; // The next element is the answer
+        answer.classList.toggle('visible'); // Toggle the 'visible' class for answer
     });
+});
 
-    // Toggle the entire FAQ section visibility
-    const toggleBtn = document.querySelector('.toggle-faq-btn');
-    const faqSection = document.querySelector('.faq-section');
-
-    toggleBtn.addEventListener('click', function() {
-      // Toggle FAQ section visibility
-      if (faqSection.style.display === 'none') {
-        faqSection.style.display = 'block'; // Show FAQ section
-        toggleBtn.textContent = 'Hide FAQ'; // Change button text
-      } else {
-        faqSection.style.display = 'none'; // Hide FAQ section
-        toggleBtn.textContent = 'Show FAQ'; // Change button text
-      }
-    });
-    </script>
+</script>
 
 </body>
 </html>
