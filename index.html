@@ -957,19 +957,29 @@
     display: block;
 }
 
-/* Button style */
+//* FAQ Button - New Style */
 .faq-toggle-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--button-background));
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px var(--button-shadow);
+    transition: background 0.3s, transform 0.3s;
+    font-size: 12px; /* Adjust font size to match contact button style */
     border: none;
     cursor: pointer;
+    width: 100%; /* Ensure it fits the container on mobile */
+    margin-top: 10px; /* Adjust margin for spacing */
 }
 
 .faq-toggle-btn:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, var(--secondary-color-dark), var(--button-background-dark)); /* Optional: darker shade on hover */
+    transform: translateY(-2px); /* Slight elevation effect */
 }
-        /* Media Query for Mobile Screens */
+/* Media Query for Mobile Screens */
 @media (max-width: 768px) {
     /* Ensure the button is responsive on mobile */
     .faq-toggle-btn {
