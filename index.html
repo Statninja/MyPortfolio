@@ -935,59 +935,52 @@
 }
         
  /* Container for the FAQ section */
- .faq-section {
-      max-width: 800px;
-      margin: auto;
+  .faq-section {
+      margin: 20px;
+      padding-top: 50px; /* Add space to account for the header */
     }
 
     .faq-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #444;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .toggle-faq-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .toggle-faq-btn:hover {
+      background-color: #45a049;
     }
 
     .faq {
+      margin-bottom: 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      margin-bottom: 10px;
-      background-color: #fff;
+      overflow: hidden;
     }
 
     .faq-question {
-      padding: 15px 20px;
-      font-size: 1.2rem;
+      background-color: #f4f4f4;
+      padding: 10px;
       cursor: pointer;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question:hover {
-      background-color: #f0f0f0;
-    }
-
-    .faq-question::after {
-      content: "+";
-      font-size: 1.5rem;
-      color: #777;
-    }
-
-    .faq-question.active::after {
-      content: "-";
+      font-size: 18px;
+      font-weight: bold;
     }
 
     .faq-answer {
-      display: none;
-      padding: 15px 20px;
-      font-size: 1rem;
-      line-height: 1.6;
-      border-top: 1px solid #ddd;
+      padding: 10px;
+      background-color: #fff;
+      display: none; /* Initially hide answers */
     }
 
-    .faq-answer.visible {
-      display: block;
+    .faq-section.hidden {
+      display: none; /* Hide the entire FAQ section */
     }
 </style>
 
