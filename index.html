@@ -930,7 +930,7 @@
         
  /* Container for the FAQ section */
 /* Initially hide the FAQ section */
-.faq-section.hidden {
+.faq-section {
     display: none;
 }
 
@@ -953,9 +953,17 @@
     border-top: 1px solid #ddd;
 }
 
-.faq-answer.visible {
-    display: block;
+.faq-toggle-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
+
+.faq-toggle-btn:hover {
+    background-color: #0056b3;
 </style>
 </head>
 <body>
@@ -970,7 +978,7 @@
  <!-- FAQ Section -->
 <div class="faq-container">
     <button id="toggle-faq-btn" class="faq-toggle-btn">Show FAQ</button>
-    <div class="faq-section hidden" id="faq-section">
+    <div class="faq-section" id="faq-section">
         <h1 class="faq-title">About Me - FAQ</h1>
 
         <div class="faq">
@@ -1423,20 +1431,19 @@ loadMarkedLibrary(() => loadReadme('Images/README%20(2).md'));
 </script>
 
  <script>
- // Toggle FAQ Section Visibility
+
+// Toggle FAQ Section Visibility
 const toggleBtn = document.querySelector('#toggle-faq-btn');
 const faqSection = document.querySelector('#faq-section');
 
 // Toggle the FAQ section visibility when the button is clicked
 toggleBtn.addEventListener('click', function() {
-    // Toggle the 'hidden' class for the FAQ section
-    faqSection.classList.toggle('hidden');
-    
-    // Change the button text based on visibility
-    if (faqSection.classList.contains('hidden')) {
-        toggleBtn.textContent = 'Show FAQ';
+    if (faqSection.style.display === 'none' || faqSection.style.display === '') {
+        faqSection.style.display = 'block'; // Show FAQ section
+        toggleBtn.textContent = 'Hide FAQ'; // Change button text
     } else {
-        toggleBtn.textContent = 'Hide FAQ';
+        faqSection.style.display = 'none'; // Hide FAQ section
+        toggleBtn.textContent = 'Show FAQ'; // Change button text
     }
 });
 
@@ -1444,8 +1451,8 @@ toggleBtn.addEventListener('click', function() {
 const faqQuestions = document.querySelectorAll('.faq-question');
 faqQuestions.forEach(question => {
     question.addEventListener('click', function() {
-        const answer = this.nextElementSibling; // The next element is the answer
-        answer.classList.toggle('visible'); // Toggle the 'visible' class for answer
+        const answer = this.nextElementSibling;
+        answer.classList.toggle('visible');
     });
 });
 
