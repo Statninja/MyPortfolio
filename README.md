@@ -1,14 +1,14 @@
-# SilviaCalzadaGil
+
 AI Data Science ML Portfolio
-https://silviacalzadagil.com
 
-# Welcome to Silvia Calzada Gil's Portfolio 🌐
 
-Welcome to the official portfolio of Silvia Calzada Gil! 🎯 A passionate data scientist and AI specialist with expertise in data visualization, machine learning, and software development. Explore my projects, career highlights, and contributions to the world of data science. 
+# Welcome to My Portfolio 🌐
+
+Welcome to the official portfolio  🎯 A passionate data scientist and AI specialist with expertise in data visualization, machine learning, and software development. Explore my projects, career highlights, and contributions to the world of data science. 
 
 ## 🚀 About Me
 
-I am Silvia Calzada Gil, a Senior Performance Analysis Specialist with a strong background in data analytics, AI, and energy performance optimization. My portfolio showcases a wide array of projects, demonstrating my proficiency in data-driven decision-making and innovative solutions. I am on a journey to push the boundaries of technology and data science!
+I am a Senior Performance Analysis Specialist with a strong background in data analytics, AI, and energy performance optimization. My portfolio showcases a wide array of projects, demonstrating my proficiency in data-driven decision-making and innovative solutions. I am on a journey to push the boundaries of technology and data science!
 
 ## 🔥 Featured Projects
 
@@ -27,9 +27,7 @@ Here you’ll find a collection of my most impactful work, from building machine
 - **Data Visualization:** Matplotlib, Seaborn, Plotly, Leaflet, Folium
 - **Web Technologies:** HTML, CSS, React, Streamlit
 
-## 🌎 Contact Me
 
-Feel free to reach out via [email](mailto:silvia@silviacalzadagil.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/silviacalzadagil).
 
 ## 🔒 Legalities & Compliance
 
@@ -38,7 +36,7 @@ I take privacy and data protection seriously. This site fully complies with inte
 
 ## Introduction
 
-Welcome to **Silvia Calzada Gil's Portfolio**. I respect your privacy and am committed to protecting your personal information. This Privacy Policy outlines how I collect, use, and safeguard the information you provide when visiting my site, **https://silviacalzadagil.com**.
+
 
 ## Information I Collect
 
@@ -75,7 +73,7 @@ You have the right to:
 - **Request** correction or deletion of your data.
 - **Withdraw consent** to data collection at any time.
 
-To exercise these rights, please contact me at [silvia@silviacalzadagil.com](mailto:silvia@silviacalzadagil.com).
+
 
 ## Changes to This Privacy Policy
 
