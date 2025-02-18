@@ -2,6 +2,14 @@ User-agent: *
 Disallow: /private/
 Disallow: /tmp/
 Disallow: /cgi-bin/
+Disallow: /sitemap.xml
+Disallow: /images/
+Disallow: /*.jpg
+Disallow: /*.jpeg
+Disallow: /*.png
+Disallow: /*.gif
+Disallow: /*.svg
+Disallow: /*.webp
 
 # Allow crawling of everything else
 Allow: /
