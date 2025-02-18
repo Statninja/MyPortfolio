@@ -10,6 +10,8 @@ Disallow: /*.png
 Disallow: /*.gif
 Disallow: /*.svg
 Disallow: /*.webp
+Disallow: /*.pdf
+Disallow: /pdfs/
 
 # Allow crawling of everything else
 Allow: /
